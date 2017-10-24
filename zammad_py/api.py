@@ -21,9 +21,11 @@ class ZammadAPI(object):
         self.session = requests.Session()
         self.session.headers['User-Agent'] = 'Zammad API Python'
         if self._http_token:
-            self.session.headers['Authorization'] = 'Token token=%s' % self._http_token
+            self.session.headers['Authorization'] = \
+                'Token token=%s' % self._http_token
         elif oauth2_token:
-            self.session.headers['Authorization'] = 'Bearer %s' % self._oauth2_token
+            self.session.headers['Authorization'] = \
+                'Bearer %s' % self._oauth2_token
         else:
             self.session.auth = (self._username, self._password)
 
@@ -64,7 +66,6 @@ class ZammadAPI(object):
 
     def user(self):
         return User(connection=self)
-
 
 
 class Resource(object):
