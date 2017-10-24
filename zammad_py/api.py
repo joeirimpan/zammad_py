@@ -3,7 +3,9 @@
 """Main module."""
 import requests
 
-from .extensions import ConfigException
+from requests.exceptions import HTTPError
+
+from zammad_py.exceptions import ConfigException
 
 
 class ZammadAPI(object):
@@ -16,7 +18,7 @@ class ZammadAPI(object):
         self._password = password
         self._http_token = http_token
         self._oauth2_token = oauth2_token
-        self.check_config()
+        self._check_config()
 
         self.session = requests.Session()
         self.session.headers['User-Agent'] = 'Zammad API Python'
@@ -29,7 +31,7 @@ class ZammadAPI(object):
         else:
             self.session.auth = (self._username, self._password)
 
-    def check_config(self):
+    def _check_config(self):
         """Check the configuration
         """
         if not self.url:
@@ -43,62 +45,122 @@ class ZammadAPI(object):
         if not self._password:
             raise ConfigException('Missing password in config')
 
+    @property
     def group(self):
+        """Return a `Group` instance
+        """
         return Group(connection=self)
 
+    @property
     def organization(self):
+        """Return a `Organization` instance
+        """
         return Organization(connection=self)
 
+    @property
     def ticket(self):
+        """Return a `Ticket` instance
+        """
         return Ticket(connection=self)
 
+    @property
     def ticket_article(self):
+        """Return a `TicketArticle` instance
+        """
         return TicketArticle(connection=self)
 
+    @property
     def ticket_article_attachment(self):
+        """Return a `TicketArticleAttachment` instance
+        """
         return TicketArticleAttachment(connection=self)
 
+    @property
     def ticket_priority(self):
+        """Return a `TicketPriority` instance
+        """
         return TicketPriority(connection=self)
 
+    @property
     def ticket_state(self):
+        """Return a `TicketState` instance
+        """
         return TicketState(connection=self)
 
+    @property
     def user(self):
+        """Return a `User` instance
+        """
         return User(connection=self)
 
 
 class Resource(object):
 
     def __init__(self, connection):
-        self.connection = self.connection
+        self.connection = connection
+
+    @property
+    def url(self):
+        """Returns a the full url concatenated with the resource class name
+        """
+        return self.connection.url + self.path_attribute
+
+    def _raise_or_return_json(self, response):
+        """Raise HTTPError before converting response to json
+
+        :param response: Request response object
+        """
+        try:
+            response.raise_for_status()
+        except HTTPError:
+            raise
+        return response.json()
 
     def all(self):
-        pass
+        """Returns the list of resources
+        """
+        response = self.connection.session.get(self.url)
+        return self._raise_or_return_json(response)
 
-    def search(self):
-        pass
+    def search(self, params):
+        """Search using the given parameters
 
-    def find(self):
-        pass
+        :param params: Search parameters
+        """
+        response = self.connection.session.get(
+            self.url + '/search',
+            params=params
+        )
+        return self._raise_or_return_json(response)
 
-    def create(self):
-        pass
+    def find(self, id):
+        """Return the resource associated with the id
 
-    def destroy(self):
-        pass
+        :param id: Resource id
+        """
+        response = self.connection.session.get(
+            self.url + '/%s?expand=true' % id
+        )
+        return self._raise_or_return_json(response)
 
-    def saved_attributes(self):
-        pass
+    def create(self, params):
+        """Create the requested resource
 
-    def saved_new(self):
-        pass
+        :param params: Resource data for creating
+        """
+        response = self.connection.post(
+            self.url + '?expand=true',
+            params=params
+        )
+        return self._raise_or_return_json(response)
 
-    def save_existing(self):
-        pass
+    def destroy(self, id):
+        """Delete the resource associated with the id
 
-    def save_error(self):
-        pass
+        :param id: Resource id
+        """
+        response = self.connection.delete(self.url + '/{%s}' % id)
+        return self._raise_or_return_json(response)
 
 
 class Group(Resource):
@@ -115,11 +177,16 @@ class Ticket(Resource):
 
     path_attribute = 'tickets'
 
-    def articles(self):
-        pass
+    def articles(self, id):
+        """Returns all the articles associated with the ticket id
 
-    def article(self):
-        pass
+        :param id: Ticket id
+        """
+        response = self.connection.get(
+            self.connection.url +
+            'ticket_articles/by_ticket/#{%s}?expand=true' % id
+        )
+        return self._raise_or_return_json(response)
 
 
 class TicketArticle(Resource):
@@ -131,8 +198,17 @@ class TicketArticleAttachment(Resource):
 
     path_attribute = 'ticket_attachment'
 
-    def download(self):
-        pass
+    def download(self, id, article_id, ticket_id):
+        """Download the ticket attachment associated with the ticket id
+
+        :param id: Ticket attachment id
+        :param article_id: Ticket article id
+        :param ticket_id: Ticket id
+        """
+        response = self.connection.get(
+            self.url + '/%s/%s/%s' % (ticket_id, article_id, id)
+        )
+        return self._raise_or_return_json(response)
 
 
 class TicketPriority(Resource):
