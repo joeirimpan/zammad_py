@@ -148,9 +148,21 @@ class Resource(object):
 
         :param params: Resource data for creating
         """
-        response = self.connection.post(
+        response = self.connection.session.post(
             self.url + '?expand=true',
-            params=params
+            data=params
+        )
+        return self._raise_or_return_json(response)
+
+    def update(self, id, params):
+        """Update the requested resource
+
+        :param id: Resource id
+        :param params: Resource data for updating
+        """
+        response = self.connection.session.put(
+            self.url + '/%s' % id,
+            data=params
         )
         return self._raise_or_return_json(response)
 
@@ -159,7 +171,7 @@ class Resource(object):
 
         :param id: Resource id
         """
-        response = self.connection.delete(self.url + '/{%s}' % id)
+        response = self.connection.session.delete(self.url + '/%s' % id)
         return self._raise_or_return_json(response)
 
 
@@ -182,9 +194,9 @@ class Ticket(Resource):
 
         :param id: Ticket id
         """
-        response = self.connection.get(
+        response = self.connection.session.get(
             self.connection.url +
-            'ticket_articles/by_ticket/#{%s}?expand=true' % id
+            'ticket_articles/by_ticket/%s?expand=true' % id
         )
         return self._raise_or_return_json(response)
 
@@ -205,7 +217,7 @@ class TicketArticleAttachment(Resource):
         :param article_id: Ticket article id
         :param ticket_id: Ticket id
         """
-        response = self.connection.get(
+        response = self.connection.session.get(
             self.url + '/%s/%s/%s' % (ticket_id, article_id, id)
         )
         return self._raise_or_return_json(response)
@@ -224,3 +236,9 @@ class TicketState(Resource):
 class User(Resource):
 
     path_attribute = 'users'
+
+    def me(self):
+        """Returns current user information
+        """
+        response = self.connection.session.get(self.url + '/me')
+        return self._raise_or_return_json(response)
