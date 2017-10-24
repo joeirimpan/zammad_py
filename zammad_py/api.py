@@ -171,7 +171,9 @@ class Resource(object):
 
         :param id: Resource id
         """
-        response = self.connection.session.delete(self.url + '/%s' % id)
+        response = self.connection.session.delete(
+            self.url + '/%s?expand=true' % id
+        )
         return self._raise_or_return_json(response)
 
 

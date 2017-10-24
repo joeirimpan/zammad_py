@@ -26,8 +26,7 @@ test_requirements = [
 setup(
     name='zammad_py',
     version='0.1.0',
-    description="Python Boilerplate contains all the"
-    "boilerplate you need to create a Python package.",
+    description="Python API client for zammad",
     long_description=readme + '\n\n' + history,
     author="Joe Paul",
     author_email='joeirimpan@gmail.com',
