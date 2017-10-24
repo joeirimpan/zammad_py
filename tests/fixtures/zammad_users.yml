@@ -1,0 +1,45 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [Zammad API Python]
+    method: GET
+    uri: http://localhost/api/v1/users
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA91WyW7bMBD9F54VQYudRaegxx6KHnqqEQhjamSzpUiBopzGhv+9Q5Fy5MRJ4BYI
+        mgI6cBbNaMjH97TYMVGxIo2YNitQYgtWaFU6n+qljJjUK6FYwS5YxGphOqugwWBLOJgUxQaEpAgt
+        RQMrSvIVBqPsdG/4wXePS5/ZrrVy5Vx1+OUXjV4KGZwVtmBsg8r6WGcNYlhvReudXNiHsNK9siYY
+        UFUGu85HNi65BtlhxDZoRC2QZgwO4FZsqGMwlbahvZuwDFvgpzmeYwiVNQ3uqiW0i70tdU1PLdy0
+        oeCRt+wsjVQCTeFLHkdRVS/GDLYSOLrtmBxRa7BGg4ojzbrbR6xvK7BYlcuHIYsOlxt8weM+g2VJ
+        enWRJhfZ7FtyVWTXRZbEeTr/Tqcy1nozr0NTrozuW+pJ37G4i5jREh+tJwALOdDbtTaPuAvuSaXd
+        fh95lGYnUErDjRBVglPDeGmgV7dbaBqoYmrqoDUB7pchi5wT9H5yr5BrhPDLlT4qsq3pCfgfGtjM
+        Cv4TbVfqFomR6OBHB5e6G+7fc+wTZM7G/iyez6/fwH6eFPksvrnOh7zXsZ/TVfh78OfPioz8MeL/
+        h8a4vd2i0dUaYq6bJ8j/rPEY9l+hlxPUn3r/f8T7lO7SpEgui+Qmns0Sd5T/PL27O0zixb1Oc61q
+        sSLWZw1YI0hAdwHvfiUsSR24tb5XXhGcens2OLiUXuqKRHMkiaBbdJv4GpRCUvXdyI3hVSWF021n
+        ET0HlXjfngYboSpSHdI2vnb3381+3sQHwT9/ZOw4yOEU3rWx221B/zg6bP649we1J544i/HytEjn
+        cXp5+RrjTa5JdpLxFnlEhFzTLyO7I7qbKH8aZeT4Y/5jKf1LhML7/d1vZWKYI7AKAAA=
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Tue, 24 Oct 2017 10:06:09 GMT']
+      etag: [W/"cd7353d4744ecf32754ade53506d8488"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [7d24e450-97b3-4249-a8fa-d797bfcbf5a8]
+      x-runtime: ['0.256809']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1
