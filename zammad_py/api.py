@@ -114,7 +114,13 @@ class Resource(object):
             response.raise_for_status()
         except HTTPError:
             raise
-        return response.json()
+
+        try:
+            json_value = response.json()
+        except ValueError:
+            return response.content
+        else:
+            return json_value
 
     def all(self):
         """Returns the list of resources
@@ -150,7 +156,7 @@ class Resource(object):
         """
         response = self.connection.session.post(
             self.url + '?expand=true',
-            data=params
+            json=params
         )
         return self._raise_or_return_json(response)
 
@@ -162,7 +168,7 @@ class Resource(object):
         """
         response = self.connection.session.put(
             self.url + '/%s' % id,
-            data=params
+            json=params
         )
         return self._raise_or_return_json(response)
 
