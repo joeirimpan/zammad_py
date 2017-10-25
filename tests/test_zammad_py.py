@@ -38,3 +38,44 @@ class TestAPI:
 
         current_user, = zammad_api.user.search({'query': 'Joe'})
         assert current_user['id'] == 3
+
+    @zammad_vcr.use_cassette(
+        'tests/fixtures/zammad_tickets.yml', record_mode='new_episodes'
+    )
+    def test_tickets(self, zammad_api):
+        all_tickets = zammad_api.ticket.all()
+        assert all_tickets[0]['id'] == 1
+        assert all_tickets[0]['title'] == 'Welcome to Zammad!'
+
+        current_ticket = zammad_api.ticket.find(1)
+        assert current_ticket['id'] == 1
+        assert current_ticket['title'] == 'Welcome to Zammad!'
+
+        new_ticket = zammad_api.ticket.create({
+            'title': 'some new title',
+            'state': 'new',
+            'priority': '2 normal',
+            'owner': '-',
+            'customer': 'nicole.braun@zammad.org',
+            'group': 'Users',
+            'article': {
+                'sender': 'Customer',
+                'type': 'note',
+                'subject': 'some subject',
+                'content_type': 'text/plain',
+                'body': "some body\nnext line",
+            }
+        })
+        assert new_ticket['title'] == 'some new title'
+        assert new_ticket['customer'] == 'nicole.braun@zammad.org'
+
+        updated_ticket = zammad_api.ticket.update(6, {'title': 'TestTicket1'})
+        assert updated_ticket['title'] == 'TestTicket1'
+
+        deleted_ticket = zammad_api.ticket.destroy(6)
+        assert deleted_ticket == ''
+
+        current_ticket = zammad_api.ticket.search({
+            'query': 'Ticket 1'
+        })
+        assert current_ticket['tickets'] == [2]
