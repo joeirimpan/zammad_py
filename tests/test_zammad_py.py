@@ -79,3 +79,28 @@ class TestAPI:
             'query': 'Ticket 1'
         })
         assert current_ticket['tickets'] == [2]
+
+    @zammad_vcr.use_cassette(
+        'tests/fixtures/zammad_groups.yml', record_mode='new_episodes'
+    )
+    def test_groups(self, zammad_api):
+        all_groups = zammad_api.group.all()
+        assert all_groups[0]['id'] == 1
+        assert all_groups[0]['note'] == 'Standard Group/Pool for Tickets.'
+
+        current_group = zammad_api.group.find(1)
+        assert current_group['id'] == 1
+        assert current_group['note'] == 'Standard Group/Pool for Tickets.'
+
+        new_group = zammad_api.group.create({
+            'name': 'Name1',
+            'note': 'note1'
+        })
+        assert new_group['name'] == 'Name1'
+        assert new_group['note'] == 'note1'
+
+        updated_group = zammad_api.group.update(2, {'name': 'Name2'})
+        assert updated_group['name'] == 'Name2'
+
+        deleted_group = zammad_api.group.destroy(2)
+        assert deleted_group == dict()
