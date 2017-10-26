@@ -1,0 +1,201 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [Zammad API Python]
+    method: GET
+    uri: http://localhost/api/v1/groups
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA4WQ3WoCMRCFX2WZ69Vm14IlL9DbQvVGkTBuxhLMZpZkooj47s2qxd6Il3PmfGd+
+        1mdwFnRTQ3I/ASVHMneBenTeoLWRUrqKIXtfQ8CeQMMyUUxQA6aR7CmIEdcTZwF9M+7Yez6aPJiB
+        i2nrR+xEI/RoPXDQEjOVwE7coVhvVWAZsW/BYDHa6jNyHt6+mH2141gtXLcnSdOSmQeLQtZsT38X
+        dJGeKFiWhFY180mjJu37Qs11+6Hb2VSpZvUv66WvPKFMS6DXs81l8wsINlWpTgEAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 25 Oct 2017 09:22:44 GMT']
+      etag: [W/"773ab3fc9f05bdc434edc8a7838e5123"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [b0d30c7f-4799-464a-8070-ff50d6d5683c]
+      x-runtime: ['0.273979']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [Zammad API Python]
+    method: GET
+    uri: http://localhost/api/v1/groups/1?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA4VQy07DMBD8lWjPSUhSpCKfuHFFanuhQpYTb6jB8UZ+gALi39mkQHpBHD07L88H
+        GA2iziGYJ6di8ii/ARyUsVJp7TGEBXTJ2hycGhAEHAL6ADmoMCsHdFFGMyClCOJM7MlaepNplCMx
+        qbWzbMJZtJ5WOYjoE7JhF80rU88vR3GW7aJyWnmd3XlK49U9kc168tnedC8YQ8meadQqopbt9POD
+        zuMfiOKS0FT1tqirorneV1vR3IhmU1ZV/XDh9S+PR+C0AOK4eeQKyybiCM+E5Xj7jp70SZUdDcDX
+        34U5W2Ovko0ctZZkuLjIbqcF+PwCdli8H6IBAAA=
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 25 Oct 2017 09:30:16 GMT']
+      etag: [W/"dbd2c6cb33e2f8d3d393aab85ac4d310"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [a7aa710e-c0ae-4202-81bb-333b2ec301cf]
+      x-runtime: ['0.249784']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '{"note": "note1", "name": "Name1"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['34']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/groups?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":2,"signature_id":null,"email_address_id":null,"name":"Name1","assignment_timeout":null,"follow_up_possible":"yes","follow_up_assignment":true,"active":true,"note":"note1","updated_by_id":3,"created_by_id":3,"created_at":"2017-10-25T09:30:16.838Z","updated_at":"2017-10-25T09:30:16.838Z","user_ids":[],"users":[],"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 25 Oct 2017 09:30:16 GMT']
+      etag: [W/"cd15ce64f412b7e70fdb98c18359d966"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [1c875db6-9b1f-4670-83a7-41ac1e6fb180]
+      x-runtime: ['0.312995']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"name": "Name2"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['17']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: PUT
+    uri: http://localhost/api/v1/groups/2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA3WOzQrCMBCE32XPVZJUW81DePKkSEibVQJpUvKjFPHdTSqiBz0NOzvf7N5BK+Cs
+        gqAvVsbkURTDJmMqwEFqI6RSHkP48q0cEDjssjCoQIYCD2ijiHpAl+K74OyMcTeRRjG6HOpMwSYM
+        GfqsPjjw6BPmwj7qa46+JutiwYrQDKZRyYhKdNP8UV1B7/GPI/MnwAhtF5Qs2HpPtrwmnDbLTb05
+        fHX9yq04aZYtWc25gD5fC8CPp8cTFacskzMBAAA=
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 25 Oct 2017 09:34:06 GMT']
+      etag: [W/"8ef3a6849142ba2457d074823071a84d"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [650e1bc0-de08-4e88-9bbe-0aab5b85e94a]
+      x-runtime: ['0.278085']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/groups/2?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 25 Oct 2017 09:34:07 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [7d3066cc-f9aa-42ac-a670-a08544e2a3f3]
+      x-runtime: ['0.298561']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [Zammad API Python]
+    method: GET
+    uri: http://localhost/api/v1/groups/search?query=Group
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6tWSi0qyi9SslJyzi/NSclTL1FIy8xLUXAvyi8tUCjPLMlQUM9MUbctTk0sSs5Q
+        qgUAkKNA0zAAAAA=
+    headers:
+      cache-control: [no-cache]
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 25 Oct 2017 09:36:04 GMT']
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [786d85ce-6c6e-4481-80ed-5c53cd8015d2]
+      x-runtime: ['0.229819']
+      x-xss-protection: [1; mode=block]
+    status: {code: 404, message: Not Found}
+version: 1

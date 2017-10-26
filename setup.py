@@ -25,7 +25,7 @@ test_requirements = [
 
 setup(
     name='zammad_py',
-    version='0.1.1',
+    version='0.1.2',
     description="Python API client for zammad",
     long_description=readme + '\n\n' + history,
     author="Joe Paul",
