@@ -1,6 +1,6 @@
 -r requirements.txt
 
 
-flake8
-pytest
-vcrpy
+flake8==3.5.0
+pytest==3.2.3
+vcrpy==1.11.1
