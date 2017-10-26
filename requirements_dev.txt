@@ -3,4 +3,4 @@
 
 flake8==3.5.0
 pytest==3.2.3
-vcrpy
+vcrpy==1.11.1
