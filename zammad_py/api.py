@@ -11,9 +11,12 @@ from zammad_py.exceptions import ConfigException
 class ZammadAPI(object):
 
     def __init__(
-            self, username, password, host, http_token=None, oauth2_token=None
+            self, username, password, host, http_token=None, oauth2_token=None,
+            is_secure=True
     ):
-        self.url = 'http://%s/api/v1/' % host
+        self.url = 'https://%s/api/v1/' % host
+        if not is_secure:
+            self.url = self.url.replace('https', 'http')
         self._username = username
         self._password = password
         self._http_token = http_token

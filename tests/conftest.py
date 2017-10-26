@@ -18,5 +18,6 @@ def zammad_api():
     return ZammadAPI(
         username=os.environ['ZAMMAD_USERNAME'],
         password=os.environ['ZAMMAD_PASSWORD'],
-        host=os.environ['ZAMMAD_HOST']
+        host=os.environ['ZAMMAD_HOST'],
+        is_secure=False
     )
