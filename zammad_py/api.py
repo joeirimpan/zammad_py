@@ -253,3 +253,33 @@ class User(Resource):
         """
         response = self.connection.session.get(self.url + '/me')
         return self._raise_or_return_json(response)
+
+
+class OnlineNotification(Resource):
+
+    path_attribute = 'online_notifications'
+
+    def mark_all_read(self):
+        """Marks all online notification as read
+        """
+        response = self.connection.session.post(self.url + '/mark_all_as_read')
+        return self._raise_or_return_json(response)
+
+
+class Object(Resource):
+
+    path_attribute = 'object_manager_attributes'
+
+    def execute_migrations(self):
+        """Executes all database migrations
+        """
+        response = self.connection.session.post(
+            self.connection.url +
+            'object_manager_attributes_execute_migrations'
+        )
+        return self._raise_or_return_json(response)
+
+
+class TagList(Resource):
+
+    path_attribute = 'tag_list'
