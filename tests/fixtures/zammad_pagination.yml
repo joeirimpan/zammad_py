@@ -1,0 +1,1433 @@
+interactions:
+- request:
+    body: !!python/unicode '{"email": "robot0@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['26']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":9,"organization_id":null,"login":"robot0@mr.com","firstname":"","lastname":"","email":"robot0@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:19.097Z","updated_at":"2017-11-13T11:03:19.097Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:21 GMT']
+      etag: [W/"b928f7c35bd6f1290bd54575c686c8ad"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [ec18a5ff-3a24-429c-ac49-edd428cf2092]
+      x-runtime: ['4.082090']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot1@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['26']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":10,"organization_id":null,"login":"robot1@mr.com","firstname":"","lastname":"","email":"robot1@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:21.701Z","updated_at":"2017-11-13T11:03:21.701Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:23 GMT']
+      etag: [W/"e7c377957f2bb8556ab7608797f81450"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [f41e1d28-cdee-4359-bbad-63c424f448bd]
+      x-runtime: ['1.931698']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot2@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['26']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":11,"organization_id":null,"login":"robot2@mr.com","firstname":"","lastname":"","email":"robot2@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:23.593Z","updated_at":"2017-11-13T11:03:23.593Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:25 GMT']
+      etag: [W/"e97c913c4f0d66b4e8002fefa45fa2a5"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [1ee2b922-0c38-4b80-bd56-b918b34bb247]
+      x-runtime: ['1.876700']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot3@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['26']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":12,"organization_id":null,"login":"robot3@mr.com","firstname":"","lastname":"","email":"robot3@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:25.466Z","updated_at":"2017-11-13T11:03:25.466Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:27 GMT']
+      etag: [W/"bbc12a6d268667594f92c08abf4ae796"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [56c9f034-185b-47e3-8ee4-73274cc0f1d9]
+      x-runtime: ['1.899454']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot4@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['26']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":13,"organization_id":null,"login":"robot4@mr.com","firstname":"","lastname":"","email":"robot4@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:27.445Z","updated_at":"2017-11-13T11:03:27.445Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:29 GMT']
+      etag: [W/"eb11e1a317cf43587e6fb6ba0abe0e06"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [df02949e-1329-4b4b-8d84-5c5c53239887]
+      x-runtime: ['2.298812']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot5@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['26']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":14,"organization_id":null,"login":"robot5@mr.com","firstname":"","lastname":"","email":"robot5@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:29.717Z","updated_at":"2017-11-13T11:03:29.717Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:31 GMT']
+      etag: [W/"9fd6f51ef911580235f10bd296ff7237"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [807c9248-39f5-456f-a7f8-645f0a8d2975]
+      x-runtime: ['1.915295']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot6@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['26']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":15,"organization_id":null,"login":"robot6@mr.com","firstname":"","lastname":"","email":"robot6@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:31.641Z","updated_at":"2017-11-13T11:03:31.641Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:33 GMT']
+      etag: [W/"7c2585bc4e1ffeb905df86d0fd2905f6"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [b7c68fc9-7af2-44bc-9be8-824c497be527]
+      x-runtime: ['1.937114']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot7@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['26']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":16,"organization_id":null,"login":"robot7@mr.com","firstname":"","lastname":"","email":"robot7@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:33.601Z","updated_at":"2017-11-13T11:03:33.601Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:35 GMT']
+      etag: [W/"7f8abee752a30bf196fd566f1aae43ed"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [87cfd9b8-4851-4257-ad2d-a6c9fb05d496]
+      x-runtime: ['1.974066']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot8@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['26']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":17,"organization_id":null,"login":"robot8@mr.com","firstname":"","lastname":"","email":"robot8@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:35.598Z","updated_at":"2017-11-13T11:03:35.598Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:37 GMT']
+      etag: [W/"c8496f49e041084e8ab5f9ceeac68bec"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [93c5b541-f221-41a6-9fb5-f30807914b7c]
+      x-runtime: ['1.949236']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot9@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['26']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":18,"organization_id":null,"login":"robot9@mr.com","firstname":"","lastname":"","email":"robot9@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:37.576Z","updated_at":"2017-11-13T11:03:37.576Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:39 GMT']
+      etag: [W/"457321ea2d9b42b09158e1c3f8570da9"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [f717cc32-bb11-44ae-bfd4-9ba4da24e534]
+      x-runtime: ['1.954279']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot10@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['27']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":19,"organization_id":null,"login":"robot10@mr.com","firstname":"","lastname":"","email":"robot10@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:39.524Z","updated_at":"2017-11-13T11:03:39.524Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:41 GMT']
+      etag: [W/"5f2ca11b26739786f0fbd0f1ffacaffd"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [aeab8ed5-af9b-4353-b840-e00cef762f9f]
+      x-runtime: ['1.939645']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot11@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['27']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":20,"organization_id":null,"login":"robot11@mr.com","firstname":"","lastname":"","email":"robot11@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:41.482Z","updated_at":"2017-11-13T11:03:41.482Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:43 GMT']
+      etag: [W/"2fdaf83d0ad47b8b909fc61c785f450d"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [11f7a32c-d5d4-4ff1-ac94-d90e32acc050]
+      x-runtime: ['2.127043']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot12@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['27']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":21,"organization_id":null,"login":"robot12@mr.com","firstname":"","lastname":"","email":"robot12@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:43.620Z","updated_at":"2017-11-13T11:03:43.620Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:45 GMT']
+      etag: [W/"bcc5d0a6af4ddb96a71092a518529553"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [8df1db5e-1b7a-4178-8efd-63db7d796a10]
+      x-runtime: ['1.913988']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot13@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['27']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":22,"organization_id":null,"login":"robot13@mr.com","firstname":"","lastname":"","email":"robot13@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:45.602Z","updated_at":"2017-11-13T11:03:45.602Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:47 GMT']
+      etag: [W/"ef40cc0a1301295864c907bff4fa7340"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [3b3f2144-a4be-461b-bc3a-fd7ae1ac24da]
+      x-runtime: ['2.030331']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot14@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['27']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":23,"organization_id":null,"login":"robot14@mr.com","firstname":"","lastname":"","email":"robot14@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:47.741Z","updated_at":"2017-11-13T11:03:47.741Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:49 GMT']
+      etag: [W/"31eb97b52549fbcf3db28e4df5603231"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [28886ba0-36d4-49d5-950b-10aedf64d8ae]
+      x-runtime: ['2.234177']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot15@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['27']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":24,"organization_id":null,"login":"robot15@mr.com","firstname":"","lastname":"","email":"robot15@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:49.904Z","updated_at":"2017-11-13T11:03:49.904Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:51 GMT']
+      etag: [W/"091f3d8dc278d50983dfc27327dd2c3e"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [a7d269ae-c455-4ffa-9277-b664e2738853]
+      x-runtime: ['2.031744']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot16@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['27']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":25,"organization_id":null,"login":"robot16@mr.com","firstname":"","lastname":"","email":"robot16@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:51.988Z","updated_at":"2017-11-13T11:03:51.988Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:53 GMT']
+      etag: [W/"6c540b5503a4c652222bab65805166fe"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [42773811-e128-43d7-aca0-4d150fe2b7ae]
+      x-runtime: ['2.027400']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot17@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['27']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":26,"organization_id":null,"login":"robot17@mr.com","firstname":"","lastname":"","email":"robot17@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:54.002Z","updated_at":"2017-11-13T11:03:54.002Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:55 GMT']
+      etag: [W/"7c2429bc44846f38956d76c9f07b43b5"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [2f919b6b-859b-4d13-b3b1-d8143ad5b3fc]
+      x-runtime: ['2.239166']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot18@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['27']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":27,"organization_id":null,"login":"robot18@mr.com","firstname":"","lastname":"","email":"robot18@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:56.237Z","updated_at":"2017-11-13T11:03:56.237Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:57 GMT']
+      etag: [W/"ee8b67c526026337c81982283bb2ce8d"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [6d30f7b1-06ba-490a-9d88-bd0129ec649d]
+      x-runtime: ['1.900264']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: !!python/unicode '{"email": "robot19@mr.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['27']
+      Content-Type: [application/json]
+      User-Agent: [Zammad API Python]
+    method: POST
+    uri: http://localhost/api/v1/users?expand=true
+  response:
+    body: {string: !!python/unicode '{"id":28,"organization_id":null,"login":"robot19@mr.com","firstname":"","lastname":"","email":"robot19@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:58.159Z","updated_at":"2017-11-13T11:03:58.159Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:03:59 GMT']
+      etag: [W/"b5a93759b5556923129e3e2bc6cf21a4"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [546edc57-0904-4da9-ba57-c7b4e7cee741]
+      x-runtime: ['1.954349']
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [Zammad API Python]
+    method: GET
+    uri: http://localhost/api/v1/users?per_page=10&page=1&expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+2aX2/bNhDAv8rAZ1sQRcn685R2QB+2odiD99IgMGiJtrlKokFR6Zog331HiZIp
+        2YqTbi3iJkAeKOp41NH83R2Pub5HPEMJniEht7Tkd1RxUa50X1nn+QzlYstLlKA5mqENl5UqacHM
+        c077R3jLCspzeANNXtAtCLUamodVJWqZ9n1f2LqV3O9EqdVp7fSftlGINc9NZ8b2VKqClap9VynJ
+        mGnf8X3bmXL11bREXSppHmiWSVZV7ZtbLbyhecVm6JZJvuEMbDQdNFX8FmY0j6VQZnpt4cosQWvN
+        0I7m1WoDhmttLqxirVZiA38brq01Cge9q0qBSSsKVrQqh29ZmU2+k2yf05Tp5bB+or1kGyZZmTKw
+        9f5hhup9RhXLVuuvjRT8uKlkEz36M5Dn4nCO3bnnL90w8aLEcx2Cg0/wq3S6zspVTK62UtR7mBO+
+        4/pmhqTI2eFptMGMDK3VTsjDvjPdlqbGol67pdo0bb2nlNoaoa3VHZYDjNc7u7NyrbfOHD3MWiy8
+        E1jAanZMlDwFC521pHV5dUeLgmYOfI3eyxYpHxsp6LRwea+HQFfHzLSmS0VJyRpIu2iSkOLpZ6aq
+        ldgzcIGLWd+R5qJqgD+Gjdi7a4zfBES+EwTRJGwEL91F4pIEL5w4DBu5HocDXhZsBNizqTgI/Ufa
+        0K91pUTBJBrN8Ah39ocAXJ8aTH75AI4anBTEGqCggf1JaP4tmLO/umNSZDvqpKLoUYV1t2dqVn4Y
+        wY7HDjn9TbAhpH/SOrcYPTX+Z6TTRAM8x2SJceL6ies6LnH1xnvx0U97HIjtaZvGpKLc8C34fFRQ
+        JTnkF/fG97ctriAToLotvpRtwNTJTeu7+q5SrEUGgaFzaSas6ziyo2XJIOm57zy5GVrmXKc1+umh
+        9xE/dk7JCl5mEJQh9Kc77a207c+zuM+Hnm8yq1Kat4D/yIn1anNIAUX3cw19ePBdfDjBCQ4cvFhM
+        +PAxSuSkD78mM8gtNpB1oxtwr5Y/xzMPOkbu7ZTLPTh6O39CGNIxoxiWRyvWg9G7DHYIQP1uq9Pr
+        0Qyn1Ju+3l2jvyAONararwblj2dWxy60y7T8I/u67LhLtiB0iTkO3CjyiYv9ebwgEQnh8+1cawkR
+        YZBo/Q6PXZIFzZ/RX1/IuaRPntpsCrZ6h+azsikrvxpnUzpYkYT4ThzHEyQ2R5xWLogcTNqs64Ky
+        qZ69MWvHaI1ONccCHXvgFEe+ZZq9APtxPI8jl3hH7LFKaYeAhwT+AUfoj7pm8AbiSy0QWEyZkoHV
+        c0QZSTw/CWInxI9TBnJQSPAcN24LCa+cMjg+nqFMAUCDs80wtg2xsnA6Me4tzr2g+psF0xm8zFHf
+        Twh2vPBsSWAg98rxCp+EF/5WvsYD3wC7ZMCihEAtLZgucBsQB3KvHLDoLGCiqXrc8mpX1ldbfRvU
+        VOieGMUmRxvUEEk3frAO49BLvTj0Y98lgedjGvuMZtgLICI2opdx1dQVky74pqk/wLUnOghz/+OJ
+        Ds9dvMRugiNdfgwiPHGiAzlv6QYJhnQzdoh3urYCxQ2rnvKi6uPf40QXn2VVQk1TuVeFfA6i40Fv
+        QfACg2BfjIQLpRgOZ+2Fkrkxtg57p+VeeRDE+or/8X+UaCDB30KWNeiNrMsmy8NO6E6HLHOzBiHr
+        IPdaybr5F57gpsuDJAAA
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:00 GMT']
+      etag: [W/"f5bcf6fcd40160f8d5f730f5d3533a98"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [739c748f-eea5-4a4e-98f5-353f4d9eda91]
+      x-runtime: ['0.500486']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [Zammad API Python]
+    method: GET
+    uri: http://localhost/api/v1/users?per_page=10&page=2&expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+2ZzW6jMBDH38VnasV8JjlV2lfY01YVcmBIXIGNjMluU/Xd1wQnOGmrWNwQSBzs
+        mf+MmbF/IMHLB2I52hLiISH3lLMTVUzwtDPytiw9VIo942iLpNgJ5T9XEmeiQh4qmGwUpxVon56W
+        1J5BRVn5TRCr6F4H9JnPk7QRrcyutr+w6/PVB8FN6oL+622V2LHSGHOoqVQVcNX7GiUBzPjE6t6Y
+        MfVuRqLlSpoJzXMJTdN7jp24oGUDHjqCZAUDXbsx0Eyxo15RyVa7uVBm9a7a1HSmL+a2jLMrLXQT
+        umQr3dxWpaLQV8G6Yk36G2vaKF1RSnURfcpbL/D8R5+EuqQZdN2wdq6WUIAEnoEu9ePTQ22dUwV5
+        uns/qwIPZRJ+sHS3gfwVSZ4IeSLBb0K2q2DrBzjaBH/0fl9yPdQ1INO9FG2t19T38fLq6aNUgpkF
+        enp38IyItuog5HAejdlKdS7pmt7K3Q3Rr7ZRogKJ7lb4Lr2dW4+7xENndB/eBOD6+QRS5Adqzv+l
+        AbvuUH0VfHqGLP9LgZf9vSErGEOWFbSQNXGyIhzGsQNZg+569GdKln5+3T06viUrHEOWFbSQNXGy
+        EhyGkQNZg27uZIVuZEVjyLKCFrImTtYGJyRxIGvQzZ2syI2seAxZVtBC1rTJCgiOQ/KYLEs3d7Ji
+        N7KSMWRZQQtZEycrwPHKhaxBN3eyEjey1mPIsoIWsiZOVqS/Da4d3lmDbu5krd3I2owhywpayJo4
+        WQmOEodvg8GgmztZGzeyyGoMWnbUwtbE2drgyA8d3lqDbuZs+d3vTId/xYSMYsuKWtiaNlshweHa
+        f8yWpZsrW6//AfTr/uaJIQAA
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:00 GMT']
+      etag: [W/"221125dcc139108efbe630c02169fd89"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [100d25e6-9882-4787-8afe-8a3ecc9f9d43]
+      x-runtime: ['0.326521']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [Zammad API Python]
+    method: GET
+    uri: http://localhost/api/v1/users?per_page=10&page=1&expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+2aS2/jNhCA/0rBsy2IomQ9Ttkt0ENbLHpwLxssDFqibbaSaFBUtpsg/71DkZIp
+        2c5j213EmwA5UNRwqKH5zQyHub5DvEAZniEht7Tmt1RxUa90X92W5QyVYstrlKE5mqENl42qacXs
+        c0mHR3jLKspLeANNXtEtCBkN3cOqEa3Mh77PbG0k9ztRa3VaO/3HNCqx5qXtLNieSlWxWpl3jZKM
+        2fYt35vOnKsvtiXaWkn7QItCsqYxb2608IaWDZuhGyb5hjOw0XbQXPEbmNE+1kLZ6bWFK7sExpqx
+        Hd2r1QYM19p8WMVWrcQG/jZcW2sVjnpXjQKTVhSsMCrHb1ldnH0n2b6kOdPL4fxEe8k2TLI6Z2Dr
+        3f0MtfuCKlas1l86Kfhxc8nO9OjPQIGP4zn250G49OMsSLLA9wiOPsKv0ut6VK5hcrWVot3DnPAd
+        159mSIqSHZ4mG8zK0FbthDzsO9vtaOosGrQ7qm3T1XtKqasR2lrdYTnAeL2zeyvXeuvM0f3MYBGc
+        wAJWs2ei5jlY6K0lbeurW1pVtPDga/Redkj50ElBp4PLez0Eunpmzmu6VJSUbIG0iyYJKZ7/zVSz
+        EnsGLnAxGzryUjQd8MewEXd3TfE7A1HoRVFyFjaCl/4i80mGF14ax53cgMMBLwc2Auy5VByE/iNt
+        6Oe2UaJiEk1meIA790MAro8dJj/9Ao4anBTEGqCgg/1JaP4lmLe/umVSFDvq5aIaUIV1d2fqVn4c
+        wY7Hjjn9VbAxpH/QtnQYPTX+R6TTRgM8x2SJceaHme97Sdxt0Bcf/bTHgdiemzQmF/WGb8Hno4oq
+        ySG/uLO+37S4gkyA6rb4XJuAqZMb47uGrlqsRQGBoXdpNqzrOLKjdc0g6bnrPbkdWpdcpzX66X7w
+        Ed93TskqXhcQlCH05zvtrbTtz7N4yIeebzJrcloawL/nxHq1OaSAov+5xj48+iY+nOAMRx5eLM74
+        8AlKCT7pw6/JDHKLDWTd6BO4V8ef41kAHRP3dsrlHhy9mz8hDOmYVQzLoxXrwehdATsEHNy7rU6v
+        JzOcUm/7BneN/oQ41KkyXw3KH86sjl1on2mFR/b12XGfbEHoEnMc+UkSEh+H83RBEhLD57u51hIi
+        wijR+s1x4ND8Ef31hZxLhuTJZFOw1Xs0n5VNOfnVNJvSwYpkJPTSND1DYnfEMXJR4mFisq4LyqYG
+        9qasHaM1OdUcC/TsgVOc+Jbz7EU4TNN5mvgkOGKPNUo7BDwm8Hc4Qn/QNYPDaecNxJdVIHCYsiUD
+        p+eIMpIFYRalXowfpgzkoJAQeH5qCgmvnDI4Pj5CmQKARmebcWwbY+XgdGLcW5x7QfU3B6ZH8LJH
+        /TAj2AvMiauvTI0wPCX3yvGKn4QX/lq+pgPfALtkwJKMQC0tOl/gtoCN5F45YMmjgImu6nHDm13d
+        Xm31bVBXoXtiFDs72qKGSL4Jo3WcxkEepHGYhj6JghDTNGS0wEHUZ5WXcdXUF5Mu+KZpOMCZEx2E
+        uf/xRIfnPl5iP8OJLj9GtmZiL7acYAhywdKPMgzpZuqRgJysrUBxw6mnvKj6+Lc40aWPsiqhpqn8
+        q0o+B9HpoLcgeIFBcChGwoVSCoczc6F0Cixb/x/JvfIgiPUV/8P/KNFBgr+GLGfQG1mXTVaAvdg3
+        Zf4HyXLkXitZn/4FOsTE5IMkAAA=
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:01 GMT']
+      etag: [W/"f3f03af7efb50f3b39199fd46e600854"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [52a59087-cd9b-4a5a-af5c-07fff1bb0fcd]
+      x-runtime: ['0.339360']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/9?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:23 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [791003b3-3298-4187-9fa8-c61a2d562465]
+      x-runtime: ['1.419978']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/10?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:23 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [b009727d-a1f3-45ec-b560-fdbc05027b8a]
+      x-runtime: ['0.480105']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/11?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:23 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [b5b16f54-c058-4154-a0e2-807dfaec33af]
+      x-runtime: ['0.435975']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/12?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:24 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [63262346-091f-49b6-ae09-fe62c023ba2c]
+      x-runtime: ['0.757694']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/13?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:25 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [870e5126-d44a-449c-99c3-5024292bc853]
+      x-runtime: ['0.469117']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/14?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:25 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [5d096840-951b-4118-9779-fc5522f59322]
+      x-runtime: ['0.505676']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/15?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:26 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [c11ec6df-b964-4cff-9bea-ec9f183f2db2]
+      x-runtime: ['0.465279']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/16?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:26 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [d7d148a9-a94b-4554-be4e-cd059265935c]
+      x-runtime: ['0.544572']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/17?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:27 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [dd9600ae-6601-443e-bcdf-f30eeecd441f]
+      x-runtime: ['0.489234']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/18?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:27 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [f4447c90-6304-46d6-86cb-aa56eabc310a]
+      x-runtime: ['0.531986']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/19?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:28 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [9ee4cb10-23c5-409b-8108-a139c84aebc3]
+      x-runtime: ['0.487049']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/20?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:28 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [5f8d8f42-8ba9-43b6-bd56-2d434e25be62]
+      x-runtime: ['0.535802']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/21?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:29 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [e11a78c3-9b37-49e7-a1e4-3574427ff7c5]
+      x-runtime: ['0.566047']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/22?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:29 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [55a015f2-ab71-4a1b-b375-fee7421017c4]
+      x-runtime: ['0.473441']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/23?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:30 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [aeb5975e-c3ce-4a83-bd8f-4a4369b50e84]
+      x-runtime: ['0.480503']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/24?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:30 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [920eff48-3895-4b9d-8f95-84e40e1ab55c]
+      x-runtime: ['0.495143']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/25?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:31 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [85cae67f-d866-4211-acde-d11fca6854e9]
+      x-runtime: ['0.471914']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/26?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:31 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [62e69d4b-d768-447b-a799-8197acd4739b]
+      x-runtime: ['0.534171']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/27?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:32 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [4b16d6a2-953d-4ab8-a5e8-9a69a6a7ffd7]
+      x-runtime: ['0.600614']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      User-Agent: [Zammad API Python]
+    method: DELETE
+    uri: http://localhost/api/v1/users/28?expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6uuBQBDv6ajAgAAAA==
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 11:04:33 GMT']
+      etag: [W/"99914b932bd37a50b983c5e7c90ae93b"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [b7c0bac8-816d-4108-a512-c1951a7a4070]
+      x-runtime: ['0.568492']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

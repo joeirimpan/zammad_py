@@ -30,7 +30,7 @@ Quickstart
 .. code-block:: python
 
     from zammad_py.api import ZammadAPI
-    client = ZammadAPI(username='<USERNAME>', password='<PASSWORD>', host='<HOST>')
+    client = ZammadAPI(username='<USERNAME>', password='<PASSWORD>', host='<HOST>', is_secure=False)
     print client.user.me()
 
 
@@ -40,10 +40,16 @@ User Resource
 .. code-block:: python
 
     from zammad_py.api import ZammadAPI
-    client = ZammadAPI(username='<USERNAME>', password='<PASSWORD>', host='<HOST>')
+    client = ZammadAPI(username='<USERNAME>', password='<PASSWORD>', host='<HOST>', is_secure=False)
 
     print client.user.me()
-    print client.user.all()
+    # all return a paginated response
+    this_page = client.user.all()
+    next_page = this_page.next_page()
+    prev_page = this_page.prev_page()
+    # Iterate through page object
+    for user in this_page:
+        print user
     print client.user.search({'firstname': 'Joe'})
     print client.user.find(3)
     print client.user.create({'firstname': 'Joe'})
