@@ -11,9 +11,9 @@ class TestAPI:
         'tests/fixtures/zammad_users.yml', record_mode='new_episodes'
     )
     def test_users(self, zammad_api):
-        all_users = zammad_api.user.all()
-        assert all_users[-1]['id'] == 3
-        assert all_users[-1]['firstname'] == 'Joe'
+        all_users = zammad_api.user.all().items
+        assert all_users[2]['id'] == 3
+        assert all_users[2]['firstname'] == 'Joe'
 
         current_user = zammad_api.user.me()
         assert current_user['id'] == 3
@@ -43,7 +43,7 @@ class TestAPI:
         'tests/fixtures/zammad_tickets.yml', record_mode='new_episodes'
     )
     def test_tickets(self, zammad_api):
-        all_tickets = zammad_api.ticket.all()
+        all_tickets = zammad_api.ticket.all().items
         assert all_tickets[0]['id'] == 1
         assert all_tickets[0]['title'] == 'Welcome to Zammad!'
 
@@ -84,7 +84,7 @@ class TestAPI:
         'tests/fixtures/zammad_groups.yml', record_mode='new_episodes'
     )
     def test_groups(self, zammad_api):
-        all_groups = zammad_api.group.all()
+        all_groups = zammad_api.group.all().items
         assert all_groups[0]['id'] == 1
         assert all_groups[0]['note'] == 'Standard Group/Pool for Tickets.'
 

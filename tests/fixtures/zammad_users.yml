@@ -258,4 +258,56 @@ interactions:
       x-runtime: ['0.257316']
       x-xss-protection: [1; mode=block]
     status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [Zammad API Python]
+    method: GET
+    uri: http://localhost/api/v1/users?per_page=10&page=1&expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+2ZS2/jNhCA/0rBsy2IomQ9TtkW6KEtFj24lw0Cg5Zom61EGhSV7SbIf+9QomRK
+        tvNot4t4E8AHckQONRS/meH4+h7xAmV4hqTaUsHvqOZSrIxMNGU5Q6XccoEyNEcztOGq1oJWzPZL
+        OnThKasoL+EJNHlFtzCo09B2VrVsVD7IPrN1N3K/k8KoM9rp312jkmteWmHB9lTpigndPau1Ysy2
+        7/i+E+Zcf7Et2QitbIcWhWJ13T25NYM3tKzZDN0yxTecgY1WQHPNb2FF2xVS2+WNhSu7BZ01Yzva
+        R6sNGG60+bCLjV7JDfw23FhrFY6kq1qDSSsKVnQqx0+ZKM4+U2xf0pyZ7XA+0V6xDVNM5AxsvX+Y
+        oWZfUM2K1fpLOwo+bq7YGYl5DRT4OJ5jfx6ESz/OgiQLfI/g6BN8lV7Xk+NqplZbJZs9rAnvcX0z
+        Q0qW7NCbHDA7hjZ6J9Xh3Fmxo6m1aNDuqLZNV+8ppa5GaBt1h+0A483J7q1cm6MzRw+zDovgBBaw
+        mz0TgudgobdWtBFXd7SqaOHB25iz7JDysR0FQgeXH80UEPXMnNd0qShp1QBpF00S0jz/i+l6JfcM
+        XOBiNgjyUtYt8MewEfd0TfE7A1HoRVFyFjaCl/4i80mGF14ax+24AYcDXg5sBNhzqTgM+o+0oZ+a
+        WsuKKTRZ4RHu3BcBuD61mPzwMzhqcFIQa4CCFvZnofmnZN7+6o4pWeyol8tqQBX23V2p3flxBDue
+        O+b0F8nGkP5Om9Jh9NT875FOGw3wHJOln2Q4ykjkBUFqDt6rj37G40Bsz7s0Jpdiw7fg81FFteKQ
+        X9xb39+1uIZMgJq2/Cy6gGmSm853DSIh17KAwNC7NBvWTRzZUSEYJD33vSe3U0XJTVpjeg+Dj/i2
+        aypWcVFAUIbQn++MtzK2v8ziIR96ucmszmnZAf4tFza7zSEFlP3nGvvw6H/x4QQDJR5eLM748AlK
+        JDjpw6/JDHKLDWTd6Abcq+PP8SwAwcS9nXK5B0fv5k8IQzpmFcP2GMVmMvpQwAkBqD9sTXo9WeGU
+        eisb3DX6A+JQq6p7a1D+eGZ17EL7TCs8sq/PjvtkC0KXnOPIT5KQ+DicpwuSkBhe3821lhARRonW
+        r9Dtkyxofo/++kLuJUPy1GVTcNR7NF+UTTn51TSbwthkSST00rQNVn1Sf3pclHiYdFnXBWVTA3tT
+        1o7Rmtxqjgf07IFTnPiW8+xFOEzTeZr4JDhij9XaOAQ8JvA3uEJ/NDWDdxBfa4HAYcqWDBzJET0k
+        C8IsSr0YP04ZjINCQuD5aVdIeOOUwfXxCco0ADS624xj2xgrB6cT897j3CuqvzkwPYGXveqHGcFe
+        ED9ZEhiNe+N4xc/CC/9bvqYT3wG7ZMCSjEAtLTpf4LYgjsa9ccCSJwGTbdXjltc70Vxtzb9BbYXu
+        mVHs7GyLGiL5JozWcRoHeZDGYRr6JApCTNOQ0QIHEUTEduhl/NXUF5Mu+J+m4QLX3eggzH3FGx2e
+        +3iJ/Qwnme97UYLP1lb8YOlHGYZ0M/VIQE7WVqC44dRTXlV9/Kve6G7+AU4Lq0DQHQAA
+    headers:
+      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
+          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
+      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
+      access-control-allow-origin: ['*']
+      access-control-max-age: ['1728000']
+      cache-control: ['max-age=0, private, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 13 Nov 2017 08:15:35 GMT']
+      etag: [W/"d99156681b8b49b80afe638111430a58"]
+      server: [nginx]
+      x-content-type-options: [nosniff]
+      x-frame-options: [SAMEORIGIN]
+      x-request-id: [e76f0c14-3318-4c20-971e-8aabb86d27d2]
+      x-runtime: ['0.342375']
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
 version: 1
