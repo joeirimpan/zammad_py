@@ -97,10 +97,38 @@ class ZammadAPI(object):
         return User(connection=self)
 
 
+class Pagination(object):
+
+    def __init__(self, items, resource, filters=None):
+        self.items = items
+        self.page = 1
+        self.resource = resource
+        self.filters = filters
+
+    def __iter__(self):
+        for item in self.items:
+            yield item
+
+    def next_page(self):
+        self.page += 1
+        return self.resource.all(
+            page=self.page,
+            filters=self.filters
+        )
+
+    def prev_page(self):
+        self.page -= 1
+        return self.resource.all(
+            page=self.page,
+            filters=self.filters
+        )
+
+
 class Resource(object):
 
     def __init__(self, connection):
         self.connection = connection
+        self.per_page = 10
 
     @property
     def url(self):
@@ -125,11 +153,25 @@ class Resource(object):
         else:
             return json_value
 
-    def all(self):
+    def all(self, page=1, filters=None):
         """Returns the list of resources
+
+        :param page: Page number
+        :param filters: Filter arguments like page, per_page
         """
-        response = self.connection.session.get(self.url)
-        return self._raise_or_return_json(response)
+        params = filters or {}
+        params.update({
+            'page': page,
+            'per_page': self.per_page,
+            'expand': 'true'
+        })
+        response = self.connection.session.get(self.url, params=params)
+        data = self._raise_or_return_json(response)
+        return Pagination(
+            items=data,
+            resource=self,
+            filters=filters
+        )
 
     def search(self, params):
         """Search using the given parameters
@@ -253,3 +295,33 @@ class User(Resource):
         """
         response = self.connection.session.get(self.url + '/me')
         return self._raise_or_return_json(response)
+
+
+class OnlineNotification(Resource):
+
+    path_attribute = 'online_notifications'
+
+    def mark_all_read(self):
+        """Marks all online notification as read
+        """
+        response = self.connection.session.post(self.url + '/mark_all_as_read')
+        return self._raise_or_return_json(response)
+
+
+class Object(Resource):
+
+    path_attribute = 'object_manager_attributes'
+
+    def execute_migrations(self):
+        """Executes all database migrations
+        """
+        response = self.connection.session.post(
+            self.connection.url +
+            'object_manager_attributes_execute_migrations'
+        )
+        return self._raise_or_return_json(response)
+
+
+class TagList(Resource):
+
+    path_attribute = 'tag_list'
