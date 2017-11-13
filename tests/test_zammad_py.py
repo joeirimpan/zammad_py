@@ -104,3 +104,28 @@ class TestAPI:
 
         deleted_group = zammad_api.group.destroy(2)
         assert deleted_group == dict()
+
+    @zammad_vcr.use_cassette(
+        'tests/fixtures/zammad_pagination.yml', record_mode='new_episodes'
+    )
+    def test_pagination(self, zammad_api):
+        # Let us create 20 users
+        users = []
+        for index in range(20):
+            users.append(
+                zammad_api.user.create({'email': 'robot%s@mr.com' % index})
+            )
+        paginated_response = zammad_api.user.all()
+        # Go to next page
+        next_page = paginated_response.next_page()
+        for item in next_page:
+            assert item is not None
+        # Go to prev page
+        prev_page = paginated_response.prev_page()
+        for item in prev_page:
+            assert item is not None
+        for item in paginated_response:
+            assert item is not None
+        # Delete users
+        for user in users:
+            zammad_api.user.destroy(user['id'])
