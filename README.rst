@@ -29,7 +29,7 @@ Quickstart
 
 .. code-block:: python
 
-    from zammad_py.api import ZammadAPI
+    from zammad_py import ZammadAPI
     client = ZammadAPI(username='<USERNAME>', password='<PASSWORD>', host='<HOST>', is_secure=False)
     print client.user.me()
 
@@ -39,7 +39,7 @@ User Resource
 
 .. code-block:: python
 
-    from zammad_py.api import ZammadAPI
+    from zammad_py import ZammadAPI
     client = ZammadAPI(username='<USERNAME>', password='<PASSWORD>', host='<HOST>', is_secure=False)
 
     print client.user.me()
