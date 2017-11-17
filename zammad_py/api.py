@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 """Main module."""
-import requests
+import atexit
 
+import requests
 from requests.exceptions import HTTPError
 
 from zammad_py.exceptions import ConfigException
@@ -27,6 +28,7 @@ class ZammadAPI(object):
         self._check_config()
 
         self.session = requests.Session()
+        atexit.register(self.session.close)
         self.session.headers['User-Agent'] = 'Zammad API Python'
         if self._http_token:
             self.session.headers['Authorization'] = \
