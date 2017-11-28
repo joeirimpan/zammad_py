@@ -117,6 +117,12 @@ class Pagination(object):
     def __len__(self):
         return len(self._items)
 
+    def __getitem__(self, index):
+        return self._items[index]
+
+    def __setitem__(self, index, value):
+        self._items[index] = value
+
     def next_page(self):
         self._page += 1
         return self._resource.all(
