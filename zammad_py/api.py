@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 
 """Main module."""
-import requests
+import atexit
 
+import requests
 from requests.exceptions import HTTPError
 
 from zammad_py.exceptions import ConfigException
+
+
+__all__ = ['ZammadAPI']
 
 
 class ZammadAPI(object):
@@ -24,6 +28,7 @@ class ZammadAPI(object):
         self._check_config()
 
         self.session = requests.Session()
+        atexit.register(self.session.close)
         self.session.headers['User-Agent'] = 'Zammad API Python'
         if self._http_token:
             self.session.headers['Authorization'] = \
@@ -100,41 +105,50 @@ class ZammadAPI(object):
 class Pagination(object):
 
     def __init__(self, items, resource, filters=None):
-        self.items = items
-        self.page = 1
-        self.resource = resource
-        self.filters = filters
+        self._items = items
+        self._page = 1
+        self._resource = resource
+        self._filters = filters
 
     def __iter__(self):
-        for item in self.items:
+        for item in self._items:
             yield item
 
+    def __len__(self):
+        return len(self._items)
+
+    def __getitem__(self, index):
+        return self._items[index]
+
+    def __setitem__(self, index, value):
+        self._items[index] = value
+
     def next_page(self):
-        self.page += 1
-        return self.resource.all(
-            page=self.page,
-            filters=self.filters
+        self._page += 1
+        return self._resource.all(
+            page=self._page,
+            filters=self._filters
         )
 
     def prev_page(self):
-        self.page -= 1
-        return self.resource.all(
-            page=self.page,
-            filters=self.filters
+        self._page -= 1
+        return self._resource.all(
+            page=self._page,
+            filters=self._filters
         )
 
 
 class Resource(object):
 
     def __init__(self, connection):
-        self.connection = connection
-        self.per_page = 10
+        self._connection = connection
+        self._per_page = 10
 
     @property
     def url(self):
         """Returns a the full url concatenated with the resource class name
         """
-        return self.connection.url + self.path_attribute
+        return self._connection.url + self.path_attribute
 
     def _raise_or_return_json(self, response):
         """Raise HTTPError before converting response to json
@@ -162,10 +176,10 @@ class Resource(object):
         params = filters or {}
         params.update({
             'page': page,
-            'per_page': self.per_page,
+            'per_page': self._per_page,
             'expand': 'true'
         })
-        response = self.connection.session.get(self.url, params=params)
+        response = self._connection.session.get(self.url, params=params)
         data = self._raise_or_return_json(response)
         return Pagination(
             items=data,
@@ -178,7 +192,7 @@ class Resource(object):
 
         :param params: Search parameters
         """
-        response = self.connection.session.get(
+        response = self._connection.session.get(
             self.url + '/search',
             params=params
         )
@@ -189,7 +203,7 @@ class Resource(object):
 
         :param id: Resource id
         """
-        response = self.connection.session.get(
+        response = self._connection.session.get(
             self.url + '/%s?expand=true' % id
         )
         return self._raise_or_return_json(response)
@@ -199,7 +213,7 @@ class Resource(object):
 
         :param params: Resource data for creating
         """
-        response = self.connection.session.post(
+        response = self._connection.session.post(
             self.url + '?expand=true',
             json=params
         )
@@ -211,7 +225,7 @@ class Resource(object):
         :param id: Resource id
         :param params: Resource data for updating
         """
-        response = self.connection.session.put(
+        response = self._connection.session.put(
             self.url + '/%s' % id,
             json=params
         )
@@ -222,7 +236,7 @@ class Resource(object):
 
         :param id: Resource id
         """
-        response = self.connection.session.delete(
+        response = self._connection.session.delete(
             self.url + '/%s?expand=true' % id
         )
         return self._raise_or_return_json(response)
@@ -247,8 +261,8 @@ class Ticket(Resource):
 
         :param id: Ticket id
         """
-        response = self.connection.session.get(
-            self.connection.url +
+        response = self._connection.session.get(
+            self._connection.url +
             'ticket_articles/by_ticket/%s?expand=true' % id
         )
         return self._raise_or_return_json(response)
@@ -270,7 +284,7 @@ class TicketArticleAttachment(Resource):
         :param article_id: Ticket article id
         :param ticket_id: Ticket id
         """
-        response = self.connection.session.get(
+        response = self._connection.session.get(
             self.url + '/%s/%s/%s' % (ticket_id, article_id, id)
         )
         return self._raise_or_return_json(response)
@@ -293,7 +307,7 @@ class User(Resource):
     def me(self):
         """Returns current user information
         """
-        response = self.connection.session.get(self.url + '/me')
+        response = self._connection.session.get(self.url + '/me')
         return self._raise_or_return_json(response)
 
 
@@ -304,7 +318,9 @@ class OnlineNotification(Resource):
     def mark_all_read(self):
         """Marks all online notification as read
         """
-        response = self.connection.session.post(self.url + '/mark_all_as_read')
+        response = self._connection.session.post(
+            self.url + '/mark_all_as_read'
+        )
         return self._raise_or_return_json(response)
 
 
@@ -315,8 +331,8 @@ class Object(Resource):
     def execute_migrations(self):
         """Executes all database migrations
         """
-        response = self.connection.session.post(
-            self.connection.url +
+        response = self._connection.session.post(
+            self._connection.url +
             'object_manager_attributes_execute_migrations'
         )
         return self._raise_or_return_json(response)

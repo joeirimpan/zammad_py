@@ -11,7 +11,7 @@ class TestAPI:
         'tests/fixtures/zammad_users.yml', record_mode='new_episodes'
     )
     def test_users(self, zammad_api):
-        all_users = zammad_api.user.all().items
+        all_users = zammad_api.user.all()._items
         assert all_users[2]['id'] == 3
         assert all_users[2]['firstname'] == 'Joe'
 
@@ -43,7 +43,7 @@ class TestAPI:
         'tests/fixtures/zammad_tickets.yml', record_mode='new_episodes'
     )
     def test_tickets(self, zammad_api):
-        all_tickets = zammad_api.ticket.all().items
+        all_tickets = zammad_api.ticket.all()._items
         assert all_tickets[0]['id'] == 1
         assert all_tickets[0]['title'] == 'Welcome to Zammad!'
 
@@ -84,7 +84,7 @@ class TestAPI:
         'tests/fixtures/zammad_groups.yml', record_mode='new_episodes'
     )
     def test_groups(self, zammad_api):
-        all_groups = zammad_api.group.all().items
+        all_groups = zammad_api.group.all()._items
         assert all_groups[0]['id'] == 1
         assert all_groups[0]['note'] == 'Standard Group/Pool for Tickets.'
 
@@ -104,3 +104,28 @@ class TestAPI:
 
         deleted_group = zammad_api.group.destroy(2)
         assert deleted_group == dict()
+
+    @zammad_vcr.use_cassette(
+        'tests/fixtures/zammad_pagination.yml', record_mode='new_episodes'
+    )
+    def test_pagination(self, zammad_api):
+        # Let us create 20 users
+        users = []
+        for index in range(20):
+            users.append(
+                zammad_api.user.create({'email': 'robot%s@mr.com' % index})
+            )
+        paginated_response = zammad_api.user.all()
+        # Go to next page
+        next_page = paginated_response.next_page()
+        for item in next_page:
+            assert item is not None
+        # Go to prev page
+        prev_page = paginated_response.prev_page()
+        for item in prev_page:
+            assert item is not None
+        for item in paginated_response:
+            assert item is not None
+        # Delete users
+        for user in users:
+            zammad_api.user.destroy(user['id'])

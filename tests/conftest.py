@@ -3,7 +3,7 @@ import os
 import vcr
 import pytest
 
-from zammad_py.api import ZammadAPI
+from zammad_py import ZammadAPI
 
 
 zammad_vcr = vcr.VCR(
