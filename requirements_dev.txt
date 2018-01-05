@@ -2,5 +2,5 @@
 
 
 flake8==3.5.0
-pytest==3.3.1
+pytest==3.3.2
 vcrpy==1.11.1
