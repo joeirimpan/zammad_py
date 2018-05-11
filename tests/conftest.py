@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
+import sys
 import os
-import vcr
-import pytest
 
-from zammad_py import ZammadAPI
+testpath = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, testpath + '/../')
+
+import vcr  # noqa
+import pytest  # noqa
+
+from zammad_py import ZammadAPI # noqa
 
 
 zammad_vcr = vcr.VCR(
