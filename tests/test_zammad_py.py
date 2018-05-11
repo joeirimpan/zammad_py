@@ -73,7 +73,7 @@ class TestAPI:
         assert updated_ticket['title'] == 'TestTicket1'
 
         deleted_ticket = zammad_api.ticket.destroy(6)
-        assert deleted_ticket == ''
+        assert deleted_ticket == b''
 
         current_ticket = zammad_api.ticket.search({
             'query': 'Ticket 1'
