@@ -104,9 +104,9 @@ class ZammadAPI(object):
 
 class Pagination(object):
 
-    def __init__(self, items, resource, filters=None):
+    def __init__(self, items, resource, filters=None, page=1):
         self._items = items
-        self._page = 1
+        self._page = page
         self._resource = resource
         self._filters = filters
 
@@ -140,15 +140,23 @@ class Pagination(object):
 
 class Resource(object):
 
-    def __init__(self, connection):
+    def __init__(self, connection, per_page=10):
         self._connection = connection
-        self._per_page = 10
+        self._per_page = per_page
 
     @property
     def url(self):
         """Returns a the full url concatenated with the resource class name
         """
         return self._connection.url + self.path_attribute
+
+    @property
+    def per_page(self):
+        return self._per_page
+
+    @per_page.setter
+    def per_page(self, value):
+        self._per_page = value
 
     def _raise_or_return_json(self, response):
         """Raise HTTPError before converting response to json
@@ -184,7 +192,8 @@ class Resource(object):
         return Pagination(
             items=data,
             resource=self,
-            filters=filters
+            filters=filters,
+            page=page
         )
 
     def search(self, params):
