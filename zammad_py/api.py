@@ -14,6 +14,14 @@ __all__ = ['ZammadAPI']
 
 class ZammadAPI(object):
 
+    @property
+    def on_behalf_of(self):
+        return self._on_behalf_of
+    
+    @on_behalf_of.setter
+    def on_behalf_of(self, value):
+        self._on_behalf_of = value
+
     def __init__(
         self, username, password, host, http_token=None, oauth2_token=None,
         on_behalf_of=None, is_secure=True
