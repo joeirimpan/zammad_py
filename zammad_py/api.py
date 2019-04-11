@@ -2,6 +2,7 @@
 
 """Main module."""
 import atexit
+from contextlib import contextmanager
 
 import requests
 from requests.exceptions import HTTPError
@@ -15,8 +16,8 @@ __all__ = ['ZammadAPI']
 class ZammadAPI(object):
 
     def __init__(
-            self, username, password, host, http_token=None, oauth2_token=None,
-            is_secure=True
+        self, username, password, host, http_token=None, oauth2_token=None,
+        on_behalf_of=None, is_secure=True
     ):
         self.url = 'https://%s/api/v1/' % host
         if not is_secure:
@@ -25,6 +26,7 @@ class ZammadAPI(object):
         self._password = password
         self._http_token = http_token
         self._oauth2_token = oauth2_token
+        self._on_behalf_of = on_behalf_of
         self._check_config()
 
         self.session = requests.Session()
@@ -39,6 +41,10 @@ class ZammadAPI(object):
         else:
             self.session.auth = (self._username, self._password)
 
+        if self._on_behalf_of:
+            self.session.headers['X-On-Behalf-Of'] = \
+                self._on_behalf_of
+
     def _check_config(self):
         """Check the configuration
         """
@@ -52,6 +58,23 @@ class ZammadAPI(object):
             raise ConfigException('Missing username in config')
         if not self._password:
             raise ConfigException('Missing password in config')
+
+    @property
+    def on_behalf_of(self):
+        return self._on_behalf_of
+
+    @on_behalf_of.setter
+    def on_behalf_of(self, value):
+        self._on_behalf_of = value
+        self.session.headers['X-On-Behalf-Of'] = \
+                self._on_behalf_of
+
+    @contextmanager
+    def request_on_behalf_of(self, on_behalf_of):
+        self.session.headers['X-On-Behalf-Of'] = \
+            on_behalf_of
+        yield self
+        del self.session.headers['X-On-Behalf-Of']
 
     @property
     def group(self):
@@ -104,9 +127,9 @@ class ZammadAPI(object):
 
 class Pagination(object):
 
-    def __init__(self, items, resource, filters=None):
+    def __init__(self, items, resource, filters=None, page=1):
         self._items = items
-        self._page = 1
+        self._page = page
         self._resource = resource
         self._filters = filters
 
@@ -140,15 +163,23 @@ class Pagination(object):
 
 class Resource(object):
 
-    def __init__(self, connection):
+    def __init__(self, connection, per_page=10):
         self._connection = connection
-        self._per_page = 10
+        self._per_page = per_page
 
     @property
     def url(self):
         """Returns a the full url concatenated with the resource class name
         """
         return self._connection.url + self.path_attribute
+
+    @property
+    def per_page(self):
+        return self._per_page
+
+    @per_page.setter
+    def per_page(self, value):
+        self._per_page = value
 
     def _raise_or_return_json(self, response):
         """Raise HTTPError before converting response to json
@@ -184,7 +215,8 @@ class Resource(object):
         return Pagination(
             items=data,
             resource=self,
-            filters=filters
+            filters=filters,
+            page=page
         )
 
     def search(self, params):
