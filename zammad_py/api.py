@@ -34,7 +34,7 @@ class ZammadAPI(object):
         if self._http_token:
             self.session.headers['Authorization'] = \
                 'Token token=%s' % self._http_token
-        if self._on_behalf_of:
+        elif self._on_behalf_of:
             self.session.headers['X-On-Behalf-Of'] = \
                 '%s' % self._on_behalf_of
         elif oauth2_token:
