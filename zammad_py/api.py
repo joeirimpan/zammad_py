@@ -2,6 +2,7 @@
 
 """Main module."""
 import atexit
+from contextlib import contextmanager
 
 import requests
 from requests.exceptions import HTTPError
@@ -13,14 +14,6 @@ __all__ = ['ZammadAPI']
 
 
 class ZammadAPI(object):
-
-    @property
-    def on_behalf_of(self):
-        return self._on_behalf_of
-
-    @on_behalf_of.setter
-    def on_behalf_of(self, value):
-        self._on_behalf_of = value
 
     def __init__(
         self, username, password, host, http_token=None, oauth2_token=None,
@@ -42,14 +35,15 @@ class ZammadAPI(object):
         if self._http_token:
             self.session.headers['Authorization'] = \
                 'Token token=%s' % self._http_token
-        elif self._on_behalf_of:
-            self.session.headers['X-On-Behalf-Of'] = \
-                '%s' % self._on_behalf_of
         elif oauth2_token:
             self.session.headers['Authorization'] = \
                 'Bearer %s' % self._oauth2_token
         else:
             self.session.auth = (self._username, self._password)
+
+        if self._on_behalf_of:
+            self.session.headers['X-On-Behalf-Of'] = \
+                self._on_behalf_of
 
     def _check_config(self):
         """Check the configuration
@@ -64,6 +58,23 @@ class ZammadAPI(object):
             raise ConfigException('Missing username in config')
         if not self._password:
             raise ConfigException('Missing password in config')
+
+    @property
+    def on_behalf_of(self):
+        return self._on_behalf_of
+
+    @on_behalf_of.setter
+    def on_behalf_of(self, value):
+        self._on_behalf_of = value
+        self.session.headers['X-On-Behalf-Of'] = \
+                self._on_behalf_of
+
+    @contextmanager
+    def request_on_behalf_of(self, on_behalf_of):
+        self.session.headers['X-On-Behalf-Of'] = \
+            on_behalf_of
+        yield self
+        del self.session.headers['X-On-Behalf-Of']
 
     @property
     def group(self):

@@ -129,3 +129,10 @@ class TestAPI:
         # Delete users
         for user in users:
             zammad_api.user.destroy(user['id'])
+
+    def test_push_on_behalf_of_header(self, zammad_api):
+        zammad_api.on_behalf_of = "USERX"
+        with zammad_api.request_on_behalf_of("USERXX") as api:
+            assert api.session.headers["X-On-Behalf-Of"] == "USERXX"
+
+        assert api.session.headers.get("X-On-Behalf-Of") is None
