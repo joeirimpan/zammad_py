@@ -17,7 +17,7 @@ class ZammadAPI(object):
     @property
     def on_behalf_of(self):
         return self._on_behalf_of
-    
+
     @on_behalf_of.setter
     def on_behalf_of(self, value):
         self._on_behalf_of = value
