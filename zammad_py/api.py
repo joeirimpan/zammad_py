@@ -15,7 +15,7 @@ __all__ = ['ZammadAPI']
 class ZammadAPI(object):
 
     def __init__(
-            self, username, password, host, http_token=None, oauth2_token=None,
+            self, username, password, host, http_token=None, oauth2_token=None, on_behalf_of=None,
             is_secure=True
     ):
         self.url = 'https://%s/api/v1/' % host
@@ -25,6 +25,7 @@ class ZammadAPI(object):
         self._password = password
         self._http_token = http_token
         self._oauth2_token = oauth2_token
+        self._on_behalf_of = on_behalf_of
         self._check_config()
 
         self.session = requests.Session()
@@ -33,6 +34,9 @@ class ZammadAPI(object):
         if self._http_token:
             self.session.headers['Authorization'] = \
                 'Token token=%s' % self._http_token
+        if self._on_behalf_of:
+            self.session.headers['X-On-Behalf-Of'] = \
+                '%s' % self._on_behalf_of
         elif oauth2_token:
             self.session.headers['Authorization'] = \
                 'Bearer %s' % self._oauth2_token
