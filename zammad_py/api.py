@@ -16,7 +16,7 @@ __all__ = ['ZammadAPI']
 class ZammadAPI(object):
 
     def __init__(
-        self, username, password, host, http_token=None, oauth2_token=None,
+        self, host, username=None, password=None, http_token=None, oauth2_token=None,
         on_behalf_of=None, is_secure=True
     ):
         self.url = 'https://%s/api/v1/' % host
@@ -74,7 +74,8 @@ class ZammadAPI(object):
         self.session.headers['X-On-Behalf-Of'] = \
             on_behalf_of
         yield self
-        del self.session.headers['X-On-Behalf-Of']
+        self.session.headers['X-On-Behalf-Of'] = \
+            self._on_behalf_of
 
     @property
     def group(self):
