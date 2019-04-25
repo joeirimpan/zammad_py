@@ -4,6 +4,6 @@
 
 __author__ = """Joe Paul"""
 __email__ = 'joeirimpan@gmail.com'
-__version__ = '0.1.6'
+__version__ = '0.1.7'
 
 from .api import ZammadAPI  # noqa
