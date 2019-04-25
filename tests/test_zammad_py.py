@@ -135,4 +135,4 @@ class TestAPI:
         with zammad_api.request_on_behalf_of("USERXX") as api:
             assert api.session.headers["X-On-Behalf-Of"] == "USERXX"
 
-        assert api.session.headers.get("X-On-Behalf-Of") is None
+        assert api.session.headers.get("X-On-Behalf-Of") == "USERX"

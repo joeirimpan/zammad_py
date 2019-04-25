@@ -21,8 +21,8 @@ zammad_vcr = vcr.VCR(
 @pytest.fixture
 def zammad_api():
     return ZammadAPI(
+        host="localhost",
         username="test",
         password="test",
-        host="localhost",
         is_secure=False
     )
