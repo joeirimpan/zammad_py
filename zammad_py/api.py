@@ -16,12 +16,10 @@ __all__ = ['ZammadAPI']
 class ZammadAPI(object):
 
     def __init__(
-        self, host, username=None, password=None, http_token=None, oauth2_token=None,
+        self, url, username=None, password=None, http_token=None, oauth2_token=None,
         on_behalf_of=None, is_secure=True
     ):
-        self.url = 'https://%s/api/v1/' % host
-        if not is_secure:
-            self.url = self.url.replace('https', 'http')
+        self.url = url
         self._username = username
         self._password = password
         self._http_token = http_token
