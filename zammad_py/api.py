@@ -17,7 +17,7 @@ class ZammadAPI(object):
 
     def __init__(
         self, url, username=None, password=None, http_token=None, oauth2_token=None,
-        on_behalf_of=None, is_secure=True
+        on_behalf_of=None
     ):
         self.url = url
         self._username = username

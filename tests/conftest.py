@@ -24,5 +24,4 @@ def zammad_api():
         url="http://localhost/api/v1/",
         username="test",
         password="test",
-        is_secure=False
     )
