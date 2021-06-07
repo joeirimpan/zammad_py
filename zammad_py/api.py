@@ -17,7 +17,7 @@ class ZammadAPI(object):
 
     def __init__(
         self, host, username=None, password=None, http_token=None, oauth2_token=None,
-        on_behalf_of=None, is_secure=True
+        on_behalf_of=None, is_secure=True, ssl_verify=True
     ):
         self.url = 'https://%s/api/v1/' % host
         if not is_secure:
@@ -30,6 +30,8 @@ class ZammadAPI(object):
         self._check_config()
 
         self.session = requests.Session()
+        if is_secure:
+            self.session.verify = ssl_verify
         atexit.register(self.session.close)
         self.session.headers['User-Agent'] = 'Zammad API Python'
         if self._http_token:
