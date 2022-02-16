@@ -8,30 +8,10 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v2
-        with:
-          python-version: "3.9"
-
-      - name: Bootstrap poetry
-        shell: bash
-        run: curl -sSL https://install.python-poetry.org | python3 -
-
-      - name: Configure poetry
-        shell: bash
-        run: poetry config virtualenvs.in-project true
-
-      - name: Install dependencies
-        shell: bash
-        run: poetry install
-
-      - name: Lint
-        shell: bash
-        run: poetry run flake8 zammad_py
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+      - uses: pre-commit/action@v2.0.0
 
   tests:
     runs-on: ubuntu-latest
