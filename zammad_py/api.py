@@ -65,7 +65,7 @@ class ZammadAPI(object):
     def on_behalf_of(self, value):
         self._on_behalf_of = value
         self.session.headers['X-On-Behalf-Of'] = \
-                self._on_behalf_of
+            self._on_behalf_of
 
     @contextmanager
     def request_on_behalf_of(self, on_behalf_of):
