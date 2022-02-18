@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """Main module."""
 import atexit
 from contextlib import contextmanager
@@ -9,15 +7,18 @@ from requests.exceptions import HTTPError
 
 from zammad_py.exceptions import ConfigException
 
+__all__ = ["ZammadAPI"]
 
-__all__ = ['ZammadAPI']
 
-
-class ZammadAPI(object):
-
+class ZammadAPI:
     def __init__(
-        self, url, username=None, password=None, http_token=None, oauth2_token=None,
-        on_behalf_of=None
+        self,
+        url,
+        username=None,
+        password=None,
+        http_token=None,
+        oauth2_token=None,
+        on_behalf_of=None,
     ):
         self.url = url
         self._username = username
@@ -29,33 +30,29 @@ class ZammadAPI(object):
 
         self.session = requests.Session()
         atexit.register(self.session.close)
-        self.session.headers['User-Agent'] = 'Zammad API Python'
+        self.session.headers["User-Agent"] = "Zammad API Python"
         if self._http_token:
-            self.session.headers['Authorization'] = \
-                'Token token=%s' % self._http_token
+            self.session.headers["Authorization"] = "Token token=%s" % self._http_token
         elif oauth2_token:
-            self.session.headers['Authorization'] = \
-                'Bearer %s' % self._oauth2_token
+            self.session.headers["Authorization"] = "Bearer %s" % self._oauth2_token
         else:
             self.session.auth = (self._username, self._password)
 
         if self._on_behalf_of:
-            self.session.headers['X-On-Behalf-Of'] = \
-                self._on_behalf_of
+            self.session.headers["X-On-Behalf-Of"] = self._on_behalf_of
 
     def _check_config(self):
-        """Check the configuration
-        """
+        """Check the configuration"""
         if not self.url:
-            raise ConfigException('Missing url in config')
+            raise ConfigException("Missing url in config")
         if self._http_token:
             return
         if self._oauth2_token:
             return
         if not self._username:
-            raise ConfigException('Missing username in config')
+            raise ConfigException("Missing username in config")
         if not self._password:
-            raise ConfigException('Missing password in config')
+            raise ConfigException("Missing password in config")
 
     @property
     def on_behalf_of(self):
@@ -64,68 +61,56 @@ class ZammadAPI(object):
     @on_behalf_of.setter
     def on_behalf_of(self, value):
         self._on_behalf_of = value
-        self.session.headers['X-On-Behalf-Of'] = \
-            self._on_behalf_of
+        self.session.headers["X-On-Behalf-Of"] = self._on_behalf_of
 
     @contextmanager
     def request_on_behalf_of(self, on_behalf_of):
-        self.session.headers['X-On-Behalf-Of'] = \
-            on_behalf_of
+        self.session.headers["X-On-Behalf-Of"] = on_behalf_of
         yield self
-        self.session.headers['X-On-Behalf-Of'] = \
-            self._on_behalf_of
+        self.session.headers["X-On-Behalf-Of"] = self._on_behalf_of
 
     @property
     def group(self):
-        """Return a `Group` instance
-        """
+        """Return a `Group` instance"""
         return Group(connection=self)
 
     @property
     def organization(self):
-        """Return a `Organization` instance
-        """
+        """Return a `Organization` instance"""
         return Organization(connection=self)
 
     @property
     def ticket(self):
-        """Return a `Ticket` instance
-        """
+        """Return a `Ticket` instance"""
         return Ticket(connection=self)
 
     @property
     def ticket_article(self):
-        """Return a `TicketArticle` instance
-        """
+        """Return a `TicketArticle` instance"""
         return TicketArticle(connection=self)
 
     @property
     def ticket_article_attachment(self):
-        """Return a `TicketArticleAttachment` instance
-        """
+        """Return a `TicketArticleAttachment` instance"""
         return TicketArticleAttachment(connection=self)
 
     @property
     def ticket_priority(self):
-        """Return a `TicketPriority` instance
-        """
+        """Return a `TicketPriority` instance"""
         return TicketPriority(connection=self)
 
     @property
     def ticket_state(self):
-        """Return a `TicketState` instance
-        """
+        """Return a `TicketState` instance"""
         return TicketState(connection=self)
 
     @property
     def user(self):
-        """Return a `User` instance
-        """
+        """Return a `User` instance"""
         return User(connection=self)
 
 
-class Pagination(object):
-
+class Pagination:
     def __init__(self, items, resource, filters=None, page=1):
         self._items = items
         self._page = page
@@ -133,8 +118,7 @@ class Pagination(object):
         self._filters = filters
 
     def __iter__(self):
-        for item in self._items:
-            yield item
+        yield from self._items
 
     def __len__(self):
         return len(self._items)
@@ -147,29 +131,21 @@ class Pagination(object):
 
     def next_page(self):
         self._page += 1
-        return self._resource.all(
-            page=self._page,
-            filters=self._filters
-        )
+        return self._resource.all(page=self._page, filters=self._filters)
 
     def prev_page(self):
         self._page -= 1
-        return self._resource.all(
-            page=self._page,
-            filters=self._filters
-        )
+        return self._resource.all(page=self._page, filters=self._filters)
 
 
-class Resource(object):
-
+class Resource:
     def __init__(self, connection, per_page=10):
         self._connection = connection
         self._per_page = per_page
 
     @property
     def url(self):
-        """Returns a the full url concatenated with the resource class name
-        """
+        """Returns a the full url concatenated with the resource class name"""
         return self._connection.url + self.path_attribute
 
     @property
@@ -204,29 +180,17 @@ class Resource(object):
         :param filters: Filter arguments like page, per_page
         """
         params = filters or {}
-        params.update({
-            'page': page,
-            'per_page': self._per_page,
-            'expand': 'true'
-        })
+        params.update({"page": page, "per_page": self._per_page, "expand": "true"})
         response = self._connection.session.get(self.url, params=params)
         data = self._raise_or_return_json(response)
-        return Pagination(
-            items=data,
-            resource=self,
-            filters=filters,
-            page=page
-        )
+        return Pagination(items=data, resource=self, filters=filters, page=page)
 
     def search(self, params):
         """Search using the given parameters
 
         :param params: Search parameters
         """
-        response = self._connection.session.get(
-            self.url + '/search',
-            params=params
-        )
+        response = self._connection.session.get(self.url + "/search", params=params)
         return self._raise_or_return_json(response)
 
     def find(self, id):
@@ -234,9 +198,7 @@ class Resource(object):
 
         :param id: Resource id
         """
-        response = self._connection.session.get(
-            self.url + '/%s?expand=true' % id
-        )
+        response = self._connection.session.get(self.url + "/%s?expand=true" % id)
         return self._raise_or_return_json(response)
 
     def create(self, params):
@@ -244,10 +206,7 @@ class Resource(object):
 
         :param params: Resource data for creating
         """
-        response = self._connection.session.post(
-            self.url + '?expand=true',
-            json=params
-        )
+        response = self._connection.session.post(self.url + "?expand=true", json=params)
         return self._raise_or_return_json(response)
 
     def update(self, id, params):
@@ -256,10 +215,7 @@ class Resource(object):
         :param id: Resource id
         :param params: Resource data for updating
         """
-        response = self._connection.session.put(
-            self.url + '/%s' % id,
-            json=params
-        )
+        response = self._connection.session.put(self.url + "/%s" % id, json=params)
         return self._raise_or_return_json(response)
 
     def destroy(self, id):
@@ -267,25 +223,23 @@ class Resource(object):
 
         :param id: Resource id
         """
-        response = self._connection.session.delete(
-            self.url + '/%s?expand=true' % id
-        )
+        response = self._connection.session.delete(self.url + "/%s?expand=true" % id)
         return self._raise_or_return_json(response)
 
 
 class Group(Resource):
 
-    path_attribute = 'groups'
+    path_attribute = "groups"
 
 
 class Organization(Resource):
 
-    path_attribute = 'organizations'
+    path_attribute = "organizations"
 
 
 class Ticket(Resource):
 
-    path_attribute = 'tickets'
+    path_attribute = "tickets"
 
     def articles(self, id):
         """Returns all the articles associated with the ticket id
@@ -293,20 +247,19 @@ class Ticket(Resource):
         :param id: Ticket id
         """
         response = self._connection.session.get(
-            self._connection.url +
-            'ticket_articles/by_ticket/%s?expand=true' % id
+            self._connection.url + "ticket_articles/by_ticket/%s?expand=true" % id
         )
         return self._raise_or_return_json(response)
 
 
 class TicketArticle(Resource):
 
-    path_attribute = 'ticket_articles'
+    path_attribute = "ticket_articles"
 
 
 class TicketArticleAttachment(Resource):
 
-    path_attribute = 'ticket_attachment'
+    path_attribute = "ticket_attachment"
 
     def download(self, id, article_id, ticket_id):
         """Download the ticket attachment associated with the ticket id
@@ -316,59 +269,53 @@ class TicketArticleAttachment(Resource):
         :param ticket_id: Ticket id
         """
         response = self._connection.session.get(
-            self.url + '/%s/%s/%s' % (ticket_id, article_id, id)
+            self.url + f"/{ticket_id}/{article_id}/{id}"
         )
         return self._raise_or_return_json(response)
 
 
 class TicketPriority(Resource):
 
-    path_attribute = 'ticket_priorities'
+    path_attribute = "ticket_priorities"
 
 
 class TicketState(Resource):
 
-    path_attribute = 'ticket_states'
+    path_attribute = "ticket_states"
 
 
 class User(Resource):
 
-    path_attribute = 'users'
+    path_attribute = "users"
 
     def me(self):
-        """Returns current user information
-        """
-        response = self._connection.session.get(self.url + '/me')
+        """Returns current user information"""
+        response = self._connection.session.get(self.url + "/me")
         return self._raise_or_return_json(response)
 
 
 class OnlineNotification(Resource):
 
-    path_attribute = 'online_notifications'
+    path_attribute = "online_notifications"
 
     def mark_all_read(self):
-        """Marks all online notification as read
-        """
-        response = self._connection.session.post(
-            self.url + '/mark_all_as_read'
-        )
+        """Marks all online notification as read"""
+        response = self._connection.session.post(self.url + "/mark_all_as_read")
         return self._raise_or_return_json(response)
 
 
 class Object(Resource):
 
-    path_attribute = 'object_manager_attributes'
+    path_attribute = "object_manager_attributes"
 
     def execute_migrations(self):
-        """Executes all database migrations
-        """
+        """Executes all database migrations"""
         response = self._connection.session.post(
-            self._connection.url +
-            'object_manager_attributes_execute_migrations'
+            self._connection.url + "object_manager_attributes_execute_migrations"
         )
         return self._raise_or_return_json(response)
 
 
 class TagList(Resource):
 
-    path_attribute = 'tag_list'
+    path_attribute = "tag_list"
