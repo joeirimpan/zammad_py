@@ -23,6 +23,9 @@ requests = "^2.25.1"
 pytest = "^7.0.1"
 vcrpy = "^4.1.1"
 
+[tool.mypy]
+files = "zammad_py"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
