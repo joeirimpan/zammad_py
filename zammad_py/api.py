@@ -1,6 +1,8 @@
 """Main module."""
 import atexit
+from abc import ABC, abstractmethod
 from contextlib import contextmanager
+from typing import Any, Generator, Optional
 
 import requests
 from requests.exceptions import HTTPError
@@ -13,13 +15,13 @@ __all__ = ["ZammadAPI"]
 class ZammadAPI:
     def __init__(
         self,
-        url,
-        username=None,
-        password=None,
-        http_token=None,
-        oauth2_token=None,
-        on_behalf_of=None,
-    ):
+        url: str,
+        username: Optional[str] = None,
+        password: Optional[str] = None,
+        http_token: Optional[str] = None,
+        oauth2_token: Optional[str] = None,
+        on_behalf_of: Optional[str] = None,
+    ) -> None:
         self.url = url
         self._username = username
         self._password = password
@@ -35,13 +37,15 @@ class ZammadAPI:
             self.session.headers["Authorization"] = "Token token=%s" % self._http_token
         elif oauth2_token:
             self.session.headers["Authorization"] = "Bearer %s" % self._oauth2_token
-        else:
+        elif self._username and self._password:  # noqa: SIM106
             self.session.auth = (self._username, self._password)
+        else:
+            raise ValueError("invalid auth")
 
         if self._on_behalf_of:
             self.session.headers["X-On-Behalf-Of"] = self._on_behalf_of
 
-    def _check_config(self):
+    def _check_config(self) -> None:
         """Check the configuration"""
         if not self.url:
             raise ConfigException("Missing url in config")
@@ -55,63 +59,68 @@ class ZammadAPI:
             raise ConfigException("Missing password in config")
 
     @property
-    def on_behalf_of(self):
+    def on_behalf_of(self) -> Optional[str]:
         return self._on_behalf_of
 
     @on_behalf_of.setter
-    def on_behalf_of(self, value):
+    def on_behalf_of(self, value: str) -> None:
         self._on_behalf_of = value
         self.session.headers["X-On-Behalf-Of"] = self._on_behalf_of
 
     @contextmanager
-    def request_on_behalf_of(self, on_behalf_of):
+    def request_on_behalf_of(
+        self, on_behalf_of: str
+    ) -> Generator["ZammadAPI", None, None]:
+        initial_value = self.session.headers["X-On-Behalf-Of"]
         self.session.headers["X-On-Behalf-Of"] = on_behalf_of
         yield self
-        self.session.headers["X-On-Behalf-Of"] = self._on_behalf_of
+        self.session.headers["X-On-Behalf-Of"] = initial_value
 
     @property
-    def group(self):
+    def group(self) -> "Group":
         """Return a `Group` instance"""
         return Group(connection=self)
 
     @property
-    def organization(self):
+    def organization(self) -> "Organization":
         """Return a `Organization` instance"""
         return Organization(connection=self)
 
     @property
-    def ticket(self):
+    def ticket(self) -> "Ticket":
         """Return a `Ticket` instance"""
         return Ticket(connection=self)
 
     @property
-    def ticket_article(self):
+    def ticket_article(self) -> "TicketArticle":
         """Return a `TicketArticle` instance"""
         return TicketArticle(connection=self)
 
     @property
-    def ticket_article_attachment(self):
+    def ticket_article_attachment(self) -> "TicketArticleAttachment":
         """Return a `TicketArticleAttachment` instance"""
         return TicketArticleAttachment(connection=self)
 
     @property
-    def ticket_priority(self):
+    def ticket_priority(self) -> "TicketPriority":
         """Return a `TicketPriority` instance"""
         return TicketPriority(connection=self)
 
     @property
-    def ticket_state(self):
+    def ticket_state(self) -> "TicketState":
         """Return a `TicketState` instance"""
         return TicketState(connection=self)
 
     @property
-    def user(self):
+    def user(self) -> "User":
         """Return a `User` instance"""
         return User(connection=self)
 
 
 class Pagination:
-    def __init__(self, items, resource, filters=None, page=1):
+    def __init__(
+        self, items, resource: "Resource", filters=None, page: int = 1
+    ) -> None:
         self._items = items
         self._page = page
         self._resource = resource
@@ -120,43 +129,48 @@ class Pagination:
     def __iter__(self):
         yield from self._items
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self._items)
 
-    def __getitem__(self, index):
+    def __getitem__(self, index: int):
         return self._items[index]
 
-    def __setitem__(self, index, value):
+    def __setitem__(self, index: int, value) -> None:
         self._items[index] = value
 
-    def next_page(self):
+    def next_page(self) -> "Pagination":
         self._page += 1
         return self._resource.all(page=self._page, filters=self._filters)
 
-    def prev_page(self):
+    def prev_page(self) -> "Pagination":
         self._page -= 1
         return self._resource.all(page=self._page, filters=self._filters)
 
 
-class Resource:
-    def __init__(self, connection, per_page=10):
+class Resource(ABC):
+    def __init__(self, connection: ZammadAPI, per_page: int = 10) -> None:
         self._connection = connection
         self._per_page = per_page
 
     @property
-    def url(self):
+    @abstractmethod
+    def path_attribute(self) -> str:
+        ...
+
+    @property
+    def url(self) -> str:
         """Returns a the full url concatenated with the resource class name"""
         return self._connection.url + self.path_attribute
 
     @property
-    def per_page(self):
+    def per_page(self) -> int:
         return self._per_page
 
     @per_page.setter
-    def per_page(self, value):
+    def per_page(self, value: int) -> None:
         self._per_page = value
 
-    def _raise_or_return_json(self, response):
+    def _raise_or_return_json(self, response: requests.Response) -> Any:
         """Raise HTTPError before converting response to json
 
         :param response: Request response object
@@ -173,7 +187,7 @@ class Resource:
         else:
             return json_value
 
-    def all(self, page=1, filters=None):
+    def all(self, page: int = 1, filters=None) -> Pagination:
         """Returns the list of resources
 
         :param page: Page number
