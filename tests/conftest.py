@@ -1,13 +1,7 @@
-import os
-import sys
+import pytest
+import vcr
 
-testpath = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, testpath + "/../")
-
-import pytest  # noqa
-import vcr  # noqa
-
-from zammad_py import ZammadAPI  # noqa
+from zammad_py import ZammadAPI
 
 zammad_vcr = vcr.VCR(
     filter_headers=[
