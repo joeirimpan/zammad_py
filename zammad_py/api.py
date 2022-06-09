@@ -21,7 +21,7 @@ class ZammadAPI:
         http_token: Optional[str] = None,
         oauth2_token: Optional[str] = None,
         on_behalf_of: Optional[str] = None,
-        additional_headers: List[Tuple[str, str]] = None,
+        additional_headers: Optional[List[Tuple[str, str]]] = None,
     ) -> None:
         self.url = url
         self._username = username
