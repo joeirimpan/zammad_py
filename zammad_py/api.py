@@ -102,6 +102,12 @@ class ZammadAPI:
         return TicketArticleAttachment(connection=self)
 
     @property
+    def ticket_article_plain(self):
+        """Return a `TicketArticlePlain` instance
+        """
+        return TicketArticlePlain(connection=self)
+
+    @property
     def ticket_priority(self) -> "TicketPriority":
         """Return a `TicketPriority` instance"""
         return TicketPriority(connection=self)
@@ -284,6 +290,21 @@ class TicketArticleAttachment(Resource):
         """
         response = self._connection.session.get(
             self.url + f"/{ticket_id}/{article_id}/{id}"
+        )
+        return self._raise_or_return_json(response)
+
+
+class TicketArticlePlain(Resource):
+
+    path_attribute = 'ticket_article_plain'
+
+    def download(self, article_id):
+        """Download the ticket article in raw format
+
+        :param article_id: Ticket article id
+        """
+        response = self._connection.session.get(
+            self.url + '/%s' % (article_id)
         )
         return self._raise_or_return_json(response)
 
