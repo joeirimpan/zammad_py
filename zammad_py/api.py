@@ -304,16 +304,6 @@ class TicketArticlePlain(Resource):
 
     path_attribute = 'ticket_article_plain'
 
-    def download(self, article_id):
-        """Download the ticket article in raw format
-
-        :param article_id: Ticket article id
-        """
-        response = self._connection.session.get(
-            self.url + '/%s' % (article_id)
-        )
-        return self._raise_or_return_json(response)
-
 
 class TicketPriority(Resource):
 
