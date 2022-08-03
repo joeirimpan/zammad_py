@@ -46,7 +46,7 @@ class ZammadAPI:
 
         if self._on_behalf_of:
             self.session.headers["X-On-Behalf-Of"] = self._on_behalf_of
-        
+
         if self._additional_headers:
             for additional_header in self._additional_headers:
                 self.session.headers[additional_header[0]] = additional_header[1]
