@@ -1,19 +1,11 @@
-# -*- coding: utf-8 -*-
-import sys
-import os
+import pytest
+import vcr
 
-testpath = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, testpath + '/../')
-
-import vcr  # noqa
-import pytest  # noqa
-
-from zammad_py import ZammadAPI # noqa
-
+from zammad_py import ZammadAPI
 
 zammad_vcr = vcr.VCR(
     filter_headers=[
-        'Authorization',
+        "Authorization",
     ]
 )
 

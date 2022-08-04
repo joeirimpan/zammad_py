@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "zammad_py"
+version = "1.0.1"
+description = "Python API client for zammad"
+authors = ["Joe Paul <joeirimpan@gmail.com>"]
+license = "MIT"
+classifiers = [
+        'Development Status :: 2 - Pre-Alpha',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Natural Language :: English',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+    ]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "^2.25.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0.1"
+vcrpy = "^4.1.1"
+
+[tool.mypy]
+files = "zammad_py"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

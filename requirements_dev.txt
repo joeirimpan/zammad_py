@@ -1,6 +1,0 @@
--r requirements.txt
-
-
-flake8==3.5.0
-pytest==6.2.4
-vcrpy==2.0.1

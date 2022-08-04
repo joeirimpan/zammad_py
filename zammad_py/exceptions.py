@@ -1,4 +1,2 @@
-
-
 class ConfigException(Exception):
     pass
