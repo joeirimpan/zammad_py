@@ -108,9 +108,8 @@ class ZammadAPI:
         return TicketArticleAttachment(connection=self)
 
     @property
-    def ticket_article_plain(self):
-        """Return a `TicketArticlePlain` instance
-        """
+    def ticket_article_plain(self) -> "TicketArticlePlain":
+        """Return a `TicketArticlePlain` instance"""
         return TicketArticlePlain(connection=self)
 
     @property
@@ -302,7 +301,7 @@ class TicketArticleAttachment(Resource):
 
 class TicketArticlePlain(Resource):
 
-    path_attribute = 'ticket_article_plain'
+    path_attribute = "ticket_article_plain"
 
 
 class TicketPriority(Resource):
