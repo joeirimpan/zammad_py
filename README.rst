@@ -92,13 +92,17 @@ TicketArticleAttachment resource has the .download() method to download a ticket
 Object resource has the .execute_migrations() method to run migrations on an object.
 
 Contributing
+------------
 The Zammad API Client (zammad_py) welcomes contributions.
+
 You can contribute by reporting bugs, fixing bugs, implementing new features, writing documentation, and submitting feedback.
+
 To get started, see the contributing section in the docs!
+
 Please ensure that your changes include tests and updated documentation if necessary.
 
 Credits
----------
+-------
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
