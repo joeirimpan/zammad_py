@@ -10,9 +10,10 @@ classifiers = [
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ]
 
 [tool.poetry.dependencies]
@@ -22,6 +23,8 @@ requests = "^2.25.1"
 [tool.poetry.dev-dependencies]
 pytest = "^7.0.1"
 vcrpy = "^4.1.1"
+sphinx = ">5.3.0"
+flake8 = ">5.0.4"
 
 [tool.mypy]
 files = "zammad_py"

@@ -1,5 +1,5 @@
 Welcome to Zammad API Client's documentation!
-======================================
+=============================================
 
 Contents:
 
