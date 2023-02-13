@@ -98,6 +98,12 @@ class ZammadAPI:
         return Ticket(connection=self)
 
     @property
+    def link(self):
+        """Return a `Link` instance
+        """
+        return Link(connection=self)
+
+    @property
     def ticket_article(self) -> "TicketArticle":
         """Return a `TicketArticle` instance"""
         return TicketArticle(connection=self)
@@ -276,6 +282,54 @@ class Ticket(Resource):
         )
         return self._raise_or_return_json(response)
 
+class Link(Resource):
+
+    path_attribute = 'links'
+    def add(self, link_object_target_value, link_object_source_number, link_type='normal', link_object_target='Ticket', link_object_source='Ticket'):
+        """Create the link
+
+        :param params: Resource data for creating
+        """
+        params= {
+           "link_type": link_type,
+           "link_object_target": link_object_target,
+           "link_object_target_value": link_object_target_value,
+           "link_object_source": link_object_source,
+           "link_object_source_number": link_object_source_number
+        }
+
+        response = self._connection.session.post(self.url + "add/", json=params)
+        return self._raise_or_return_json(response)
+
+    def remove(self, link_object_target_value, link_object_source_number, link_type='normal', link_object_target='Ticket', link_object_source='Ticket'):
+        """Create the requested resource
+
+        :param params: Resource data for creating
+        """
+        params = {
+           "link_type": link_type,
+           "link_object_target": link_object_target,
+           "link_object_target_value": link_object_target_value,
+           "link_object_source": link_object_source,
+           "link_object_source_number": link_object_source_number
+        }
+
+        response = self._connection.session.post(self.url + "add/", json=params)
+        return self._raise_or_return_json(response)
+
+    def get(self, id):
+        """Returns all the links associated with the ticket id
+
+        :param id: Ticket id
+        """
+        params= {
+            "link_object": "Ticket",
+            "link_object_value": id
+}
+        response = self._connection.session.get(
+            self._connection.url + self.path_attribute, params=params
+        )
+        return self._raise_or_return_json(response)
 
 class TicketArticle(Resource):
 
