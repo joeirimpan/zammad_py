@@ -68,7 +68,7 @@ Ready to contribute? Here's how to set up `zammad_py` for local development.
 
 1. Install poetry
 
-    $ pip3 install poetry
+    $ pip3 install poetry flask8 sphinx
 
 2. Fork the `zammad_py` repo on GitHub.
 
