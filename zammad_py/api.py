@@ -293,7 +293,8 @@ class Ticket(Resource):
         """
 
         response = self._connection.session.put(
-            self._connection.url + "ticket_merge/%s/%s" % (id, number))
+            self._connection.url + f"ticket_merge/{id}/{number}"
+        )
         return self._raise_or_return_json(response)
 
 class Link(Resource):
