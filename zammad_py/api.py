@@ -77,6 +77,12 @@ class ZammadAPI:
     def request_on_behalf_of(
         self, on_behalf_of: str
     ) -> Generator["ZammadAPI", None, None]:
+        """
+        Use X-On-Behalf-Of Header, see https://docs.zammad.org/en/latest/api/intro.html?highlight=on%20behalf#actions-on-behalf-of-other-users
+
+        :param on_behalf_of: The value of this header can be one of the following: user ID, login or email
+
+        """
         initial_value = self.session.headers["X-On-Behalf-Of"]
         self.session.headers["X-On-Behalf-Of"] = on_behalf_of
         yield self
@@ -237,7 +243,7 @@ class Resource(ABC):
 
         :param params: Resource data for creating
         """
-        response = self._connection.session.post(self.url + "?expand=true", json=params)
+        response = self._connection.session.post(self.url, json=params)
         return self._raise_or_return_json(response)
 
     def update(self, id, params):
@@ -254,7 +260,7 @@ class Resource(ABC):
 
         :param id: Resource id
         """
-        response = self._connection.session.delete(self.url + "/%s?expand=true" % id)
+        response = self._connection.session.delete(self.url + "/%s" % id)
         return self._raise_or_return_json(response)
 
 
@@ -288,7 +294,13 @@ class Link(Resource):
     def add(self, link_object_target_value, link_object_source_number, link_type='normal', link_object_target='Ticket', link_object_source='Ticket'):
         """Create the link
 
-        :param params: Resource data for creating
+        :params link_type: Link type (for now*: 'normal')
+        :params link_object_target: (for now*: 'Ticket')
+        :params link_object_target_value: The Ticket Number (Not the ID!)
+        :params link_object_source: (for now*: 'Ticket')
+        :params link_object_source_number: The Ticket Number (Not the ID!)
+
+        *Currently, only Tickets can be linked together.
         """
         params= {
            "link_type": link_type,
@@ -302,9 +314,13 @@ class Link(Resource):
         return self._raise_or_return_json(response)
 
     def remove(self, link_object_target_value, link_object_source_number, link_type='normal', link_object_target='Ticket', link_object_source='Ticket'):
-        """Create the requested resource
+        """Remove the Link
 
-        :param params: Resource data for creating
+        :params link_type: Link type (for now: 'normal')
+        :params link_object_target: (for now: 'Ticket')
+        :params link_object_target_value: The Ticket Number (Not the ID!)
+        :params link_object_source: (for now: 'Ticket')
+        :params link_object_source_number: The Ticket Number (Not the ID!)
         """
         params = {
            "link_type": link_type,

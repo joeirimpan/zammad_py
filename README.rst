@@ -27,38 +27,82 @@ Python API client for zammad
 Quickstart
 ----------
 
-.. code-block:: python
-
-    from zammad_py import ZammadAPI
-    client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
-    print client.user.me()
-
-
-User Resource
--------------
 
 .. code-block:: python
 
     from zammad_py import ZammadAPI
+
+    # Initialize the client with the URL, username, and password
     client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
 
-    print client.user.me()
-    # all return a paginated response
+    # Example: Access all users
     this_page = client.user.all()
-    next_page = this_page.next_page()
-    prev_page = this_page.prev_page()
-    # Iterate through page object
     for user in this_page:
-        print user
-    print client.user.search({'firstname': 'Joe'})
-    print client.user.find(3)
-    print client.user.create({'firstname': 'Joe'})
-    print client.user.update(3, {'firstname': 'Paul'})
-    print client.user.destroy(3)
+        print(user)
 
+    # Example: Get information about the current user
+    print(client.user.me())
+
+    # Example: Create a ticket
+    params = {
+       "title": "Help me!",
+       "group": "2nd Level",
+       "customer": "david@example.com",
+       "article": {
+          "subject": "My subject",
+          "body": "I am a message!",
+          "type": "note",
+          "internal": false
+       }
+    }
+    new_ticket = client.ticket.create(params=params)
+
+
+
+General Methods
+---------------
+Most resources support these methods:
+
+.all(): Returns a paginated response with the current page number and a list of elements.
+
+.next_page(): Returns the next page of the current pagination object.
+
+.prev_page(): Returns the previous page of the current pagination object.
+
+.search(params): Returns a paginated response based on the search parameters.
+
+.find(id): Returns a single object with the specified ID.
+
+.create(params): Creates a new object with the specified parameters.
+
+.update(params): Updates an existing object with the specified parameters.
+
+.destroy(id): Deletes an object with the specified ID.
+
+Additional Resource Methods
+---------------------------
+User resource also has the .me() method to get information about the current user.
+
+Ticket resource also has the .articles() method to get the articles associated with a ticket.
+
+Link resource has methods to list, add, and delete links between objects.
+
+TicketArticleAttachment resource has the .download() method to download a ticket attachment.
+
+Object resource has the .execute_migrations() method to run migrations on an object.
+
+Contributing
+------------
+The Zammad API Client (zammad_py) welcomes contributions.
+
+You can contribute by reporting bugs, fixing bugs, implementing new features, writing documentation, and submitting feedback.
+
+To get started, see the contributing section in the docs!
+
+Please ensure that your changes include tests and updated documentation if necessary.
 
 Credits
----------
+-------
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 

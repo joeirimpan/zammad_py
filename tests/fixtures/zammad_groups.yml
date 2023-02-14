@@ -80,7 +80,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/groups?expand=true
+    uri: http://localhost/api/v1/groups
   response:
     body: {string: !!python/unicode '{"id":2,"signature_id":null,"email_address_id":null,"name":"Name1","assignment_timeout":null,"follow_up_possible":"yes","follow_up_assignment":true,"active":true,"note":"note1","updated_by_id":3,"created_by_id":3,"created_at":"2017-10-25T09:30:16.838Z","updated_at":"2017-10-25T09:30:16.838Z","user_ids":[],"users":[],"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -147,7 +147,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/groups/2?expand=true
+    uri: http://localhost/api/v1/groups/2
   response:
     body:
       string: !!binary |

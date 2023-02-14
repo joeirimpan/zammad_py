@@ -55,7 +55,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "Zammad API Client"
-copyright = "2017, Joe Paul"
+copyright = "2023, Joe Paul"
 
 # The version info for the project you're documenting, acts as replacement
 # for |version| and |release|, also used in various other places throughout
@@ -257,7 +257,7 @@ texinfo_documents = [
         "Zammad API Client Documentation",
         "Joe Paul",
         "zammad_py",
-        "One line description of project.",
+        "Python Module for interacting with the zammad api.",
         "Miscellaneous",
     ),
 ]

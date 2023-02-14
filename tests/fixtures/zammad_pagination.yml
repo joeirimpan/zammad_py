@@ -9,7 +9,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":9,"organization_id":null,"login":"robot0@mr.com","firstname":"","lastname":"","email":"robot0@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:19.097Z","updated_at":"2017-11-13T11:03:19.097Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -40,7 +40,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":10,"organization_id":null,"login":"robot1@mr.com","firstname":"","lastname":"","email":"robot1@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:21.701Z","updated_at":"2017-11-13T11:03:21.701Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -71,7 +71,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":11,"organization_id":null,"login":"robot2@mr.com","firstname":"","lastname":"","email":"robot2@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:23.593Z","updated_at":"2017-11-13T11:03:23.593Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -102,7 +102,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":12,"organization_id":null,"login":"robot3@mr.com","firstname":"","lastname":"","email":"robot3@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:25.466Z","updated_at":"2017-11-13T11:03:25.466Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -133,7 +133,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":13,"organization_id":null,"login":"robot4@mr.com","firstname":"","lastname":"","email":"robot4@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:27.445Z","updated_at":"2017-11-13T11:03:27.445Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -164,7 +164,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":14,"organization_id":null,"login":"robot5@mr.com","firstname":"","lastname":"","email":"robot5@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:29.717Z","updated_at":"2017-11-13T11:03:29.717Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -195,7 +195,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":15,"organization_id":null,"login":"robot6@mr.com","firstname":"","lastname":"","email":"robot6@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:31.641Z","updated_at":"2017-11-13T11:03:31.641Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -226,7 +226,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":16,"organization_id":null,"login":"robot7@mr.com","firstname":"","lastname":"","email":"robot7@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:33.601Z","updated_at":"2017-11-13T11:03:33.601Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -257,7 +257,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":17,"organization_id":null,"login":"robot8@mr.com","firstname":"","lastname":"","email":"robot8@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:35.598Z","updated_at":"2017-11-13T11:03:35.598Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -288,7 +288,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":18,"organization_id":null,"login":"robot9@mr.com","firstname":"","lastname":"","email":"robot9@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:37.576Z","updated_at":"2017-11-13T11:03:37.576Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -319,7 +319,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":19,"organization_id":null,"login":"robot10@mr.com","firstname":"","lastname":"","email":"robot10@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:39.524Z","updated_at":"2017-11-13T11:03:39.524Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -350,7 +350,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":20,"organization_id":null,"login":"robot11@mr.com","firstname":"","lastname":"","email":"robot11@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:41.482Z","updated_at":"2017-11-13T11:03:41.482Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -381,7 +381,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":21,"organization_id":null,"login":"robot12@mr.com","firstname":"","lastname":"","email":"robot12@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:43.620Z","updated_at":"2017-11-13T11:03:43.620Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -412,7 +412,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":22,"organization_id":null,"login":"robot13@mr.com","firstname":"","lastname":"","email":"robot13@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:45.602Z","updated_at":"2017-11-13T11:03:45.602Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -443,7 +443,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":23,"organization_id":null,"login":"robot14@mr.com","firstname":"","lastname":"","email":"robot14@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:47.741Z","updated_at":"2017-11-13T11:03:47.741Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -474,7 +474,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":24,"organization_id":null,"login":"robot15@mr.com","firstname":"","lastname":"","email":"robot15@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:49.904Z","updated_at":"2017-11-13T11:03:49.904Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -505,7 +505,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":25,"organization_id":null,"login":"robot16@mr.com","firstname":"","lastname":"","email":"robot16@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:51.988Z","updated_at":"2017-11-13T11:03:51.988Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -536,7 +536,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":26,"organization_id":null,"login":"robot17@mr.com","firstname":"","lastname":"","email":"robot17@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:54.002Z","updated_at":"2017-11-13T11:03:54.002Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -567,7 +567,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":27,"organization_id":null,"login":"robot18@mr.com","firstname":"","lastname":"","email":"robot18@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:56.237Z","updated_at":"2017-11-13T11:03:56.237Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -598,7 +598,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":28,"organization_id":null,"login":"robot19@mr.com","firstname":"","lastname":"","email":"robot19@mr.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-11-13T11:03:58.159Z","updated_at":"2017-11-13T11:03:58.159Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -779,7 +779,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/9?expand=true
+    uri: http://localhost/api/v1/users/9
   response:
     body:
       string: !!binary |
@@ -812,7 +812,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/10?expand=true
+    uri: http://localhost/api/v1/users/10
   response:
     body:
       string: !!binary |
@@ -845,7 +845,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/11?expand=true
+    uri: http://localhost/api/v1/users/11
   response:
     body:
       string: !!binary |
@@ -878,7 +878,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/12?expand=true
+    uri: http://localhost/api/v1/users/12
   response:
     body:
       string: !!binary |
@@ -911,7 +911,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/13?expand=true
+    uri: http://localhost/api/v1/users/13
   response:
     body:
       string: !!binary |
@@ -944,7 +944,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/14?expand=true
+    uri: http://localhost/api/v1/users/14
   response:
     body:
       string: !!binary |
@@ -977,7 +977,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/15?expand=true
+    uri: http://localhost/api/v1/users/15
   response:
     body:
       string: !!binary |
@@ -1010,7 +1010,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/16?expand=true
+    uri: http://localhost/api/v1/users/16
   response:
     body:
       string: !!binary |
@@ -1043,7 +1043,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/17?expand=true
+    uri: http://localhost/api/v1/users/17
   response:
     body:
       string: !!binary |
@@ -1076,7 +1076,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/18?expand=true
+    uri: http://localhost/api/v1/users/18
   response:
     body:
       string: !!binary |
@@ -1109,7 +1109,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/19?expand=true
+    uri: http://localhost/api/v1/users/19
   response:
     body:
       string: !!binary |
@@ -1142,7 +1142,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/20?expand=true
+    uri: http://localhost/api/v1/users/20
   response:
     body:
       string: !!binary |
@@ -1175,7 +1175,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/21?expand=true
+    uri: http://localhost/api/v1/users/21
   response:
     body:
       string: !!binary |
@@ -1208,7 +1208,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/22?expand=true
+    uri: http://localhost/api/v1/users/22
   response:
     body:
       string: !!binary |
@@ -1241,7 +1241,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/23?expand=true
+    uri: http://localhost/api/v1/users/23
   response:
     body:
       string: !!binary |
@@ -1274,7 +1274,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/24?expand=true
+    uri: http://localhost/api/v1/users/24
   response:
     body:
       string: !!binary |
@@ -1307,7 +1307,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/25?expand=true
+    uri: http://localhost/api/v1/users/25
   response:
     body:
       string: !!binary |
@@ -1340,7 +1340,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/26?expand=true
+    uri: http://localhost/api/v1/users/26
   response:
     body:
       string: !!binary |
@@ -1373,7 +1373,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/27?expand=true
+    uri: http://localhost/api/v1/users/27
   response:
     body:
       string: !!binary |
@@ -1406,7 +1406,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/28?expand=true
+    uri: http://localhost/api/v1/users/28
   response:
     body:
       string: !!binary |

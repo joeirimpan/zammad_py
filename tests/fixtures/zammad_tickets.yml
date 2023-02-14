@@ -91,7 +91,7 @@ interactions:
       Content-Type: [application/json]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/tickets?expand=true
+    uri: http://localhost/api/v1/tickets
   response:
     body: {string: !!python/unicode '{"id":6,"group_id":1,"priority_id":2,"state_id":1,"organization_id":1,"number":"25006","title":"some
         new title","owner_id":1,"customer_id":2,"note":null,"first_response_at":null,"first_response_escalation_at":null,"first_response_in_min":null,"first_response_diff_in_min":null,"close_at":null,"close_escalation_at":null,"close_in_min":null,"close_diff_in_min":null,"update_escalation_at":null,"update_in_min":null,"update_diff_in_min":null,"last_contact_at":null,"last_contact_agent_at":null,"last_contact_customer_at":null,"last_owner_update_at":null,"create_article_type_id":10,"create_article_sender_id":2,"article_count":1,"escalation_at":null,"pending_time":null,"type":null,"time_unit":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-10-25T07:33:44.242Z","updated_at":"2017-10-25T07:33:44.323Z","article_ids":[4],"group":"Users","ticket_time_accounting":[],"organization":"Zammad
@@ -162,7 +162,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/tickets/6?expand=true
+    uri: http://localhost/api/v1/tickets/6
   response:
     body:
       string: !!binary |

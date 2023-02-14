@@ -133,7 +133,7 @@ interactions:
       Content-Type: [application/x-www-form-urlencoded]
       User-Agent: [Zammad API Python]
     method: POST
-    uri: http://localhost/api/v1/users?expand=true
+    uri: http://localhost/api/v1/users
   response:
     body: {string: !!python/unicode '{"id":5,"organization_id":null,"login":"auto-1508851499-980327","firstname":"TestUser","lastname":"LastName","email":"","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-10-24T13:24:59.719Z","updated_at":"2017-10-24T13:24:59.719Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
     headers:
@@ -203,7 +203,7 @@ interactions:
       Content-Length: ['0']
       User-Agent: [Zammad API Python]
     method: DELETE
-    uri: http://localhost/api/v1/users/5?expand=true
+    uri: http://localhost/api/v1/users/5
   response:
     body: {string: !!python/unicode '{}'}
     headers:
