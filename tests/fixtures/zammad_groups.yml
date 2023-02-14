@@ -42,7 +42,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [Zammad API Python]
     method: GET
-    uri: http://localhost/api/v1/groups/1?expand=true
+    uri: http://localhost/api/v1/groups/1
   response:
     body:
       string: !!binary |
