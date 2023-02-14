@@ -297,6 +297,7 @@ class Ticket(Resource):
         )
         return self._raise_or_return_json(response)
 
+
 class Link(Resource):
     path_attribute = "links"
 
