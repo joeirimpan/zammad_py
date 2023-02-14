@@ -234,7 +234,7 @@ class Resource(ABC):
 
         :param id: Resource id
         """
-        response = self._connection.session.get(self.url + "/%s?expand=true" % id)
+        response = self._connection.session.get(self.url + "/%s" % id)
         return self._raise_or_return_json(response)
 
     def create(self, params):
@@ -281,6 +281,19 @@ class Ticket(Resource):
         """
         response = self._connection.session.get(
             self._connection.url + "ticket_articles/by_ticket/%s?expand=true" % id
+        )
+        return self._raise_or_return_json(response)
+
+    def merge(self, id, number):
+        """Merges two tickets, (undocumented in Zammad Docs)
+        If the objects are already merged, it will return "Object already exists!"
+        Attention: Must use password to authenticate to Zammad, otherwise this will not work!
+        :param id: Ticket id of the child
+        :param number: Ticket Number of the Parent
+        """
+
+        response = self._connection.session.put(
+            self._connection.url + f"ticket_merge/{id}/{number}"
         )
         return self._raise_or_return_json(response)
 

@@ -152,6 +152,19 @@ The :class:`~zammad_py.api.Ticket` resource also has the :meth:`~zammad_py.api.T
     ticketarticles = client.ticket.articles
     print(ticketarticles)
 
+
+Further, it has the :meth:`~zammad_py.api.Ticket.merge()` method, that allows to merge two tickets. (This is not documented in the Zammad API Documentation)
+The method requires the Ticket id of the Child (The ticket you want to merge into the parent) and the Ticket Number of the Parent Ticket. (The ticket you want to contain the articles of the child after merging.)
+
+Important: If you want to use the merge functionality, you need to use password, not http_token for your authentication.
+
+.. code-block:: python
+
+    from zammad_py import ZammadAPI
+    client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
+    client.ticket.merge(id=<ID>,number=<NUMBER>)
+
+
 Link Resource
 -------------
 
