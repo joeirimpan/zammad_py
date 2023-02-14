@@ -105,8 +105,7 @@ class ZammadAPI:
 
     @property
     def link(self):
-        """Return a `Link` instance
-        """
+        """Return a `Link` instance"""
         return Link(connection=self)
 
     @property
@@ -288,10 +287,19 @@ class Ticket(Resource):
         )
         return self._raise_or_return_json(response)
 
+
 class Link(Resource):
 
-    path_attribute = 'links'
-    def add(self, link_object_target_value, link_object_source_number, link_type='normal', link_object_target='Ticket', link_object_source='Ticket'):
+    path_attribute = "links"
+
+    def add(
+        self,
+        link_object_target_value,
+        link_object_source_number,
+        link_type="normal",
+        link_object_target="Ticket",
+        link_object_source="Ticket",
+    ):
         """Create the link
 
         :params link_type: Link type (for now*: 'normal')
@@ -302,18 +310,25 @@ class Link(Resource):
 
         *Currently, only Tickets can be linked together.
         """
-        params= {
-           "link_type": link_type,
-           "link_object_target": link_object_target,
-           "link_object_target_value": link_object_target_value,
-           "link_object_source": link_object_source,
-           "link_object_source_number": link_object_source_number
+        params = {
+            "link_type": link_type,
+            "link_object_target": link_object_target,
+            "link_object_target_value": link_object_target_value,
+            "link_object_source": link_object_source,
+            "link_object_source_number": link_object_source_number,
         }
 
         response = self._connection.session.post(self.url + "add/", json=params)
         return self._raise_or_return_json(response)
 
-    def remove(self, link_object_target_value, link_object_source_number, link_type='normal', link_object_target='Ticket', link_object_source='Ticket'):
+    def remove(
+        self,
+        link_object_target_value,
+        link_object_source_number,
+        link_type="normal",
+        link_object_target="Ticket",
+        link_object_source="Ticket",
+    ):
         """Remove the Link
 
         :params link_type: Link type (for now: 'normal')
@@ -323,11 +338,11 @@ class Link(Resource):
         :params link_object_source_number: The Ticket Number (Not the ID!)
         """
         params = {
-           "link_type": link_type,
-           "link_object_target": link_object_target,
-           "link_object_target_value": link_object_target_value,
-           "link_object_source": link_object_source,
-           "link_object_source_number": link_object_source_number
+            "link_type": link_type,
+            "link_object_target": link_object_target,
+            "link_object_target_value": link_object_target_value,
+            "link_object_source": link_object_source,
+            "link_object_source_number": link_object_source_number,
         }
 
         response = self._connection.session.post(self.url + "add/", json=params)
@@ -338,14 +353,12 @@ class Link(Resource):
 
         :param id: Ticket id
         """
-        params= {
-            "link_object": "Ticket",
-            "link_object_value": id
-}
+        params = {"link_object": "Ticket", "link_object_value": id}
         response = self._connection.session.get(
             self._connection.url + self.path_attribute, params=params
         )
         return self._raise_or_return_json(response)
+
 
 class TicketArticle(Resource):
 
