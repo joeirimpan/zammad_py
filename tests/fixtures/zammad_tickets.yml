@@ -46,7 +46,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [Zammad API Python]
     method: GET
-    uri: http://localhost/api/v1/tickets/1?expand=true
+    uri: http://localhost/api/v1/tickets/1
   response:
     body:
       string: !!binary |

@@ -17,6 +17,7 @@ Most Resources support these methods.
 
 .all()
    | Returns a paginated response with _page containing the page number and _items containing a list of elements.
+   | This allows to iterate over the objects.
 
 .. code-block:: python
 
@@ -48,8 +49,8 @@ Most Resources support these methods.
 
 
 .search(params)
-   | Can be called from the current page (pagination object)
-   | Contains the previous page object if there are any.
+   | Searches the object with a Zammad search query
+   | Learn more about Zammad Search queries here: https://user-docs.zammad.org/en/latest/advanced/search.html
 
 .. code-block:: python
 
@@ -59,8 +60,7 @@ Most Resources support these methods.
 
 
 .find(id)
-   | Can be called from the current page (pagination object)
-   | Contains the previous page object if there are any.
+   | Displays a Resource if you know the id.
 
 .. code-block:: python
 
@@ -70,8 +70,8 @@ Most Resources support these methods.
 
 
 .create(params)
-   | Can be called from the current page (pagination object)
-   | Contains the previous page object if there are any.
+   | Creates a new Resource.
+   | You can find the required structure for the params in the Zammad API Documentation.
 
 .. code-block:: python
 
@@ -92,8 +92,8 @@ Most Resources support these methods.
 
 
 .update(params)
-   | Can be called from the current page (pagination object)
-   | Contains the previous page object if there are any.
+   | Updates a resource.
+   | You can find the required structure for the params in the Zammad API Documentation.
 
 .. code-block:: python
 
@@ -104,8 +104,8 @@ Most Resources support these methods.
     org.update(params=params)
 
 .destroy(id)
-   | Can be called from the current page (pagination object)
-   | Contains the previous page object if there are any.
+   | Deletes a Resource.
+   | For some resources, you need special privileges. Refer to the Zammad API Documentation.
 
 .. code-block:: python
 
@@ -151,6 +151,19 @@ The :class:`~zammad_py.api.Ticket` resource also has the :meth:`~zammad_py.api.T
     print(client.ticket.find(<ID>))
     ticketarticles = client.ticket.articles
     print(ticketarticles)
+
+
+Further, it has the :meth:`~zammad_py.api.Ticket.merge()` method, that allows to merge two tickets. (This is not documented in the Zammad API Documentation)
+The method requires the Ticket id of the Child (The ticket you want to merge into the parent) and the Ticket Number of the Parent Ticket. (The ticket you want to contain the articles of the child after merging.)
+
+Important: If you want to use the merge functionality, you need to use password, not http_token for your authentication.
+
+.. code-block:: python
+
+    from zammad_py import ZammadAPI
+    client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
+    client.ticket.merge(id=<ID>,number=<NUMBER>)
+
 
 Link Resource
 -------------
