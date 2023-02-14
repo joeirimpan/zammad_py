@@ -284,6 +284,17 @@ class Ticket(Resource):
         )
         return self._raise_or_return_json(response)
 
+    def merge(self, id, number):
+        """Merges two tickets, (undocumented in Zammad Docs)
+        If the objects are already merged, it will return "Object already exists!"
+
+        :param id: Ticket id of the child
+        :param number: Ticket Number of the Parent
+        """
+        response = self._connetion.session.get(
+            self._connection.url + "ticket_merge/%s/%s" % id, number
+            )
+        return self._raise_or_return_json(response)
 
 class Link(Resource):
     path_attribute = "links"
