@@ -1,11 +1,12 @@
 [tool.poetry]
 name = "zammad_py"
-version = "2.0.0"
+version = "2.0.1"
+readme  = "README.rst"
 description = "Python API client for zammad"
 authors = ["Joe Paul <joeirimpan@gmail.com>"]
 license = "MIT"
 classifiers = [
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
