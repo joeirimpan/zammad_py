@@ -264,17 +264,14 @@ class Resource(ABC):
 
 
 class Group(Resource):
-
     path_attribute = "groups"
 
 
 class Organization(Resource):
-
     path_attribute = "organizations"
 
 
 class Ticket(Resource):
-
     path_attribute = "tickets"
 
     def articles(self, id):
@@ -289,7 +286,6 @@ class Ticket(Resource):
 
 
 class Link(Resource):
-
     path_attribute = "links"
 
     def add(
@@ -361,12 +357,10 @@ class Link(Resource):
 
 
 class TicketArticle(Resource):
-
     path_attribute = "ticket_articles"
 
 
 class TicketArticleAttachment(Resource):
-
     path_attribute = "ticket_attachment"
 
     def download(self, id, article_id, ticket_id):
@@ -383,22 +377,18 @@ class TicketArticleAttachment(Resource):
 
 
 class TicketArticlePlain(Resource):
-
     path_attribute = "ticket_article_plain"
 
 
 class TicketPriority(Resource):
-
     path_attribute = "ticket_priorities"
 
 
 class TicketState(Resource):
-
     path_attribute = "ticket_states"
 
 
 class User(Resource):
-
     path_attribute = "users"
 
     def me(self):
@@ -408,7 +398,6 @@ class User(Resource):
 
 
 class OnlineNotification(Resource):
-
     path_attribute = "online_notifications"
 
     def mark_all_read(self):
@@ -418,7 +407,6 @@ class OnlineNotification(Resource):
 
 
 class Object(Resource):
-
     path_attribute = "object_manager_attributes"
 
     def execute_migrations(self):
@@ -430,5 +418,4 @@ class Object(Resource):
 
 
 class TagList(Resource):
-
     path_attribute = "tag_list"
