@@ -15,6 +15,9 @@ classifiers = [
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
     ]
+homepage = "https://github.com/joeirimpan/zammad_py"
+documentation = "https://zammad-py.readthedocs.io/"
+repository = "https://github.com/joeirimpan/zammad_py.git"
 
 [tool.poetry.dependencies]
 python = ">=3.8.1,<4.0"
