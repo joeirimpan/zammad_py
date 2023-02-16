@@ -33,6 +33,7 @@ Quickstart
     from zammad_py import ZammadAPI
 
     # Initialize the client with the URL, username, and password
+    # Note the Host URL should be in this format: 'https://zammad.example.org/api/v1/'
     client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
 
     # Example: Access all users

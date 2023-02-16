@@ -327,7 +327,7 @@ class Link(Resource):
             "link_object_source_number": link_object_source_number,
         }
 
-        response = self._connection.session.post(self.url + "add/", json=params)
+        response = self._connection.session.post(self.url + "add", json=params)
         return self._raise_or_return_json(response)
 
     def remove(
@@ -354,7 +354,7 @@ class Link(Resource):
             "link_object_source_number": link_object_source_number,
         }
 
-        response = self._connection.session.post(self.url + "add/", json=params)
+        response = self._connection.session.post(self.url + "remove", json=params)
         return self._raise_or_return_json(response)
 
     def get(self, id):
