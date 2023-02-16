@@ -131,6 +131,7 @@ class TestAPI:
 
     def test_trailing_slash_url(self):
         from zammad_py import ZammadAPI
+
         url = "https://zammad.example.com"
 
         z1 = ZammadAPI(url=url + "/", username="test", password="test")

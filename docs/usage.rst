@@ -5,6 +5,7 @@ Usage
 To use Zammad API Client in a project::
 
     from zammad_py import ZammadAPI
+    # Note the Host URL should be in this format: 'https://zammad.example.org/api/v1/'
     client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
 
 Zammad Resources are implemented as an abstract class (Resource), meaning most objects have the same mechanisms.
