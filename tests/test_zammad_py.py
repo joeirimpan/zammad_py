@@ -128,3 +128,13 @@ class TestAPI:
             assert api.session.headers["X-On-Behalf-Of"] == "USERXX"
 
         assert api.session.headers.get("X-On-Behalf-Of") == "USERX"
+
+    def test_trailing_slash_url(self):
+        from zammad_py import ZammadAPI
+        url = "https://zammad.example.com"
+
+        z1 = ZammadAPI(url=url + "/", username="test", password="test")
+        assert z1.url == f"{url}/"
+
+        z2 = ZammadAPI(url=url, username="test", password="test")
+        assert z2.url == f"{url}/"

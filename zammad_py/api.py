@@ -23,7 +23,7 @@ class ZammadAPI:
         on_behalf_of: Optional[str] = None,
         additional_headers: Optional[List[Tuple[str, str]]] = None,
     ) -> None:
-        self.url = url
+        self.url = url if url.endswith("/") else f"{url}/"
         self._username = username
         self._password = password
         self._http_token = http_token
