@@ -219,3 +219,13 @@ To do actions on behalf of another user, just set the `on_behalf_of` attribute o
     client.on_behalf_of = 'test@user.com'
     # Do stuff...
 
+
+
+Self-signed SSL Certificates
+----------------------------
+To use self-signed SSL-Certificates, you must provide the `ca_bundle` parameter when calling ZammadAPI.
+This must contain the path to a .pem file, containing all the certificates in the certificate chain.
+(You can pass verify the path to a CA_BUNDLE file or directory with certificates of trusted CAs,
+see here: https://requests.readthedocs.io/en/stable/user/advanced/#ssl-cert-verification )
+
+Currently, zammad_py does not check the validity of the provided file, because that would require dependencies that (at this time) don't make sense to require.
