@@ -102,7 +102,7 @@ Most Resources support these methods.
     client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
     org = client.organization.find(<ID>)
     org['name'] = 'NewCompanyName Ltd.'
-    client.organization.update(id=org['id'],params=params)
+    client.organization.update(id=org['id'],params=org)
 
 .destroy(id)
    | Deletes a Resource.
