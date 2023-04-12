@@ -205,3 +205,13 @@ The :class:`~zammad_py.api.TicketArticleAttachment` resource has the :meth:`~zam
 Object Resource
 ---------------
 The :class:`~zammad_py.api.Object` resource has the :meth:`~zammad_py.api.Object.execute_migrations()` method to run the migrations of an object.
+
+
+Self-signed SSL Certificates
+----------------------------
+To use self-signed SSL-Certificates, you must provide the `ca_bundle` parameter when calling ZammadAPI.
+This must contain the path to a .pem file, containing all the certificates in the certificate chain.
+(You can pass verify the path to a CA_BUNDLE file or directory with certificates of trusted CAs,
+see here: https://requests.readthedocs.io/en/stable/user/advanced/#ssl-cert-verification )
+
+Currently, zammad_py does not check the validity of the provided file, because that would require dependencies that (at this time) don't make sense to require.
