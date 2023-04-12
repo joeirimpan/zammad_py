@@ -3,10 +3,10 @@ import atexit
 from abc import ABC, abstractmethod
 from contextlib import contextmanager
 from typing import Any, Generator, List, Optional, Tuple
-
+from functools import partial
 import requests
 from requests.exceptions import HTTPError
-
+from .endpoints import ZammadUser
 from zammad_py.exceptions import ConfigException
 
 __all__ = ["ZammadAPI"]
@@ -140,6 +140,12 @@ class ZammadAPI:
     def user(self) -> "User":
         """Return a `User` instance"""
         return User(connection=self)
+
+    @property
+    def user_object(self) -> "ZammadUser":
+        def return_user_object(**kwargs):
+            return partial(ZammadUser, connection=self, **kwargs)
+        return return_user_object
 
 
 class Pagination:
