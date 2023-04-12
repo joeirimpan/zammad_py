@@ -42,7 +42,7 @@ class ZammadAPI:
         elif self._username and self._password:  # noqa: SIM106
             self.session.auth = (self._username, self._password)
         else:
-            raise ValueError("invalid auth")
+            raise ValueError("Invalid Authentication information in config")
 
         if self._on_behalf_of:
             self.session.headers["X-On-Behalf-Of"] = self._on_behalf_of
@@ -200,7 +200,7 @@ class Resource(ABC):
         try:
             response.raise_for_status()
         except HTTPError:
-            raise
+            raise HTTPError(response.text)
 
         try:
             json_value = response.json()
@@ -311,11 +311,11 @@ class Link(Resource):
     ):
         """Create the link
 
-        :params link_type: Link type (for now*: 'normal')
+        :params link_type: Link type ('normal', 'parent', 'child')
         :params link_object_target: (for now*: 'Ticket')
-        :params link_object_target_value: The Ticket Number (Not the ID!)
+        :params link_object_target_value: Ticket ID
         :params link_object_source: (for now*: 'Ticket')
-        :params link_object_source_number: The Ticket Number (Not the ID!)
+        :params link_object_source_number: Ticket Number (Not the ID!)
 
         *Currently, only Tickets can be linked together.
         """
@@ -327,7 +327,7 @@ class Link(Resource):
             "link_object_source_number": link_object_source_number,
         }
 
-        response = self._connection.session.post(self.url + "add", json=params)
+        response = self._connection.session.post(self.url + "/add", json=params)
         return self._raise_or_return_json(response)
 
     def remove(
@@ -340,11 +340,11 @@ class Link(Resource):
     ):
         """Remove the Link
 
-        :params link_type: Link type (for now: 'normal')
+        :params link_type: Link type ('normal', 'parent', 'child')
         :params link_object_target: (for now: 'Ticket')
-        :params link_object_target_value: The Ticket Number (Not the ID!)
+        :params link_object_target_value: Ticket ID
         :params link_object_source: (for now: 'Ticket')
-        :params link_object_source_number: The Ticket Number (Not the ID!)
+        :params link_object_source_number: Ticket ID
         """
         params = {
             "link_type": link_type,
@@ -354,7 +354,7 @@ class Link(Resource):
             "link_object_source_number": link_object_source_number,
         }
 
-        response = self._connection.session.post(self.url + "remove", json=params)
+        response = self._connection.session.delete(self.url + "/remove", json=params)
         return self._raise_or_return_json(response)
 
     def get(self, id):
