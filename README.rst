@@ -64,21 +64,21 @@ General Methods
 ---------------
 Most resources support these methods:
 
-.all(): Returns a paginated response with the current page number and a list of elements.
+`.all()`: Returns a paginated response with the current page number and a list of elements.
 
-.next_page(): Returns the next page of the current pagination object.
+`.next_page()`: Returns the next page of the current pagination object.
 
-.prev_page(): Returns the previous page of the current pagination object.
+`.prev_page()`: Returns the previous page of the current pagination object.
 
-.search(params): Returns a paginated response based on the search parameters.
+`.search(params)`: Returns a paginated response based on the search parameters.
 
-.find(id): Returns a single object with the specified ID.
+`.find(id)`: Returns a single object with the specified ID.
 
-.create(params): Creates a new object with the specified parameters.
+`.create(params)`: Creates a new object with the specified parameters.
 
-.update(params): Updates an existing object with the specified parameters.
+`.update(params)`: Updates an existing object with the specified parameters.
 
-.destroy(id): Deletes an object with the specified ID.
+`.destroy(id)`: Deletes an object with the specified ID.
 
 Additional Resource Methods
 ---------------------------
@@ -91,6 +91,8 @@ Link resource has methods to list, add, and delete links between objects.
 TicketArticleAttachment resource has the .download() method to download a ticket attachment.
 
 Object resource has the .execute_migrations() method to run migrations on an object.
+
+You can set the `on_behalf_of` attribute of the ZammadAPI instance to do actions on behalf of another user.
 
 Contributing
 ------------

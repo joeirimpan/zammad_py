@@ -61,7 +61,7 @@ Most Resources support these methods.
 
 
 .find(id)
-   | Displays a Resource if you know the id.
+   | Displays a Resource if you know the id. (Returns a dict)
 
 .. code-block:: python
 
@@ -94,15 +94,15 @@ Most Resources support these methods.
 
 .update(params)
    | Updates a resource.
-   | You can find the required structure for the params in the Zammad API Documentation.
+   | You can find the required structure for the params in the Zammad API Documentation, or use a dict provided by the .find(id) functionaliy.
 
 .. code-block:: python
 
     from zammad_py import ZammadAPI
     client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
     org = client.organization.find(<ID>)
-    params = {'name':'NewCompanyName Ltd.'}
-    org.update(params=params)
+    org['name'] = 'NewCompanyName Ltd.'
+    client.organization.update(id=org['id'],params=org)
 
 .destroy(id)
    | Deletes a Resource.
@@ -205,3 +205,17 @@ The :class:`~zammad_py.api.TicketArticleAttachment` resource has the :meth:`~zam
 Object Resource
 ---------------
 The :class:`~zammad_py.api.Object` resource has the :meth:`~zammad_py.api.Object.execute_migrations()` method to run the migrations of an object.
+
+Using "On behalf of"
+--------------------
+
+To do actions on behalf of another user, just set the `on_behalf_of` attribute on the instance of ZammadAPI
+
+
+.. code-block:: python
+
+    from zammad_py import ZammadAPI
+    client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
+    client.on_behalf_of = 'test@user.com'
+    # Do stuff...
+
