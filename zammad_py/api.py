@@ -271,8 +271,10 @@ class Resource(ABC):
 class Group(Resource):
     path_attribute = "groups"
 
+
 class Role(Resource):
     path_attribute = "roles"
+
 
 class Organization(Resource):
     path_attribute = "organizations"
