@@ -99,6 +99,11 @@ class ZammadAPI:
         return Organization(connection=self)
 
     @property
+    def role(self) -> "Role":
+        """Return a `Role` instance"""
+        return Role(connection=self)
+
+    @property
     def ticket(self) -> "Ticket":
         """Return a `Ticket` instance"""
         return Ticket(connection=self)
@@ -265,6 +270,10 @@ class Resource(ABC):
 
 class Group(Resource):
     path_attribute = "groups"
+
+
+class Role(Resource):
+    path_attribute = "roles"
 
 
 class Organization(Resource):
