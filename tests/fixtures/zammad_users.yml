@@ -226,7 +226,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [Zammad API Python]
     method: GET
-    uri: http://localhost/api/v1/users/search?query=Joe
+    uri: http://localhost/api/v1/users/search?query=Joe&page=1&per_page=10&expand=true
   response:
     body:
       string: !!binary |
