@@ -146,12 +146,18 @@ class ZammadAPI:
 
 class Pagination:
     def __init__(
-        self, items, resource: "Resource", filters=None, page: int = 1
+        self,
+        items,
+        resource: "Resource",
+        function_name: str,
+        params=None,
+        page: int = 1,
     ) -> None:
         self._items = items
         self._page = page
         self._resource = resource
-        self._filters = filters
+        self._params = params
+        self._function_name = function_name
 
     def __iter__(self):
         yield from self._items
@@ -167,11 +173,15 @@ class Pagination:
 
     def next_page(self) -> "Pagination":
         self._page += 1
-        return self._resource.all(page=self._page, filters=self._filters)
+        return getattr(self._resource, self._function_name)(
+            page=self._page, **self._params
+        )
 
     def prev_page(self) -> "Pagination":
         self._page -= 1
-        return self._resource.all(page=self._page, filters=self._filters)
+        return getattr(self._resource, self._function_name)(
+            page=self._page, **self._params
+        )
 
 
 class Resource(ABC):
@@ -224,15 +234,33 @@ class Resource(ABC):
         params.update({"page": page, "per_page": self._per_page, "expand": "true"})
         response = self._connection.session.get(self.url, params=params)
         data = self._raise_or_return_json(response)
-        return Pagination(items=data, resource=self, filters=filters, page=page)
+        return Pagination(
+            items=data,
+            resource=self,
+            function_name="all",
+            params={"filters": params},
+            page=page,
+        )
 
-    def search(self, params):
-        """Search using the given parameters
+    def search(self, search_string: str, page: int = 1, filters=None) -> Pagination:
+        """Returns the list of resources
 
-        :param params: Search parameters
+        :param search_string: option to filter for
+        :param page: Page number
+        :param filters: Filter arguments like page, per_page
         """
+        params = filters or {}
+        params.update({"query": search_string})
+        params.update({"page": page, "per_page": self._per_page, "expand": "true"})
         response = self._connection.session.get(self.url + "/search", params=params)
-        return self._raise_or_return_json(response)
+        data = self._raise_or_return_json(response)
+        return Pagination(
+            items=data,
+            resource=self,
+            function_name="search",
+            params={"search_string": search_string, "filters": params},
+            page=page,
+        )
 
     def find(self, id):
         """Return the resource associated with the id

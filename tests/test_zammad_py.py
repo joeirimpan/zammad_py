@@ -33,7 +33,7 @@ class TestAPI:
         deleted_user = zammad_api.user.destroy(5)
         assert deleted_user == {}
 
-        (current_user,) = zammad_api.user.search({"query": "Joe"})
+        (current_user,) = zammad_api.user.search("Joe")
         assert current_user["id"] == 3
 
     @zammad_vcr.use_cassette(
@@ -74,7 +74,7 @@ class TestAPI:
         deleted_ticket = zammad_api.ticket.destroy(6)
         assert deleted_ticket == b""
 
-        current_ticket = zammad_api.ticket.search({"query": "Ticket 1"})
+        current_ticket = zammad_api.ticket.search("Ticket 1")
         assert current_ticket["tickets"] == [2]
 
     @zammad_vcr.use_cassette(

@@ -49,7 +49,7 @@ Most Resources support these methods.
     prev_page = this_page.prev_page()
 
 
-.search(params)
+.search(search_string)
    | Searches the object with a Zammad search query
    | Learn more about Zammad Search queries here: https://user-docs.zammad.org/en/latest/advanced/search.html
 
@@ -57,7 +57,7 @@ Most Resources support these methods.
 
     from zammad_py import ZammadAPI
     client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
-    client.ticket.search({'query': 'Search Content'})
+    client.ticket.search('Search Content')
 
 
 .find(id)
