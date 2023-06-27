@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "zammad_py"
-version = "2.0.2"
+version = "3.0.0"
 readme  = "README.rst"
 description = "Python API client for zammad"
 authors = ["Joe Paul <joeirimpan@gmail.com>"]

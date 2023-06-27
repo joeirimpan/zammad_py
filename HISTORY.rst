@@ -2,6 +2,11 @@
 History
 =======
 
+3.0.0 (2023-02-27)
+------------------
+* release/3.0.0
+  Add Pagination to search. This is an incompatible change to search API in olders versions.
+
 2.0.0 (2023-02-14)
 ------------------
 
