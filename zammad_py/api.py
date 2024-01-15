@@ -232,9 +232,9 @@ class Resource(ABC):
         """
         params = filters or {}
         defaults = {"page": page, "per_page": self._per_page, "expand": "true"}
-        for key in defaults:
-            if key not in filters:
-                params.update({key:defaults[key]})
+        for k, v in defaults.items():
+            if k not in params:
+                params[k] = v
         response = self._connection.session.get(self.url, params=params)
         data = self._raise_or_return_json(response)
         return Pagination(
@@ -255,9 +255,9 @@ class Resource(ABC):
         params = filters or {}
         params.update({"query": search_string})
         defaults = {"page": page, "per_page": self._per_page, "expand": "true"}
-        for key in defaults:
-            if key not in filters:
-                params.update({key:defaults[key]})
+        for k, v in defaults.items():
+            if k not in params:
+                params[k] = v
         response = self._connection.session.get(self.url + "/search", params=params)
         data = self._raise_or_return_json(response)
         return Pagination(
