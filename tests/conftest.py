@@ -13,7 +13,7 @@ zammad_vcr = vcr.VCR(
 @pytest.fixture
 def zammad_api():
     return ZammadAPI(
-        url="http://localhost/api/v1/",
-        username="test",
-        password="test",
+        url="http://localhost:8080/api/v1/",
+        username="user",
+        password="pass",
     )

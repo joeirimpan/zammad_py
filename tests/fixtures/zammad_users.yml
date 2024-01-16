@@ -2,312 +2,520 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [Zammad API Python]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
     method: GET
-    uri: http://localhost/api/v1/users
+    uri: http://localhost:8080/api/v1/users?page=1&per_page=10&expand=true
   response:
     body:
       string: !!binary |
-        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
+        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
+        TSg41cv3178BzSgCq6MNAAA=
     headers:
-      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
-          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
-      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
-      access-control-allow-origin: ['*']
-      access-control-max-age: ['1728000']
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-type: [application/json; charset=utf-8]
-      date: ['Tue, 24 Oct 2017 10:06:09 GMT']
-      etag: [W/"cd7353d4744ecf32754ade53506d8488"]
-      server: [nginx]
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [7d24e450-97b3-4249-a8fa-d797bfcbf5a8]
-      x-runtime: ['0.256809']
-      x-xss-protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-tlCHiJmR4CaVovvGpOGuOA==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Jan 2024 06:28:29 GMT
+      ETag:
+      - W/"9e561ec9315ffc00697f70b038b25b6d"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 7da4f86b-9494-429c-a910-804c8f47a01f
+      X-Runtime:
+      - '0.103411'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [Zammad API Python]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
     method: GET
-    uri: http://localhost/api/v1/users/me
+    uri: http://localhost:8080/api/v1/users/me
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA71UsW7jMAz9F81uEDlNAni6+aYON11RGIxE2zrIoiHLaRsj/36UpaTJHTp0KeCB
-        ehRFvcdnzcJoUW0KQb4FZ04QDLk6Ym6ythCWWuNEJf4QroYfJ/SkO1gp6kUhGuPH4KBHzv8kZMTC
-        FXiCyTKCPRj7Sb3poeXa1GhZ1CNNXl2xVzxwKZ8ydORil9gU3lLQ08HYDGocwIceXUi5MXjEHJ/M
-        kEBlwnuOaHLB5wVo7XEcU+YYNzdgRyzEEb1pDLIUGQAVzJE7Bj9x2lHI3SPr+iJUuZb7B7l+KB9/
-        yU1VllUpV9vt/jdf/Z7cUlA3LE9sseYJTKGmhr/GRAly0zu0HgPzrIGpJdXus+j0pzmPgwWFUaOb
-        8Q4eG/ToFLIAc+TElFUygSLXmDbCPQRvWPZZKI8QacfIBBYIYkyvDnV9eK+jFZI6V8jRgTRLfREt
-        EzsXQnXgHLI55otLcqmzJk47rs68bxr0t/f02Bun0dfMV3VxQF9nnAfo6OuUcVRglyl8a+OotuE/
-        g2+8iH/RfpltfieSA66I5DkunkjOEzf2X++rjazkdiV3u2j/NMf/9338Jju57BtZ99bTNLBR2ZbP
-        z5uC2zT8HomXl0J4spgzsigZ+OfpiiWMwhQ68h8vWoZvDp6F5K354PP5Lz9GS80LBQAA
+        H4sIAAAAAAAEA8VUwW7bMAz9F52dIHayAPVph5123mlDYcgy7WiQRYOSk7ZB/n2kpSRtsR56KmDA
+        1BNF6j1SPCuHg/VNr62DTtWbQs1TpyN0TfvcWEa2hco/pEF7+6KjRb9s+dm5IgVQtfqLB98hfIcn
+        PU4O1gZHVajeUohej8AeP9mDIadvyA8EBmDk7B9GsKMe+HRKtiyagDOZG3aClg9znOmAXvKw2eun
+        ZIzYMrNkdzBpiiP4eA0XIgHwSo682CkZxsbnbOHsI+WF7jqCEK5Hj+LeaxegUEcg21vRLwPaRHvk
+        rJFm3vYY8w2EerMozgmqTbVbbcpVuf+12dfVtq726325+813eUsQ59hgz19vhXXO8QZtQmRqjb4x
+        e7sLvvtwj2By2oDI8qqqE0EPBN4AMz4LBWZoUu0N+t4OAo86kmWlz8oQcNcky0bWQ4uNJ586Seqf
+        xLhBHlvsWNsEh7kNhmwrIl5Vy1QvhTIH7T04CZmbJQfzzkrJZXVhv9S7X30LgtH6DqhhTcxBGIk+
+        n1MlF/m1LBny+HldIBjtluJ99V2kSg75Nlw1BX41B253y6+MWS1V5GIvrXQbQOUdkfZ+92zKsv62
+        Wz9sS3k219H1H79qV5cP/Ly24kfogHudO/tPWVSPhYon5BFoIlJzb/zswdvvJp+cY1TP8YB0H4gZ
+        Rp4GRwsnnlIUrR/uYQbCeUrLsyo5iOp5gqrHy+UfAlemDIcFAAA=
     headers:
-      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
-          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
-      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
-      access-control-allow-origin: ['*']
-      access-control-max-age: ['1728000']
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-type: [application/json; charset=utf-8]
-      date: ['Tue, 24 Oct 2017 13:22:21 GMT']
-      etag: [W/"3f9d0279af3f9af03ec7e1405cab4bed"]
-      server: [nginx]
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [18915431-aef4-4ecd-bd3d-c10ad13eb698]
-      x-runtime: ['0.280378']
-      x-xss-protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-bfyOwalO6rzfaXFp2pBLJA==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Jan 2024 06:28:44 GMT
+      ETag:
+      - W/"dbabf3d44a1710b1ec7f743c6320a9d9"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - f799e366-f224-411b-8eed-c323ba51c058
+      X-Runtime:
+      - '0.093179'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [Zammad API Python]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
     method: GET
-    uri: http://localhost/api/v1/users/3
+    uri: http://localhost:8080/api/v1/users/3
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA71UwW7bMAz9F52dIE7WBPVpve60w3ZZURiyRNsaZNGQ5XSNkX8faSmZ066HXgr4
-        QD1SpN4jzUkYLYpdJtA30pmTDAZdyZgbrc2ExcY4UYjfCOv+6wk86lauFXYiE7XxQ3CyA/J/QyDE
-        yivwXY6WEOikse/cN51s6G4sNB/KAUevrtgzVHSVsvQtOq7CReWfaHRYGZtADb30oQMXom8IHiDZ
-        J9NHUJnwkiwcXfDpILX2MAzRc+TgWtoBMnEEb2oDJEUCpArmSBWDH8ntMKTqzLq8CLXd5IdVvllt
-        v/zId8WWvvv1/u7wi55+S26+UNYkD5fYUAfGUGJNX21YglT0Bi2HQDxLSdSiardecPpdn4feSgWs
-        0aK9vYcaPDgFJMDEnIiyikOg0NWmYbiTwRuSfRLKg2TabJlAAkm28dmBLquXkkchqnOFHFaoSeqL
-        aInYOROqlc4BDcd0mZJ01VnD3ebTmeLGXn96TQ+dcRp8SXxVyw36OOPUQIcfpwyDknbuwqcWZrUN
-        /Rn04ln8i/Zzb9OeiBNwRXLq4zwTcfLEYvw3h2KXF/ndOt/vefxjH9/GLX6T+zluIN0bj2NPg0pj
-        +fi4y6hMTftIPD1lwqOF5MmzLQGvVhdfIVSOoUX/b6MleJF4EjmFpsREnRNzlHjQ1H168UPDG+VV
-        hf+lX+YmexI/icOcKr6akl9UqnjtrBZyzMDb9Xr+C8eJ4Z6aBQAA
+        H4sIAAAAAAAEA81UwW7bMAz9F53dIHayAPVph5123mlDIcgy7XCQRUOSk7ZB/n2krSTNsB56WgEf
+        qGeSEh8feVLYqnpTKAq98fhqEpLXgvnJuUI56tGrWv2mvW8JvsKzGUYHK0uDKlSHISZvBmCP7+zB
+        kDNX5BsBAzAYdO9mwMH0HL1cNh90pCnYK3aEhoM5z7gnL/ew2ZnnxRioQZfBFkYT0gA+XdLFFAD4
+        JCGvOC6GxfSSLZp8Cvlg2jZAjJfQg7h3xkUo1AECdghMSQaMTXjgW1OY+LenlF8gpesLYdW62j6s
+        y4dy92O9q6tNXe1Wu3L7k99yX+AcoDsmSa5YcyempKnjr0OhIV96h+qYuFZtrqXe/wXfvvsvwOiM
+        BeHpTZvHAB0E8BaYgpPUxCXbRQyWfIe9wINJAZn6k7IBjJQtFiYmyIhNRw+tbl60CGJh5wp5aqhl
+        shc4Tk3kyEZKvtCYSz0Xyu6N9+AkZVZPTuYdigbkdGa/aWw/wSsCDOhbCJo5sXup6OOs5Ca/pSVD
+        nj7OC0Rr3Ny8//0W6ZIjfg13TYF/mCLrH3nsuKq5i5cmzrLJq2gR1xUpWRCz3BZRq/vJKsv6y3b1
+        uCllshZB/NOv2tblI0/gRvwCOWD1s9Z/lUX1VKh0JB5Bmyjo2yhkD/7913KUOEbNlPYUbjszw8QL
+        44Bw5EUWEvr+lqYPNI3L8aRKTqI6XrLq6Xz+Aw320xeHBQAA
     headers:
-      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
-          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
-      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
-      access-control-allow-origin: ['*']
-      access-control-max-age: ['1728000']
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-type: [application/json; charset=utf-8]
-      date: ['Tue, 24 Oct 2017 13:23:29 GMT']
-      etag: [W/"0fb071b7246ba38e9bacbbcd46660811"]
-      server: [nginx]
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [49ed1758-4dd1-4bc2-a6e4-45e84e33bf20]
-      x-runtime: ['0.260604']
-      x-xss-protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-KTsN95itB8nlf2401LzOMQ==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Jan 2024 06:28:44 GMT
+      ETag:
+      - W/"4b605a260049bbd8d86e8c93038ae34d"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 3c3639df-9804-4765-b1c4-408b145795e4
+      X-Runtime:
+      - '0.077190'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 - request:
-    body: !!python/unicode 'lastname=LastName&firstname=TestUser'
+    body: '{"firstname": "TestUser", "lastname": "LastName"}'
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Length: ['36']
-      Content-Type: [application/x-www-form-urlencoded]
-      User-Agent: [Zammad API Python]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '49'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
     method: POST
-    uri: http://localhost/api/v1/users
+    uri: http://localhost:8080/api/v1/users
   response:
-    body: {string: !!python/unicode '{"id":5,"organization_id":null,"login":"auto-1508851499-980327","firstname":"TestUser","lastname":"LastName","email":"","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":"","street":"","zip":"","city":"","country":"","address":"","vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{},"updated_by_id":3,"created_by_id":3,"created_at":"2017-10-24T13:24:59.719Z","updated_at":"2017-10-24T13:24:59.719Z","user_group_ids":[],"role_ids":[3],"organization_ids":[],"authorization_ids":[],"group_ids":{},"user_groups":[],"roles":["Customer"],"organizations":[],"authorizations":[],"groups":{},"created_by":"joe.p@zerodha.com","updated_by":"joe.p@zerodha.com"}'}
+    body:
+      string: '{"id":4,"organization_id":null,"login":"auto-f2fa3a89-ce01-4047-8afa-9baad1a8031c","firstname":"TestUser","lastname":"LastName","email":"","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":null,"street":"","zip":"","city":"","country":"","address":null,"vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{"locale":"en-us"},"updated_by_id":3,"created_by_id":3,"created_at":"2024-01-16T06:28:44.705Z","updated_at":"2024-01-16T06:28:44.705Z","role_ids":[3],"two_factor_preference_ids":[],"organization_ids":[],"authorization_ids":[],"overview_sorting_ids":[],"group_ids":{}}'
     headers:
-      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
-          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
-      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
-      access-control-allow-origin: ['*']
-      access-control-max-age: ['1728000']
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [keep-alive]
-      content-type: [application/json; charset=utf-8]
-      date: ['Tue, 24 Oct 2017 13:24:59 GMT']
-      etag: [W/"a048c4523958627a2a65041b4d82b28f"]
-      server: [nginx]
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [34782b45-eba8-42f6-a9a7-01a7c27ae265]
-      x-runtime: ['0.485723']
-      x-xss-protection: [1; mode=block]
-    status: {code: 201, message: Created}
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '789'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-lCzozzeFzVHcl7h+oBEdVw==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Jan 2024 06:28:44 GMT
+      ETag:
+      - W/"2bb8b17056957920421bd2ebed306f59"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - ea648f6f-d2e5-4b6c-a8bd-b57483addf3e
+      X-Runtime:
+      - '0.123258'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
 - request:
-    body: !!python/unicode 'firstname=TestUser1'
+    body: '{"firstname": "TestUser1"}'
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Length: ['19']
-      Content-Type: [application/x-www-form-urlencoded]
-      User-Agent: [Zammad API Python]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '26'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
     method: PUT
-    uri: http://localhost/api/v1/users/5
+    uri: http://localhost:8080/api/v1/users/4
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA3VS227DIAz9F56TKpdGTfIN0566l00ToonTIhGIDOnWVv33mcC6dtokHuzjwzHH
-        +MJkz9oqYQb3QsuzcNJo7jE9K5UwZfZSs5aJ2Zk0r7K6rvJ106RNnZXFhiVskGidFiMQaQvWvVjA
-        nHAlbvAThc+ekTAYhVTEpFCOYk+XQpsl4dbM2N2wD9gF5nQw2sv7buIzBKPZSRXBHiaBbgTtQs06
-        BIjxWU4B7KQ7xcjM2mFMRN8jWBsqR08ehLKQsCOgHCTQICIgOieP1NHhTGVtXOzujfI4pmDm0cZS
-        4gP59mIZTXp23Ax0BunNRvkHlFtHjrggE0HysQq6/7eGMCnRgZ/G3TdOCAMg6A7I6uWasHnqhYOe
-        704Lq0xYh/AP4p/BiizfpHmWFuttXrbFuq2a1SZvXulTvrX+4tVtUayyplp4tBp8j2aeqCe94+09
-        YWgUxKyk9NcWRhIt38Hgz3JG+E7qcr1+Aa7eIVDKAgAA
+        H4sIAAAAAAAEA3VSwW7bMAz9F53twna8NvE3DDt1lw2DwMiUK0CWDEpK1gb591GxkizDCuhAPvJR
+        fCRPwoxi6CvhaQJnPiAa72TGXLK2EtZPxolBQIq+1p2GDWx3tcKmrfumf6m3oKHe7QHGFrbNplWi
+        EtpQiA5mZN4rhvg9ILWMW7jBX9n8ljMqgTMYy5lsmhkmJq0/XxwZfCJ1w464XzOXN+9yeSZp+L0a
+        s98bW8ARF6A4o4vXciESInuZ8mGW1VAmvhfLJxepODCOhCFcqYecrsEGrMQByWiDPJ8CgIrmwL9G
+        Shx2PpYOslhZprcKepRyCUnN2nOxhheQovSanzZZcCn/gMoQWZWEm6jHKLrx0xjhYkFhnshf210I
+        NRI6hSz2xMtWcJkgujoFca5EWkaIOMr9+4W1qYQi/ATJbYmu6fqaj6N9fm2eh2479P3TS/PlB0/9
+        Wut/ebuh657avs955C3yb9zRz82vSsSj5zGp6Ene2y1xDv9zt5nFKJ/rm6f7ORfY8/oOBo98VhSN
+        m+5lJvJpWd3T+fwHXE85XxYDAAA=
     headers:
-      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
-          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
-      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
-      access-control-allow-origin: ['*']
-      access-control-max-age: ['1728000']
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-type: [application/json; charset=utf-8]
-      date: ['Tue, 24 Oct 2017 13:28:22 GMT']
-      etag: [W/"bf33a33ef09e93016aa40b84b64c02b6"]
-      server: [nginx]
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [08e5fd9e-9d4e-488e-b6fd-dc29fcca2ade]
-      x-runtime: ['0.378107']
-      x-xss-protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-frbe3JS6EHM8B6/V1zEwdQ==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Jan 2024 06:29:22 GMT
+      ETag:
+      - W/"2a2508d37ff8945229427a5617ef5f88"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - cc3c8781-922c-42f6-8433-eaa3f8efdfde
+      X-Runtime:
+      - '0.124151'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      Content-Length: ['0']
-      User-Agent: [Zammad API Python]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Zammad API Python
     method: DELETE
-    uri: http://localhost/api/v1/users/5
+    uri: http://localhost:8080/api/v1/users/4
   response:
-    body: {string: !!python/unicode '{}'}
+    body:
+      string: '{"error":"Can''t delete, object has references.","error_human":"Can''t
+        delete, object has references."}'
     headers:
-      cache-control: [no-cache]
-      connection: [keep-alive]
-      content-type: [application/json; charset=utf-8]
-      date: ['Tue, 24 Oct 2017 13:35:52 GMT']
-      server: [nginx]
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [cf232de4-4d85-43a5-9dbd-5ed17f7dbd42]
-      x-runtime: ['0.397616']
-      x-xss-protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - no-cache
+      Connection:
+      - keep-alive
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-UzJ52u0a4bgriEqpNQJMGA==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Jan 2024 06:29:22 GMT
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 18badcf7-ab5e-44be-a919-9a31e82aa918
+      X-Runtime:
+      - '0.134993'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 422
+      message: Unprocessable Content
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [Zammad API Python]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
     method: GET
-    uri: http://localhost/api/v1/users/search?query=Joe&page=1&per_page=10&expand=true
+    uri: http://localhost:8080/api/v1/users/search?query=John&page=1&per_page=10&expand=true
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAA71UPW/jMAz9L5rdwM4n4KnzTTd0uiAwGIm2dZBFQ5bTa4z896MsxW0KdOhSwAP1
-        KIp6j886TkIrUW4yQa4Bq6/gNdkqYHY0JhOGGm1FKf4SrvrnKzpSLawkdSITtXaDt9Ah538RMmJg
-        AX7DaBjBDrT5ol530HBtbDQvqoFGJxfsFc9cyqf0LdnQJTSFfzHo6KxNAhX24HyH1sfc4B1iiq+6
-        j6DU/i1FNFrv0gKUcjgMMXMJm2swA2bigk7XGlmKBID0+sIdvRs5bcmn7oF1dRdqnReHpyJ/Wu9e
-        8l25XZfFfnU4FH/46o/k5oKqZnlCi5wnMPqKav5qHSRITR/QavDMswKmFlV7zKJVX+Yc9gYkBo0+
-        jLd3WKNDK5EFmAInpiyjCSTZWjcB7sA7zbJPQjqEQDtE2rNAEGJ6taiq81sVrBDVWSBLZ1Is9V20
-        ROyWCdmCtcjmmO4uSaXW6DDtsLrxvrFXP97TYaetQlcxX9mGAX2fcRqgpe9TxkGCmafwo42D2pr/
-        DL7xLP5d+3m26Z2IDliQguc4eyI6Tyz2377kh3JTlMVuVez3wf5xjp/3Pfwm23nfwLo3jsaejcq2
-        PB43Gbep+T0Sp1MmHBlMmSJbM/Dp6QoljMLoW3LvL1qCPxw8iYK3poNvt9N/vGgGdQ0FAAA=
+        H4sIAAAAAAAEA81VTW/bMAz9Lzo7QexkAerTCuy083ZZERiyTNsaZNGQ5KRtkP8+0pbzUSSHnjog
+        B+qZpMjHJ+blKHQl8nUi0DXS6ncZNNqCMTsYkwiDjbYiF3+xtRXCd3iVXW9gqbATiai188HKDsjj
+        J3kQZOQZ+YFAAHRSm4cZdCcbip4uGw+Fx8GpM3aAkoIpT9+i5XvIrOXrZHRYahPBCnrpQgc2zOl8
+        cAB04pB33U+G0uEtWjjY4OJBVpUD7+fQPbvX0nhIxB6crjUQJRGQKug93RrcQJ8thlgBt17MhGWr
+        bLNYpYt0+2u1zbN1nm2X23Tzh2q5bXAMKGoiia9Y0SSGUGBNv1ozDfHSG7TwgXot5LnV269gq4ff
+        HPRGKmCersbcO6jBgVVAFBy5J2pZTWJQaGvdMNzJ4DRRfxTKgeS22dKBCJJs48FCVZRvBQtiYucM
+        WSyxIrIn2A+lp8iSW55pjK2eEqFaaS0YThnVE5NZo1kDfDqR39BX/0EVDjptK3AFcaJa7ujzrMQh
+        X9MSIYuf5wW8kmYc3lfXwlMySNXQ1ATYxeBJ/5qeHXU1TnEe4iibuIomcZ2RlAQxym0Stbh9WWma
+        f9ssn9Ypv6xJEHf9sk2ePtELXLOfQwOkftL6S5pku0SEA9ITVAFdcXkK0YM+f1iOHEeoHEKL7rIz
+        I4y0MPYaDrTIXNC2uaRpHA79dDyKlJKImpas2BFJXBHHi+eK1EQlPje8yR6VNl91tbTvFTW7fago
+        wmM5ZB/Fbw+OwUs9M+Ml78fFFbUjcO/f4LT7BwzZnxNNBgAA
     headers:
-      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
-          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
-      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
-      access-control-allow-origin: ['*']
-      access-control-max-age: ['1728000']
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-type: [application/json; charset=utf-8]
-      date: ['Wed, 25 Oct 2017 05:42:16 GMT']
-      etag: [W/"0f542b926fe72dfed8bb7c9cb15fe43f"]
-      server: [nginx]
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [48c8b18a-25e9-40f7-81e6-6ee02c542275]
-      x-runtime: ['0.257316']
-      x-xss-protection: [1; mode=block]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [Zammad API Python]
-    method: GET
-    uri: http://localhost/api/v1/users?per_page=10&page=1&expand=true
-  response:
-    body:
-      string: !!binary |
-        H4sIAAAAAAAAA+2ZS2/jNhCA/0rBsy2IomQ9TtkW6KEtFj24lw0Cg5Zom61EGhSV7SbIf+9QomRK
-        tvNot4t4E8AHckQONRS/meH4+h7xAmV4hqTaUsHvqOZSrIxMNGU5Q6XccoEyNEcztOGq1oJWzPZL
-        OnThKasoL+EJNHlFtzCo09B2VrVsVD7IPrN1N3K/k8KoM9rp312jkmteWmHB9lTpigndPau1Ysy2
-        7/i+E+Zcf7Et2QitbIcWhWJ13T25NYM3tKzZDN0yxTecgY1WQHPNb2FF2xVS2+WNhSu7BZ01Yzva
-        R6sNGG60+bCLjV7JDfw23FhrFY6kq1qDSSsKVnQqx0+ZKM4+U2xf0pyZ7XA+0V6xDVNM5AxsvX+Y
-        oWZfUM2K1fpLOwo+bq7YGYl5DRT4OJ5jfx6ESz/OgiQLfI/g6BN8lV7Xk+NqplZbJZs9rAnvcX0z
-        Q0qW7NCbHDA7hjZ6J9Xh3Fmxo6m1aNDuqLZNV+8ppa5GaBt1h+0A483J7q1cm6MzRw+zDovgBBaw
-        mz0TgudgobdWtBFXd7SqaOHB25iz7JDysR0FQgeXH80UEPXMnNd0qShp1QBpF00S0jz/i+l6JfcM
-        XOBiNgjyUtYt8MewEfd0TfE7A1HoRVFyFjaCl/4i80mGF14ax+24AYcDXg5sBNhzqTgM+o+0oZ+a
-        WsuKKTRZ4RHu3BcBuD61mPzwMzhqcFIQa4CCFvZnofmnZN7+6o4pWeyol8tqQBX23V2p3flxBDue
-        O+b0F8nGkP5Om9Jh9NT875FOGw3wHJOln2Q4ykjkBUFqDt6rj37G40Bsz7s0Jpdiw7fg81FFteKQ
-        X9xb39+1uIZMgJq2/Cy6gGmSm853DSIh17KAwNC7NBvWTRzZUSEYJD33vSe3U0XJTVpjeg+Dj/i2
-        aypWcVFAUIbQn++MtzK2v8ziIR96ucmszmnZAf4tFza7zSEFlP3nGvvw6H/x4QQDJR5eLM748AlK
-        JDjpw6/JDHKLDWTd6Abcq+PP8SwAwcS9nXK5B0fv5k8IQzpmFcP2GMVmMvpQwAkBqD9sTXo9WeGU
-        eisb3DX6A+JQq6p7a1D+eGZ17EL7TCs8sq/PjvtkC0KXnOPIT5KQ+DicpwuSkBhe3821lhARRonW
-        r9Dtkyxofo/++kLuJUPy1GVTcNR7NF+UTTn51TSbwthkSST00rQNVn1Sf3pclHiYdFnXBWVTA3tT
-        1o7Rmtxqjgf07IFTnPiW8+xFOEzTeZr4JDhij9XaOAQ8JvA3uEJ/NDWDdxBfa4HAYcqWDBzJET0k
-        C8IsSr0YP04ZjINCQuD5aVdIeOOUwfXxCco0ADS624xj2xgrB6cT897j3CuqvzkwPYGXveqHGcFe
-        ED9ZEhiNe+N4xc/CC/9bvqYT3wG7ZMCSjEAtLTpf4LYgjsa9ccCSJwGTbdXjltc70Vxtzb9BbYXu
-        mVHs7GyLGiL5JozWcRoHeZDGYRr6JApCTNOQ0QIHEUTEduhl/NXUF5Mu+J+m4QLX3eggzH3FGx2e
-        +3iJ/Qwnme97UYLP1lb8YOlHGYZ0M/VIQE7WVqC44dRTXlV9/Kve6G7+AU4Lq0DQHQAA
-    headers:
-      access-control-allow-headers: ['Content-Type, Depth, User-Agent, X-File-Size,
-          X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, Accept-Language']
-      access-control-allow-methods: ['POST, GET, PUT, DELETE, PATCH, OPTIONS']
-      access-control-allow-origin: ['*']
-      access-control-max-age: ['1728000']
-      cache-control: ['max-age=0, private, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-type: [application/json; charset=utf-8]
-      date: ['Mon, 13 Nov 2017 08:15:35 GMT']
-      etag: [W/"d99156681b8b49b80afe638111430a58"]
-      server: [nginx]
-      x-content-type-options: [nosniff]
-      x-frame-options: [SAMEORIGIN]
-      x-request-id: [e76f0c14-3318-4c20-971e-8aabb86d27d2]
-      x-runtime: ['0.342375']
-      x-xss-protection: [1; mode=block]
-    status: {code: 200, message: OK}
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-hp4JXem+D1CegDCC9V2qNg==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 16 Jan 2024 06:32:02 GMT
+      ETag:
+      - W/"58d0e36b7df98131b7110dffde6b6456"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 12b16f0c-7d5f-4bb1-b0d8-a7a337cee1d0
+      X-Runtime:
+      - '0.335112'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
 version: 1
