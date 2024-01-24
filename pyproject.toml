@@ -25,7 +25,7 @@ requests = "^2.25.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.0.1"
-vcrpy = "^5.1.0"
+vcrpy = "^6.0.0"
 flake8 = "7.0.0"
 black = "23.12.1"
 isort = "5.13.2"
