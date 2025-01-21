@@ -143,6 +143,11 @@ class ZammadAPI:
         """Return a `User` instance"""
         return User(connection=self)
 
+    @property
+    def object(self) -> "Object":
+        """Return a `Object` instance"""
+        return Object(connection=self)
+
 
 class Pagination:
     def __init__(
