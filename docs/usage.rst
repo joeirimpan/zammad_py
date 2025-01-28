@@ -125,6 +125,7 @@ Available Resources
     ticketarticleplain
     ticketpriority
     ticketstate
+    tickettag
     object
     taglist
 
@@ -153,6 +154,16 @@ The :class:`~zammad_py.api.Ticket` resource also has the :meth:`~zammad_py.api.T
     ticketarticles = client.ticket.articles
     print(ticketarticles)
 
+The :class:`~zammad_py.api.Ticket` resource also has the :meth:`~zammad_py.api.Ticket.tags()` method to get the tags associated to the ticket.
+
+.. code-block:: python
+
+    from zammad_py import ZammadAPI
+    client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
+    print(client.ticket.find(<ID>))
+    ticket_tags = client.ticket.tags((<ID>))
+    for ttag in ticket_tags['tags']:
+        print(ttga)
 
 Further, it has the :meth:`~zammad_py.api.Ticket.merge()` method, that allows to merge two tickets. (This is not documented in the Zammad API Documentation)
 The method requires the Ticket id of the Child (The ticket you want to merge into the parent) and the Ticket Number of the Parent Ticket. (The ticket you want to contain the articles of the child after merging.)
@@ -201,6 +212,53 @@ The :class:`~zammad_py.api.TicketArticleAttachment` resource has the :meth:`~zam
         :param article_id: Ticket article id
         :param ticket_id: Ticket id
         """
+
+TagList Resource
+----------------
+
+The :class `~zammad_py.api.TagList` resource handles tags in the admin scope and has methods to create, remove and list tags.
+
+:meth:`zammad_py.api.TagList.all`
+   | This returns all tags configured (paginated).
+
+:meth:`zammad_py.api.TagList.create`
+   | Creates a new tag.
+
+:meth:`zammad_py.api.TagList.destroy`
+   | Deletes a tag with the ID provided.
+
+.. code-block:: python
+
+    from zammad_py import ZammadAPI
+    client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
+    client.taglist.create({'name': 'TestTag'})
+    for tag in client.taglist.all():
+        print(tag)
+        if tag['name'] == 'TestTag':
+            client.taglist.destroy(tag['id'])
+
+TicketTag Resource
+-------------------
+
+The :class `~zammad_py.api.TicketTag` resource handles tags in the ticket scope and has methods to add and remove tags associated to tickets.
+
+:meth:`zammad_py.api.TicketTag.add`
+   | Add a new tag to a ticket. (This will create the tag if it doesn’t exist and the user has permission to do so.)
+
+
+:meth:`zammad_py.api.TicketTag.remove`
+   | Remove a tag from a ticket.
+
+.. code-block:: python
+
+    from zammad_py import ZammadAPI
+    client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
+    ticket_tags = client.ticket.tags((<ID>))
+    print(ticket_tags['tags'])  # ['TestTag', 'Zammad']
+    client.ticket_tag.add(<ID>, 'FancyNewTag')
+    client.ticket_tag.remove(<ID>, 'Zammad')
+    ticket_tags = client.ticket.tags((<ID>))
+    print(ticket_tags['tags'])  # ['TestTag', 'FancyNewTag']
 
 Object Resource
 ---------------
