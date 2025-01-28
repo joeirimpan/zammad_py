@@ -153,6 +153,16 @@ The :class:`~zammad_py.api.Ticket` resource also has the :meth:`~zammad_py.api.T
     ticketarticles = client.ticket.articles
     print(ticketarticles)
 
+The :class:`~zammad_py.api.Ticket` resource also has the :meth:`~zammad_py.api.Ticket.tags()` method to get the tags associated to the ticket.
+
+.. code-block:: python
+
+    from zammad_py import ZammadAPI
+    client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
+    print(client.ticket.find(<ID>))
+    ticket_tags = client.ticket.tags((<ID>))
+    for ttag in ticket_tags['tags']:
+        print(ttga)
 
 Further, it has the :meth:`~zammad_py.api.Ticket.merge()` method, that allows to merge two tickets. (This is not documented in the Zammad API Documentation)
 The method requires the Ticket id of the Child (The ticket you want to merge into the parent) and the Ticket Number of the Parent Ticket. (The ticket you want to contain the articles of the child after merging.)
