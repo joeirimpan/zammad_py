@@ -143,6 +143,10 @@ class ZammadAPI:
         """Return a `User` instance"""
         return User(connection=self)
 
+    @property
+    def taglist(self) -> "TagList":
+        """Retrun a TagList instance"""
+        return TagList(connection=self)
 
 class Pagination:
     def __init__(
