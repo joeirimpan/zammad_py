@@ -125,6 +125,7 @@ Available Resources
     ticketarticleplain
     ticketpriority
     ticketstate
+    tickettag
     object
     taglist
 
@@ -212,8 +213,8 @@ The :class:`~zammad_py.api.TicketArticleAttachment` resource has the :meth:`~zam
         :param ticket_id: Ticket id
         """
 
-TagList
--------
+TagList Resource
+----------------
 
 The :class `~zammad_py.api.TagList` resource handles tags in the admin scope and has methods to create, remove and list tags.
 
@@ -235,6 +236,29 @@ The :class `~zammad_py.api.TagList` resource handles tags in the admin scope and
         print(tag)
         if tag['name'] == 'TestTag':
             client.taglist.destroy(tag['id'])
+
+TicketTag Resource
+-------------------
+
+The :class `~zammad_py.api.TicketTag` resource handles tags in the ticket scope and has methods to add and remove tags associated to tickets.
+
+:meth:`zammad_py.api.TicketTag.add`
+   | Add a new tag to a ticket. (This will create the tag if it doesn’t exist and the user has permission to do so.)
+
+
+:meth:`zammad_py.api.TicketTag.remove`
+   | Remove a tag from a ticket.
+
+.. code-block:: python
+
+    from zammad_py import ZammadAPI
+    client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
+    ticket_tags = client.ticket.tags((<ID>))
+    print(ticket_tags['tags'])  # ['TestTag', 'Zammad']
+    client.ticket_tag.add(<ID>, 'FancyNewTag')
+    client.ticket_tag.remove(<ID>, 'Zammad')
+    ticket_tags = client.ticket.tags((<ID>))
+    print(ticket_tags['tags'])  # ['TestTag', 'FancyNewTag']
 
 Object Resource
 ---------------
