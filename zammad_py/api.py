@@ -148,6 +148,11 @@ class ZammadAPI:
         """Retrun a TagList instance"""
         return TagList(connection=self)
 
+    @property
+    def ticket_tag(self):
+        """Return a `TicketTag` instance"""
+        return TicketTag(connection=self)
+
 class Pagination:
     def __init__(
         self,
@@ -331,6 +336,16 @@ class Ticket(Resource):
         )
         return self._raise_or_return_json(response)
 
+    def tags(self, id):
+        """Returns all the tags associated with the ticket id
+
+        :param id: Ticket id
+        """
+        response = self._connection.session.get(
+            self._connection.url + f"tags?object=Ticket&o_id={id}"
+        )
+        return self._raise_or_return_json(response)
+
     def merge(self, id, number):
         """Merges two tickets, (undocumented in Zammad Docs)
         If the objects are already merged, it will return "Object already exists!"
@@ -480,3 +495,42 @@ class Object(Resource):
 class TagList(Resource):
     """TagList handles tags in admin scope"""
     path_attribute = "tag_list"
+
+
+class TicketTag(Resource):
+    """handles tags in the ticket scope"""
+    path_attribute = "tags"
+
+    def add(self, id, tag, object='Ticket'):
+        """Add a tag to a ticket
+
+        :param id: Ticket id
+        :param tag: Tag name
+        :param object: Object to tag ((for now: 'Ticket'))
+        """
+
+        params = {
+            "o_id": id,
+            "item": tag,
+            "object": object,
+        }
+
+        response = self._connection.session.post(self.url + "/add", json=params)
+        return self._raise_or_return_json(response)
+
+    def remove(self, id, tag, object='Ticket'):
+        """Remove a tag from a ticket.
+
+        :param id: Ticket id
+        :param tag: Tag name
+        :param object: Object to tag ((for now: 'Ticket'))
+        """
+
+        params = {
+            "o_id": id,
+            "item": tag,
+            "object": object,
+        }
+
+        response = self._connection.session.delete(self.url + "/remove", json=params)
+        return self._raise_or_return_json(response)
