@@ -202,6 +202,30 @@ The :class:`~zammad_py.api.TicketArticleAttachment` resource has the :meth:`~zam
         :param ticket_id: Ticket id
         """
 
+TagList
+-------
+
+The :class `~zammad_py.api.TagList` resource handles tags in the admin scope and has methods to create, remove and list tags.
+
+:meth:`zammad_py.api.TagList.all`
+   | This returns all tags configured (paginated).
+
+:meth:`zammad_py.api.TagList.create`
+   | Creates a new tag.
+
+:meth:`zammad_py.api.TagList.destroy`
+   | Deletes a tag with the ID provided.
+
+.. code-block:: python
+
+    from zammad_py import ZammadAPI
+    client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
+    client.taglist.create({'name': 'TestTag'})
+    for tag in client.taglist.all():
+        print(tag)
+        if tag['name'] == 'TestTag':
+            client.taglist.destroy(tag['id'])
+
 Object Resource
 ---------------
 The :class:`~zammad_py.api.Object` resource has the :meth:`~zammad_py.api.Object.execute_migrations()` method to run the migrations of an object.

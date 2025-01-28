@@ -478,4 +478,5 @@ class Object(Resource):
 
 
 class TagList(Resource):
+    """TagList handles tags in admin scope"""
     path_attribute = "tag_list"
