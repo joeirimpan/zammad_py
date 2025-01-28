@@ -22,6 +22,7 @@ class ZammadAPI:
         oauth2_token: Optional[str] = None,
         on_behalf_of: Optional[str] = None,
         additional_headers: Optional[List[Tuple[str, str]]] = None,
+        session: requests.Session = None,
     ) -> None:
         self.url = url if url.endswith("/") else f"{url}/"
         self._username = username
@@ -32,7 +33,7 @@ class ZammadAPI:
         self._additional_headers = additional_headers
         self._check_config()
 
-        self.session = requests.Session()
+        self.session = session or requests.Session()
         atexit.register(self.session.close)
         self.session.headers["User-Agent"] = "Zammad API Python"
         if self._http_token:
