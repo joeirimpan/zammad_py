@@ -2,7 +2,7 @@
 import atexit
 from abc import ABC, abstractmethod
 from contextlib import contextmanager
-from typing import Any, Generator, List, Optional, Tuple
+from typing import Any, Generator, List, Optional, Tuple, Union
 
 import requests
 from requests.exceptions import HTTPError
@@ -22,6 +22,7 @@ class ZammadAPI:
         oauth2_token: Optional[str] = None,
         on_behalf_of: Optional[str] = None,
         additional_headers: Optional[List[Tuple[str, str]]] = None,
+        verify_ssl: Optional[Union[bool, str]] = True,
     ) -> None:
         self.url = url if url.endswith("/") else f"{url}/"
         self._username = username
@@ -30,6 +31,7 @@ class ZammadAPI:
         self._oauth2_token = oauth2_token
         self._on_behalf_of = on_behalf_of
         self._additional_headers = additional_headers
+        self._verify_ssl = verify_ssl or True
         self._check_config()
 
         self.session = requests.Session()
@@ -50,6 +52,9 @@ class ZammadAPI:
         if self._additional_headers:
             for additional_header in self._additional_headers:
                 self.session.headers[additional_header[0]] = additional_header[1]
+
+        if self._verify_ssl is not True:
+            self.session.verify = self._verify_ssl
 
     def _check_config(self) -> None:
         """Check the configuration"""
