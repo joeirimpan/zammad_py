@@ -173,11 +173,10 @@ class Pagination:
             self._params
             and "filters" in self._params
             and isinstance(self._params["filters"], dict)
+            and "page" in self._params["filters"]
         ):
-            # Remove page from filters to avoid overriding incremented page
-            if "page" in self._params["filters"]:
-                self._params["filters"] = self._params["filters"].copy()
-                self._params["filters"].pop("page", None)
+            self._params["filters"] = self._params["filters"].copy()
+            self._params["filters"].pop("page", None)
         self._function_name = function_name
 
     def is_last_page(self) -> bool:
@@ -218,7 +217,8 @@ class Resource(ABC):
 
     @property
     @abstractmethod
-    def path_attribute(self) -> str: ...
+    def path_attribute(self) -> str:
+        ...
 
     @property
     def url(self) -> str:

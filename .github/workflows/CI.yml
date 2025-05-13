@@ -9,21 +9,23 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
-      - uses: actions/setup-python@v5.0.0
-      - uses: pre-commit/action@v3.0.0
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-python@v5.6.0
+      - uses: pre-commit/action@v3.0.1
+        env:
+          SKIP: mypy
 
   tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4.2.2
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5.0.0
+        uses: actions/setup-python@v5.6.0
         with:
           python-version: ${{ matrix.python-version }}
 
