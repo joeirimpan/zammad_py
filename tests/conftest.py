@@ -1,13 +1,13 @@
 import pytest
-import vcr
 
 from zammad_py import ZammadAPI
 
-zammad_vcr = vcr.VCR(
-    filter_headers=[
-        "Authorization",
-    ]
-)
+
+@pytest.fixture(scope="module")
+def vcr_config():
+    return {
+        "filter_headers": [("Authorization", "user")],
+    }
 
 
 @pytest.fixture
@@ -15,5 +15,5 @@ def zammad_api():
     return ZammadAPI(
         url="http://localhost:8080/api/v1/",
         username="user",
-        password="pass",
+        password="password",
     )

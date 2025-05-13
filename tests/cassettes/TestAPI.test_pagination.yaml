@@ -1,0 +1,1341 @@
+interactions:
+- request:
+    body: '{"email": "pytest0@example.com"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '32'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: POST
+    uri: http://localhost:8080/api/v1/users
+  response:
+    body:
+      string: '{"id":68,"organization_id":null,"login":"pytest0@example.com","firstname":"","lastname":"","email":"pytest0@example.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":null,"street":"","zip":"","city":"","country":"","address":null,"vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{"locale":"en-us"},"updated_by_id":3,"created_by_id":3,"created_at":"2025-05-13T09:11:11.067Z","updated_at":"2025-05-13T09:11:11.067Z","role_ids":[3],"two_factor_preference_ids":[],"organization_ids":[],"authorization_ids":[],"overview_sorting_ids":[],"group_ids":{}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '771'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-GOBbXeHslNB5r0K/uDTz0Q==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:11 GMT
+      ETag:
+      - W/"40b18d94ea389394e465e46ae50f6829"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - cff57caa-a535-4acd-8c15-57b09d8473d3
+      X-Runtime:
+      - '0.439257'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"email": "pytest1@example.com"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '32'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: POST
+    uri: http://localhost:8080/api/v1/users
+  response:
+    body:
+      string: '{"id":69,"organization_id":null,"login":"pytest1@example.com","firstname":"","lastname":"","email":"pytest1@example.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":null,"street":"","zip":"","city":"","country":"","address":null,"vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{"locale":"en-us"},"updated_by_id":3,"created_by_id":3,"created_at":"2025-05-13T09:11:11.530Z","updated_at":"2025-05-13T09:11:11.530Z","role_ids":[3],"two_factor_preference_ids":[],"organization_ids":[],"authorization_ids":[],"overview_sorting_ids":[],"group_ids":{}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '771'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-Vvoji926diR7Ps0xFMVt8A==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:11 GMT
+      ETag:
+      - W/"6b38094f989b28129820fe3c528fe8b8"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - dff96fce-7df8-4954-8088-84f084e1036b
+      X-Runtime:
+      - '0.471300'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"email": "pytest2@example.com"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '32'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: POST
+    uri: http://localhost:8080/api/v1/users
+  response:
+    body:
+      string: '{"id":70,"organization_id":null,"login":"pytest2@example.com","firstname":"","lastname":"","email":"pytest2@example.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":null,"street":"","zip":"","city":"","country":"","address":null,"vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{"locale":"en-us"},"updated_by_id":3,"created_by_id":3,"created_at":"2025-05-13T09:11:12.128Z","updated_at":"2025-05-13T09:11:12.128Z","role_ids":[3],"two_factor_preference_ids":[],"organization_ids":[],"authorization_ids":[],"overview_sorting_ids":[],"group_ids":{}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '771'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-MpkGRtur+W39IgZH2y+4Xw==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:12 GMT
+      ETag:
+      - W/"c4bccbf29098f01305dbff3741e4af11"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 2b7c1d4c-c5ae-41df-8eca-67c9933fd01b
+      X-Runtime:
+      - '0.571677'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"email": "pytest3@example.com"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '32'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: POST
+    uri: http://localhost:8080/api/v1/users
+  response:
+    body:
+      string: '{"id":71,"organization_id":null,"login":"pytest3@example.com","firstname":"","lastname":"","email":"pytest3@example.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":null,"street":"","zip":"","city":"","country":"","address":null,"vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{"locale":"en-us"},"updated_by_id":3,"created_by_id":3,"created_at":"2025-05-13T09:11:12.586Z","updated_at":"2025-05-13T09:11:12.586Z","role_ids":[3],"two_factor_preference_ids":[],"organization_ids":[],"authorization_ids":[],"overview_sorting_ids":[],"group_ids":{}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '771'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-yJve/R6/vRVQmZyGyqSC0A==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:12 GMT
+      ETag:
+      - W/"077238ff670c6fea968a19279cd5c30d"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - bb812f85-56ba-4c8b-ad09-95e317f9f1af
+      X-Runtime:
+      - '0.446883'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"email": "pytest4@example.com"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '32'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: POST
+    uri: http://localhost:8080/api/v1/users
+  response:
+    body:
+      string: '{"id":72,"organization_id":null,"login":"pytest4@example.com","firstname":"","lastname":"","email":"pytest4@example.com","image":null,"image_source":null,"web":"","phone":"","fax":"","mobile":"","department":null,"street":"","zip":"","city":"","country":"","address":null,"vip":false,"verified":false,"active":true,"note":"","last_login":null,"source":null,"login_failed":0,"out_of_office":false,"out_of_office_start_at":null,"out_of_office_end_at":null,"out_of_office_replacement_id":null,"preferences":{"locale":"en-us"},"updated_by_id":3,"created_by_id":3,"created_at":"2025-05-13T09:11:13.064Z","updated_at":"2025-05-13T09:11:13.064Z","role_ids":[3],"two_factor_preference_ids":[],"organization_ids":[],"authorization_ids":[],"overview_sorting_ids":[],"group_ids":{}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '771'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-r3aRjtZIUetRiS3seCkyXg==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:13 GMT
+      ETag:
+      - W/"d3df58edfa45a886f808007ca3f954f6"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 654474a2-3e8c-49b4-868c-ab721e00cde7
+      X-Runtime:
+      - '0.483748'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/users?per_page=2&page=1&expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA9WVzW+bMBTA/5XJZ4IgLEvKadqkHXfaqVVlGfOgVo2NbJOsqfK/7xmbhrSlm7RD
+        VSkHv4+8L7+fuXkkoiZlnhBtWqbEkTmhFfU6NUiZEKlboUhJViQhjTDWKdZBlCV7EtEKHRMSLXgU
+        HWvRKUQYBWr1YPiT7gBV8OzvtPLhfHT2Oxw6XQkZlTX0zLgOlAs26wxAPB9FH5RcuId40oNyJgqs
+        rg1YGyx779wwaSEhezCiEYA9RgXjTuwxYxSVdjG975DGEYRuLvsYTbTBxn20DKc4OKob/DXCdxsD
+        XmipddgSZdhFCHlpBVUv2gz0knHw45hdUW+gAQOKA/b6eErI0NfMQU2rh9ELL5cbWND4Msg6W29W
+        2WaVF7+yXVlsy7xId8XuGm9livU3P6MlYDas4OY2Ie6gcSrcaUPP1Z3Nz3Yt/okN7k6b8wpGtcbr
+        2gs44AoZJ1R7DtMaPfRB9G37Et7KP8WbLfprmSe3Z2mjesyJZ5/wPFWcoQdkGlblN3BFTkmga/0K
+        XXgpE1pKcKw8rQwb1Ncj6zpWpzghj8QMuJ+jFypn1H3zf0HVhN5ypI9KpDMDAvuhgSRO8HtwlnKp
+        bXwmJpXuAR/X/CWz6/l24YqPT/S0bwssfkk/b4o3mb0q87zMtun2amR7xmzx3tCS74N1ugNDliqZ
+        uPwvfOcvDzJ6PdL26Qd+NvDJxC8fwvTvhC/hdrr9A6/qgJZXBwAA
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-MfktsHt+oejb4/npeU1k+g==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:13 GMT
+      ETag:
+      - W/"89dfbcc8569f02a8315bd2088761c6d8"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - e7fca70f-a7e7-48b1-916d-14286080ad72
+      X-Runtime:
+      - '0.322245'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/users?per_page=2&expand=true&page=2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA91WTW/bMAz9LzrbgR0nS+zTiu00DDt1lxWFIduUo8GWDFlO2gb57yP9na7G0GHD
+        igE5UM+URD49krk7M5mxKHCYNjlX8olbqVVMmGqKwmGFzqViEfuuDyrT8B4eeFkVsEp1yRwmpKmt
+        4iWgxyf0QKjgI/JRAwJQclksniBLnuPu7rJ2Ede6MemInSDBzXhOddCK7kFT8IfOKHUiix7MoOLG
+        lqDscFxtDQCuaMuTrDojlfaxt3SjrOkXPMsM1PWw9Ujughc1OOwIRgoJSEkP8NTKI95qTYOflbZ9
+        BJR6PBC29tZb19u6fnDrhZG3jbzdautvvmEs1wm2G2KBJNEVHr5EY2Mt8Cck0dBfeoXGtcVcYz6m
+        ev0VVLb4zUBV8BSIp9kzVwYEGFApIAVnyglTTjsxpFoJmRNccmskUn9mqQFOaZMlLRLEydYnBVmc
+        PMYkiI6dEVI60RmS3cF1k9S4M6GUBxr7VC8OSw9cKUDRnAf19IepQpIGaHVBv6bK3kAUBkqpMjAx
+        cpIeKKPXs9I/8pyWHlL69bxAnfKifbx/HQu9UqExGnw1Bsptaja+W6uUvvt0ehoRHzXQKqzTMZsX
+        0z7aBJG3Xr3z11RMnQZe8BuLbh2Qn9EFoOBR3ne+s753mD1prLrUahNP6u898POzfkj7EOWNPWgz
+        tcke1tgjjhJO2LuMlSqfjsmNbqpueWY+HsIE9lV2jyxQRLSf3WQoIAzxJqfmtRTacNWsT78U1OD2
+        LKIebsNB+8y+1mAInOIZGE+oJbozalvgpQFwcbrxsQl/4mtopEM7ROK0Czuxh3ATunuxztyN2IEb
+        BjvheoLvEz8NeLDleK+YTZVbqC2FivBssnzGTvuFxs40XtD8X2dJNxzf/tT4jULHPx6D7GiYXRU6
+        FvAuCvxVEIa/KvS536zQg6VamurzL5T5vLQ/NLXVJcp3KZKhXP9MVePVA52LRTu1zEWXy/0P4bXQ
+        gRgKAAA=
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-wax3bu1srO73Nh0novPU/Q==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:13 GMT
+      ETag:
+      - W/"dbdba792161fb4c2fbc33ae4d5ad5735"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - a39d506c-bf34-4d3c-bc7e-9304457c8a9c
+      X-Runtime:
+      - '0.387962'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/users?per_page=2&expand=true&page=3
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA+1UyW7bMBD9F55FQ5ItyfSpQK9FT+mlQSBQ4tBmIZECSdlJjPx7h1q8JBH6AQ3A
+        w/DNm5UzfDwTJcguyyJi7J5r9cq9MroMoO6bJiKN2StNdoT33lCxkVkKIqeVAKCbnMV0G0ugUCV5
+        EbOE5QknEZHKOq95C2j3AM7/cmATxBt+gX+g+DMwIgItVw0yUVQt36PRGHm4lM70tr5gJ6hGZncw
+        OrhHI8mfR6E1lWomUEDHrW9B+9md8xYAb8HkVXWjUCv/Mkmm195OFy6EBedm02OgS944iMgRrJIK
+        sD8TwGuvjhjV2x7V2vgpg1BsOXVvLOi+lEFVSqw9OIvxAXpfGolHqlDw5P4OLZ3Hqkp+KepeC1os
+        6ix0Da8hdOTmdTsLEizoGrDYMz52zYcOgqa9I28R6TvBPYiyehms1hGpLSwgIS2SxmlG44wm64eY
+        7Yazylj2G7s++1rkse3As6YBjIYZPa6fIuJPBttUe2PLa7qTHtXv5jZYIYrjejD2Os4TbPD5jgpO
+        OFbWK72/utlb03fj9Yx1hxyCDfneO29asGQpk9nzzfp8lsNMe5fABA/RUQ6hrw3Gdv4xBy0MfINn
+        3nYNrGrT3nSyCvP6GeUtGhc7Tz40aB7qu8UuClbj0Oc0z3NBN+k6oVvGKpoKYAVkWcGysKrya7HH
+        X+y/X+wk3sXFapsm/1jswNuu0jQPvK/Fnn7Oha29fpHLi/30F+AGbMOzBwAA
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-kPuZvq2sP+5sx75UUVV10A==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:14 GMT
+      ETag:
+      - W/"e0710aa838f0190fd9fbd9915dcab8bb"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 6c00df28-2a6e-4863-a89d-43479f82e364
+      X-Runtime:
+      - '0.277602'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/users?per_page=2&expand=true&page=4
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA+1UTW+jMBD9Lz5DBCEQktNKvVZ76l62qpCBMfEKbGSbpGnU/75jMIGkQXtfVeIw
+        8+Z7PI/XC+El2Sdbj0hVUcE/qOFSZBYUXV17pJYVF2RPaGekz3bhJtnS2E+ikvmbeBP5KUDqh1Dm
+        cRqku5TtiEcYV9oI2gDGvYA2vzSoEPGaXuFnFH9aD49AQ3mNnijyhlYYNFTulUzLThVX7AT54Nke
+        pLDpMYjR90FoZM5rB5bQUmUaEGZMp40CQM2GfPB2EApuzk6SnTDKKbQsFWg9hh6tO6O1Bo8cQXHG
+        AffjAFoYfsSqRnVoFtK4DuywmdveMNDtKL0pYzi7TRbgA3Qmkww/xu3ALv0NmmmDU2X0OtStFUS5
+        aFPQ1rQAu5HZ67YKGCgQBeCwF3zsgvYbBOF3mnx6pGtLaqDM8nMfFXmkULCA2LbIOljHfhD7YfQS
+        7PZhuA+S1XqT/satj7kW/eI0tH5K1oDVsKPX6M0j5iRxTYWRKpvadXY0392tjUIUz/Ug1XTODpb4
+        fEcOJzwrZbiopjSVkl07qBec2/ZgY8hTp41sQJGlTsbMM/o86mF0u2vAwX11lG3pacG4zj/yIEoJ
+        P+CdNm0Nq0I2s03m9l4fuXx6jtjplwWNRz0Suz0bpGhwV4HNKIwFZ8xFbWTs49BvEv9/JA7DVZBs
+        /03iye+bxO4vucDQ6Xe4TOK3v5H6fb+fBwAA
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-5ztapBfvhTEZSTj4XF2YIQ==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:14 GMT
+      ETag:
+      - W/"bf1a3063bb299c2d13bbc656e4eb24e5"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 62cb8911-8efd-433c-904e-2cf6a9071c3a
+      X-Runtime:
+      - '0.292451'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/users?per_page=2&expand=true&page=5
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA+1UzW7bMAx+F52dwHaQdc1pwF5hpxWFodi0o0GWDIpKmgZ991K2HCdGjW3XooAO
+        4j/5iZ+eLkJVYvftMREWG2nUqyRlTRGUxmudCG0bZcROdGcCR9kPeJFtp2Fd2lYkolboyMgW2INF
+        LW8laKXSi6GqlQ2HDVV6oXDWY3nVnWA/ZO0O1sQCtXwZdK3dKx2VFXQSqQVDYzpHCMBS6OlVdcOl
+        VHSON+sNYRRkVSE4N4Yeg3sttYNEHAFVrYCxiApZkjpyVULPZmMpdhDmLiJSw0D3o/SmomY4QrKU
+        wfZU2JpPrcLAMf2dtnDEUxXyOtS9FUy1aEPotCwhIHLzkh1CDQimBB72wg9byh5BMCvvxFsifFdJ
+        gqrYn/uoTSJKhAVNaEvkab5dpdtVtvmVPu6yjM96u0l/M+pjrr/5odXA1bijp81zIuhkGaaSLBZT
+        u9HO5tmOhijWSk8Hi9PqRrXl5zsqOPFaISnTTGkatL4bxAvPHXoIMeKnd2RbQLHUyZj5hiof9TC6
+        zRqI6r4630PpCWCG8489mMrCjGIjkvuwrx+5vCUDiR/CXt10xgOOS31P4nxW4T9IPA/9IvEnJHG+
+        zvLv/0Diq98XieMvucDQ6TtcJvHzO7D/jHSLBwAA
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-7Ub4bhEe3CdsgpQZyNyh2g==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:14 GMT
+      ETag:
+      - W/"80cea4efbf2db89af54cd858b01d4c91"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 02fd1f14-00c2-439d-8c56-76cdef98ba70
+      X-Runtime:
+      - '0.255968'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/users?per_page=2&expand=true&page=6
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA+1UTY+bMBD9Lz6TCMJm2+ZUqX+hp65WyIGBuDIeZI+TzUb73zsGExK6qHuuVuLg
+        efP97MfTRahK7L5kiUDbSKNeJSk0RQCN1zoRGhtlxE50ZwJH+Xd4kW2nYV1iKxJRK+vIyBY4gk0t
+        by1opdKLqaqVDacNXXqjcOhtecVOsB+qdgc0sUEtXwasxb3SEaygk5ZaMDSWc2QB2AozvapuOJSK
+        zvGE3pCNhqwqC86NqccQXkvtIBFHsKpWwFxEQJakjtyVrGe3QYoThL2LyNSw0P0qvauomY5QLGWy
+        PRVY81ersHAsf4cWjnirQl6XuveCqRZ9FjotSwiM3NxkZ6EGC6YEXvbCF1vKnkEwK+/EWyJ8V0mC
+        qtif+6w8EaWFBSSMJTbpZrtKt6ss/5l+22XZLtust18ffzHrY61/xVnUwN14oqf8ORF0QqapJLTF
+        NG70s3v2RkMWo9LTAe30dCOMfH1HBSd+VpaUaaYyjUXfDeaF9w4zhBzxwzvCFqxYmmSsfCOV92YY
+        w2YDRLjvzufQeiKY6fyNB1MhzCQ2MrkP7/W9kLckinjzF0Hjo74X8cOsQ/1xEc9TP0X8H4o4X6eP
+        Dx8Q8TXuU8TxL7mg0Ol3uCzi5z/MsuiHiwcAAA==
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-wpWRbpq1VUX6YFp/czCF+g==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:15 GMT
+      ETag:
+      - W/"1e754e504211f82b15393d348ac3f0e0"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 9462245a-5022-40eb-88de-c34be145df3d
+      X-Runtime:
+      - '0.276981'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/users?per_page=2&expand=true&page=7
+  response:
+    body:
+      string: '[]'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-fQo18Nleza8K9chrSdqj8g==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:15 GMT
+      ETag:
+      - W/"4f53cda18c2baa0c0354bb5f9a3ecbe5"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 7571a047-3529-4eea-befb-909a29e12294
+      X-Runtime:
+      - '0.217229'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/users?per_page=2&expand=true&page=6
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA+1UTY+bMBD9Lz6TCMJm2+ZUqX+hp65WyIGBuDIeZI+TzUb73zsGExK6qHuuVuLg
+        efP97MfTRahK7L5kiUDbSKNeJSk0RQCN1zoRGhtlxE50ZwJH+Xd4kW2nYV1iKxJRK+vIyBY4gk0t
+        by1opdKLqaqVDacNXXqjcOhtecVOsB+qdgc0sUEtXwasxb3SEaygk5ZaMDSWc2QB2AozvapuOJSK
+        zvGE3pCNhqwqC86NqccQXkvtIBFHsKpWwFxEQJakjtyVrGe3QYoThL2LyNSw0P0qvauomY5QLGWy
+        PRVY81ersHAsf4cWjnirQl6XuveCqRZ9FjotSwiM3NxkZ6EGC6YEXvbCF1vKnkEwK+/EWyJ8V0mC
+        qtif+6w8EaWFBSSMJTbpZrtKt6ss/5l+22XZLtust18ffzHrY61/xVnUwN14oqf8ORF0QqapJLTF
+        NG70s3v2RkMWo9LTAe30dCOMfH1HBSd+VpaUaaYyjUXfDeaF9w4zhBzxwzvCFqxYmmSsfCOV92YY
+        w2YDRLjvzufQeiKY6fyNB1MhzCQ2MrkP7/W9kLckinjzF0Hjo74X8cOsQ/1xEc9TP0X8H4o4X6eP
+        Dx8Q8TXuU8TxL7mg0Ol3uCzi5z/MsuiHiwcAAA==
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-lIDNiabdrq2fpKyjFwo/gg==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:15 GMT
+      ETag:
+      - W/"1e754e504211f82b15393d348ac3f0e0"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 3bcb5590-0f11-4c45-b3e3-ffff21d01c13
+      X-Runtime:
+      - '0.271618'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Zammad API Python
+    method: DELETE
+    uri: http://localhost:8080/api/v1/users/68
+  response:
+    body:
+      string: '{}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-2D1/3qy3rSA91nRB0a8wPQ==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:16 GMT
+      ETag:
+      - W/"44136fa355b3678a1146ad16f7e8649e"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - bc36298c-cf5b-42d4-a5ba-7729b0039b48
+      X-Runtime:
+      - '0.656487'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Zammad API Python
+    method: DELETE
+    uri: http://localhost:8080/api/v1/users/69
+  response:
+    body:
+      string: '{}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-6+D/8WpB/WtBekNK4BCgMw==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:16 GMT
+      ETag:
+      - W/"44136fa355b3678a1146ad16f7e8649e"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 277f8c88-39ec-4b54-851f-28dac8594b63
+      X-Runtime:
+      - '0.684147'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Zammad API Python
+    method: DELETE
+    uri: http://localhost:8080/api/v1/users/70
+  response:
+    body:
+      string: '{}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-YCMUUnXLF2uJal3fSeJnnA==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:17 GMT
+      ETag:
+      - W/"44136fa355b3678a1146ad16f7e8649e"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - adaa26f1-7be6-41ca-9930-12a3254c461d
+      X-Runtime:
+      - '0.684808'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Zammad API Python
+    method: DELETE
+    uri: http://localhost:8080/api/v1/users/71
+  response:
+    body:
+      string: '{}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-OZXTiTgASbb33uThhq9xSw==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:18 GMT
+      ETag:
+      - W/"44136fa355b3678a1146ad16f7e8649e"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - ea5dff8c-453f-4215-ab99-b1e9df8cf1a3
+      X-Runtime:
+      - '0.707198'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Zammad API Python
+    method: DELETE
+    uri: http://localhost:8080/api/v1/users/72
+  response:
+    body:
+      string: '{}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://localhost:8080; default-src ''self'' ws: wss: https://images.zammad.com;
+        font-src ''self'' data:; img-src * data:; object-src ''none''; script-src
+        ''self'' ''unsafe-eval'' ''nonce-pzRqz2GpyFaxgqfNWUX0JQ==''; style-src ''self''
+        ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:19 GMT
+      ETag:
+      - W/"44136fa355b3678a1146ad16f7e8649e"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 10211dad-4ad2-4f6d-8623-cba71ea53650
+      X-Runtime:
+      - '0.686239'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
