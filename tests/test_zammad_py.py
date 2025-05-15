@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 
 """Tests for `zammad_py` package."""
-from conftest import zammad_vcr
+import re
+
+import pytest
+
+# from conftest import zammad_vcr
 
 
 class TestAPI:
-    @zammad_vcr.use_cassette(
-        "tests/fixtures/zammad_users.yml", record_mode="new_episodes"
-    )
+    @pytest.mark.vcr()
     def test_users(self, zammad_api):
         all_users = zammad_api.user.all()._items
         assert all_users[2]["id"] == 3
@@ -24,22 +26,17 @@ class TestAPI:
         new_user = zammad_api.user.create(
             {"firstname": "TestUser", "lastname": "LastName"}
         )
-        assert new_user["id"] == 4
         assert new_user["firstname"] == "TestUser"
 
-        updated_user = zammad_api.user.update(4, {"firstname": "TestUser1"})
+        updated_user = zammad_api.user.update(
+            new_user["id"], {"firstname": "TestUser1"}
+        )
         assert updated_user["firstname"] == "TestUser1"
-
-        # ref: https://github.com/zammad/zammad/issues/2605#issuecomment-740618626
-        # deleted_user = zammad_api.user.destroy(4)
-        # assert deleted_user == {}
 
         (current_user,) = zammad_api.user.search("John")
         assert current_user["id"] == 3
 
-    @zammad_vcr.use_cassette(
-        "tests/fixtures/zammad_tickets.yml", record_mode="new_episodes"
-    )
+    @pytest.mark.vcr()
     def test_tickets(self, zammad_api):
         all_tickets = zammad_api.ticket.all()._items
         assert all_tickets[0]["id"] == 1
@@ -80,9 +77,7 @@ class TestAPI:
         result = zammad_api.ticket.search("Welcome")._items
         assert result[0]["title"] == "Welcome to Zammad!"
 
-    @zammad_vcr.use_cassette(
-        "tests/fixtures/zammad_groups.yml", record_mode="new_episodes"
-    )
+    @pytest.mark.vcr()
     def test_groups(self, zammad_api):
         all_groups = zammad_api.group.all()._items
         assert all_groups[0]["id"] == 1
@@ -92,29 +87,41 @@ class TestAPI:
         assert current_group["id"] == 1
         assert current_group["note"] == "Standard Group/Pool for Tickets."
 
-        new_group = zammad_api.group.create({"name": "Name1", "note": "note1"})
-        assert new_group["name"] == "Name1"
+        new_group = zammad_api.group.create({"name": "Test1", "note": "note1"})
+        assert new_group["name"] == "Test1"
         assert new_group["note"] == "note1"
 
-        updated_group = zammad_api.group.update(2, {"name": "Name2"})
-        assert updated_group["name"] == "Name2"
+        updated_group = zammad_api.group.update(new_group["id"], {"name": "Test2"})
+        assert updated_group["name"] == "Test2"
 
-        deleted_group = zammad_api.group.destroy(2)
+        deleted_group = zammad_api.group.destroy(new_group["id"])
         assert deleted_group == {}
 
-    @zammad_vcr.use_cassette(
-        "tests/fixtures/zammad_pagination.yml", record_mode="new_episodes"
-    )
+    @pytest.mark.vcr()
     def test_pagination(self, zammad_api):
-        # Let us create 20 users
+        # Let us create 5 users
         users = []
-        for index in range(20):
-            users.append(zammad_api.user.create({"email": "robot%s@mr.com" % index}))
-        paginated_response = zammad_api.user.all()
-        # Go to next page
-        next_page = paginated_response.next_page()
-        for item in next_page:
-            assert item is not None
+        for index in range(5):
+            users.append(
+                zammad_api.user.create({"email": "pytest%s@example.com" % index})
+            )
+        paginated_response = zammad_api.user.all(filters={"per_page": 2})
+
+        # assert there are 5 users emails
+        data = []
+        while True:
+            for item in paginated_response:
+                print(item)
+                if re.match(r"pytest\d+@example\.com", item["email"]):
+                    data.append(item["email"])
+                assert item is not None
+            print("last page?", paginated_response.is_last_page())
+            if paginated_response.is_last_page():
+                break
+            paginated_response = paginated_response.next_page()
+
+        assert len(data) == 5
+
         # Go to prev page
         prev_page = paginated_response.prev_page()
         for item in prev_page:

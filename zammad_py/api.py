@@ -1,4 +1,5 @@
 """Main module."""
+
 import atexit
 from abc import ABC, abstractmethod
 from contextlib import contextmanager
@@ -153,6 +154,7 @@ class ZammadAPI:
         """Return a `TicketTag` instance"""
         return TicketTag(connection=self)
 
+
 class Pagination:
     def __init__(
         self,
@@ -165,8 +167,23 @@ class Pagination:
         self._items = items
         self._page = page
         self._resource = resource
-        self._params = params
+        # Create a copy of params and remove page to prevent it from overriding the incremented page value
+        self._params = params.copy() if params else {}
+        if (
+            self._params
+            and "filters" in self._params
+            and isinstance(self._params["filters"], dict)
+            and "page" in self._params["filters"]
+        ):
+            self._params["filters"] = self._params["filters"].copy()
+            self._params["filters"].pop("page", None)
         self._function_name = function_name
+
+    def is_last_page(self) -> bool:
+        """Check if the current page is the last page"""
+        if len(self._items) < self._resource.per_page:
+            return True
+        return False
 
     def __iter__(self):
         yield from self._items
@@ -237,21 +254,30 @@ class Resource(ABC):
         """Returns the list of resources
 
         :param page: Page number
-        :param filters: Filter arguments like page, per_page
+        :param filters: Filter arguments including page, per_page if needed
         """
-        params = filters or {}
-        defaults = {"page": page, "per_page": self._per_page, "expand": "true"}
-        for k, v in defaults.items():
-            if k not in params:
-                params[k] = v
+        params = filters.copy() if filters else {}
+
+        # Set defaults only if not specified in filters
+        if "page" not in params:
+            params["page"] = page
+        if "per_page" not in params:
+            params["per_page"] = self._per_page
+        if "expand" not in params:
+            params["expand"] = "true"
+
+        if "per_page" in params:
+            self._per_page = params["per_page"]
+
         response = self._connection.session.get(self.url, params=params)
         data = self._raise_or_return_json(response)
+
         return Pagination(
             items=data,
             resource=self,
             function_name="all",
             params={"filters": params},
-            page=page,
+            page=params["page"],
         )
 
     def search(self, search_string: str, page: int = 1, filters=None) -> Pagination:
@@ -261,20 +287,29 @@ class Resource(ABC):
         :param page: Page number
         :param filters: Filter arguments like page, per_page
         """
-        params = filters or {}
+        params = filters.copy() if filters else {}
         params.update({"query": search_string})
-        defaults = {"page": page, "per_page": self._per_page, "expand": "true"}
-        for k, v in defaults.items():
-            if k not in params:
-                params[k] = v
+
+        # Set defaults only if not specified in filters
+        if "page" not in params:
+            params["page"] = page
+        if "per_page" not in params:
+            params["per_page"] = self._per_page
+        if "expand" not in params:
+            params["expand"] = "true"
+
+        if "per_page" in params:
+            self._per_page = params["per_page"]
+
         response = self._connection.session.get(self.url + "/search", params=params)
         data = self._raise_or_return_json(response)
+
         return Pagination(
             items=data,
             resource=self,
             function_name="search",
             params={"search_string": search_string, "filters": params},
-            page=page,
+            page=params["page"],
         )
 
     def find(self, id):
@@ -494,14 +529,16 @@ class Object(Resource):
 
 class TagList(Resource):
     """TagList handles tags in admin scope"""
+
     path_attribute = "tag_list"
 
 
 class TicketTag(Resource):
     """handles tags in the ticket scope"""
+
     path_attribute = "tags"
 
-    def add(self, id, tag, object='Ticket'):
+    def add(self, id, tag, object="Ticket"):
         """Add a tag to a ticket
 
         :param id: Ticket id
@@ -518,7 +555,7 @@ class TicketTag(Resource):
         response = self._connection.session.post(self.url + "/add", json=params)
         return self._raise_or_return_json(response)
 
-    def remove(self, id, tag, object='Ticket'):
+    def remove(self, id, tag, object="Ticket"):
         """Remove a tag from a ticket.
 
         :param id: Ticket id
