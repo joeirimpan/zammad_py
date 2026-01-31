@@ -8,9 +8,19 @@ from typing import Any, Generator, List, Optional, Tuple
 import requests
 from requests.exceptions import HTTPError
 
-from zammad_py.exceptions import ConfigException, UnusedResourceError
+from zammad_py.exceptions import ConfigException, UnusedResourceError, MissingParameterError, InvalidTypeError
+from zammad_py.enums import KnowledgeBaseAnswerPublicity
 
-__all__ = ["ZammadAPI"]
+__all__ = [
+    "ZammadAPI",
+    # Exceptions
+    "ConfigException",
+    "UnusedResourceError",
+    "MissingParameterError",
+    "InvalidTypeError",
+    # Enums
+    "KnowledgeBaseAnswerPublicity"
+]
 
 
 class ZammadAPI:
@@ -644,3 +654,96 @@ class KnowledgeBases(Resource):
 
     def destroy(self, id):
         raise UnusedResourceError(self.__class__.__name__, "destroy")
+
+
+class KnowledgeBasesAnswers(Resource):
+    path_attribute = "knowledge_bases"
+
+    def all(self, page: int = 1, filters=None) -> Pagination:
+        """Disabled: Zammad does not support a flat list of all answers"""
+        raise UnusedResourceError(self.__class__.__name__, "all")
+
+    def search(self, search_string: str, page: int = 1, filters=None) -> Pagination:
+        """Disabled: Answers search is now supported"""
+        raise UnusedResourceError(self.__class__.__name__, "search")
+
+    def find(self, id):
+        """Disabled: Retrieving an answer requires both knowledge_base_id and answer_id"""
+        raise UnusedResourceError(self.__class__.__name__, "find")
+
+    def find_answer(self, knowledge_base_id, answer_id, include_content_id=None):
+        """Retrieves a specific answer from a knowledge base, optionally including content details"""
+        if include_content_id is None:
+            find_answer_url = self._connection.url + "knowledge_bases/%s/answers/%s" % (knowledge_base_id, answer_id)
+        else:
+            find_answer_url = self._connection.url + "knowledge_bases/%s/answers/%s?include_contents=%s" % (knowledge_base_id, answer_id, include_content_id)
+
+        response = self._connection.session.get(find_answer_url)
+        return self._raise_or_return_json(response)
+
+    def create(self, params):
+        """Creates a new answer within a specified knowledge base"""
+        if not isinstance(params, dict):
+            raise InvalidTypeError("params", dict, type(params))
+
+        if "knowledge_base_id" not in params:
+            raise MissingParameterError("knowledge_base_id", context="create knowledge base answer")
+
+        knowledge_base_id = params.pop("knowledge_base_id")
+
+        response = self._connection.session.post(
+            self._connection.url + "knowledge_bases/%s/answers" % knowledge_base_id,
+            json=params
+        )
+        return self._raise_or_return_json(response)
+
+    def update(self, id, params):
+        """Updates an existing answer using the knowledge base ID and the answer ID"""
+        if not isinstance(params, dict):
+            raise InvalidTypeError("params", dict, type(params))
+
+        if "answer_id" not in params:
+            raise MissingParameterError("answer_id", context="update knowledge base answer")
+
+        answer_id = params.pop("answer_id")
+
+        response = self._connection.session.patch(
+            self._connection.url + "knowledge_bases/%s/answers/%s" % (id, answer_id),
+            json=params
+        )
+        return self._raise_or_return_json(response)
+
+    def destroy(self, id):
+        """Disabled: Permanent deletion requires both knowledge_base_id and answer_id"""
+        raise UnusedResourceError(self.__class__.__name__, "destroy")
+
+    def destroy_answer(self, knowledge_base_id, answer_id):
+        """Permanently deletes an answer from the knowledge base"""
+        response = self._connection.session.delete(
+            self._connection.url + "knowledge_bases/%s/answers/%s" % (knowledge_base_id, answer_id)
+        )
+        return self._raise_or_return_json(response)
+
+    def change_answer_visibility(self, knowledge_base_id, answer_id, answer_visibility: KnowledgeBaseAnswerPublicity):
+        """Updates the publication state (e.g., draft, public, internal) of a specific answer"""
+        response = self._connection.session.post(
+            self._connection.url + "knowledge_bases/%s/answers/%s/%s" % (knowledge_base_id, answer_id, answer_visibility.value)
+        )
+        return self._raise_or_return_json(response)
+
+    def add_attachment(self, knowledge_base_id, answer_id, attachment):
+        """Uploads a file as an attachment to an answer using multipart/form-data"""
+        response = self._connection.session.post(
+            self._connection.url + "knowledge_bases/%s/answers/%s/attachments" % (knowledge_base_id, answer_id),
+            files={
+                "attachments[]": attachment
+            }
+        )
+        return self._raise_or_return_json(response)
+
+    def delete_attachment(self, knowledge_base_id, answer_id, attachment_id):
+        """Removes a specific attachment from an answer by its attachment ID"""
+        response = self._connection.session.delete(
+            self._connection.url + "knowledge_bases/%s/answers/%s/attachments/%s" % (knowledge_base_id, answer_id, attachment_id)
+        )
+        return self._raise_or_return_json(response)
