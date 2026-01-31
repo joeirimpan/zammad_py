@@ -3,6 +3,8 @@
 """Tests for `zammad_py` package."""
 import re
 
+from zammad_py.exceptions import UnusedResourceError
+
 import pytest
 
 # from conftest import zammad_vcr
@@ -131,6 +133,66 @@ class TestAPI:
         # Delete users
         for user in users:
             zammad_api.user.destroy(user["id"])
+
+    @pytest.mark.vcr()
+    def test_knowledge_base(self, zammad_api):
+        structure = zammad_api.knowledge_bases.init()
+        assert "KnowledgeBase" in structure
+        assert "KnowledgeBaseLocale" in structure
+        if structure["KnowledgeBase"]["1"]["category_ids"]:
+            assert "KnowledgeBaseCategory" in structure
+
+        settings = {
+            "active": True,
+            "homepage_layout": "grid",
+            "color_highlight": "#38ae6a"
+        }
+        manage_response = zammad_api.knowledge_bases.manage(1, settings)
+        assert manage_response["active"] is True
+        assert manage_response["homepage_layout"] == "grid"
+
+        permissions = zammad_api.knowledge_bases.show_permissions(1)
+        assert "roles_reader" in permissions
+        assert "roles_editor" in permissions
+
+        new_permissions = {
+            "permissions_dialog": {
+                "permissions": {"1": "editor", "2": "reader"}
+            }
+        }
+        change_permissions_response = zammad_api.knowledge_bases.change_permissions(1, new_permissions)
+        assert "roles_reader" in change_permissions_response
+        assert "roles_editor" in change_permissions_response
+
+        reorder_sub_categories_params = {
+            "ordered_ids": [3, 2]
+        }
+        reorder_sub_categories_response = zammad_api.knowledge_bases.reorder_sub_categories(1, 1, reorder_sub_categories_params)
+        assert "KnowledgeBaseCategory" in reorder_sub_categories_response
+        assert "KnowledgeBase" in reorder_sub_categories_response
+
+        reorder_root_categories_params = {
+            "ordered_ids": [5, 4, 1]
+        }
+        reorder_root_categories_response = zammad_api.knowledge_bases.reorder_root_categories(1, reorder_root_categories_params)
+        assert "KnowledgeBaseCategory" in reorder_root_categories_response
+        assert "KnowledgeBase" in reorder_root_categories_response
+
+        kb = zammad_api.knowledge_bases
+
+        unused_calls = [
+            (kb.all, []),
+            (kb.search, ["query"]),
+            (kb.find, [1]),
+            (kb.create, [{}]),
+            (kb.update, [1, {}]),
+            (kb.destroy, [1])
+        ]
+
+        for method, args in unused_calls:
+            with pytest.raises(UnusedResourceError) as excinfo:
+                method(*args)
+            assert "is not available for the KnowledgeBases resource" in str(excinfo.value)
 
     def test_push_on_behalf_of_header(self, zammad_api):
         zammad_api.on_behalf_of = "USERX"

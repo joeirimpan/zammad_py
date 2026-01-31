@@ -1,0 +1,463 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Zammad API Python
+    method: POST
+    uri: http://localhost:8080/api/v1/knowledge_bases/init
+  response:
+    body:
+      string: "{\"KnowledgeBase\":{\"1\":{\"color_highlight\":\"#38ae6a\",\"homepage_layout\":\"grid\",\"active\":true,\"id\":1,\"iconset\":\"FontAwesome\",\"color_header\":\"#DDDDDD\",\"color_header_link\":\"#D1A3F4\",\"category_layout\":\"grid\",\"show_feed_icon\":true,\"custom_address\":\"/address_1\",\"created_at\":\"2026-01-31T10:28:40.635Z\",\"updated_at\":\"2026-01-31T17:41:34.170Z\",\"translation_ids\":[1,2],\"kb_locale_ids\":[1,2],\"category_ids\":[1],\"answer_ids\":[],\"permission_ids\":[1,2],\"permissions_effective\":[{\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]}},\"KnowledgeBaseTranslation\":{\"1\":{\"id\":1,\"title\":\"Category
+        1\",\"footer_note\":\"\xA9 Test PY\",\"kb_locale_id\":1,\"knowledge_base_id\":1,\"created_at\":\"2026-01-31T10:28:40.651Z\",\"updated_at\":\"2026-01-31T17:41:13.976Z\"},\"2\":{\"id\":2,\"title\":\"Category
+        1\",\"footer_note\":\"\xA9 Test PY\",\"kb_locale_id\":2,\"knowledge_base_id\":1,\"created_at\":\"2026-01-31T10:28:40.654Z\",\"updated_at\":\"2026-01-31T17:41:34.169Z\"}},\"KnowledgeBaseLocale\":{\"1\":{\"id\":1,\"knowledge_base_id\":1,\"system_locale_id\":1,\"primary\":true,\"created_at\":\"2026-01-31T10:28:40.637Z\",\"updated_at\":\"2026-01-31T10:28:40.637Z\",\"knowledge_base_translation_ids\":[1],\"category_translation_ids\":[],\"answer_translation_ids\":[],\"menu_item_ids\":[]},\"2\":{\"id\":2,\"knowledge_base_id\":1,\"system_locale_id\":5,\"primary\":false,\"created_at\":\"2026-01-31T10:28:40.641Z\",\"updated_at\":\"2026-01-31T10:28:40.641Z\",\"knowledge_base_translation_ids\":[2],\"category_translation_ids\":[],\"answer_translation_ids\":[],\"menu_item_ids\":[]}},\"KnowledgeBaseCategory\":{\"1\":{\"id\":1,\"knowledge_base_id\":1,\"parent_id\":null,\"category_icon\":\"f115\",\"position\":0,\"created_at\":\"2026-01-31T17:41:42.084Z\",\"updated_at\":\"2026-01-31T17:43:55.926Z\",\"translation_ids\":[1],\"answer_ids\":[],\"child_ids\":[2,3],\"permission_ids\":[],\"permissions_effective\":[{\"permissionable_id\":1,\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"permissionable_id\":1,\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]},\"2\":{\"id\":2,\"knowledge_base_id\":1,\"parent_id\":1,\"category_icon\":\"f115\",\"position\":0,\"created_at\":\"2026-01-31T17:43:47.958Z\",\"updated_at\":\"2026-01-31T17:43:47.963Z\",\"translation_ids\":[2],\"answer_ids\":[],\"child_ids\":[],\"permission_ids\":[],\"permissions_effective\":[{\"permissionable_id\":1,\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"permissionable_id\":1,\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]},\"3\":{\"id\":3,\"knowledge_base_id\":1,\"parent_id\":1,\"category_icon\":\"f115\",\"position\":1,\"created_at\":\"2026-01-31T17:43:55.920Z\",\"updated_at\":\"2026-01-31T17:43:55.925Z\",\"translation_ids\":[3],\"answer_ids\":[],\"child_ids\":[],\"permission_ids\":[],\"permissions_effective\":[{\"permissionable_id\":1,\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"permissionable_id\":1,\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]},\"4\":{\"id\":4,\"knowledge_base_id\":1,\"parent_id\":null,\"category_icon\":\"f115\",\"position\":1,\"created_at\":\"2026-01-31T17:44:04.030Z\",\"updated_at\":\"2026-01-31T17:44:04.035Z\",\"translation_ids\":[4],\"answer_ids\":[],\"child_ids\":[],\"permission_ids\":[],\"permissions_effective\":[{\"permissionable_id\":1,\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"permissionable_id\":1,\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]},\"5\":{\"id\":5,\"knowledge_base_id\":1,\"parent_id\":null,\"category_icon\":\"f115\",\"position\":2,\"created_at\":\"2026-01-31T17:45:07.922Z\",\"updated_at\":\"2026-01-31T17:45:07.927Z\",\"translation_ids\":[5],\"answer_ids\":[],\"child_ids\":[],\"permission_ids\":[],\"permissions_effective\":[{\"permissionable_id\":1,\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"permissionable_id\":1,\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]}},\"KnowledgeBaseCategoryTranslation\":{\"1\":{\"id\":1,\"title\":\"Category
+        1\",\"kb_locale_id\":2,\"category_id\":1,\"created_at\":\"2026-01-31T17:41:42.088Z\",\"updated_at\":\"2026-01-31T17:41:42.088Z\"},\"2\":{\"id\":2,\"title\":\"Sub-category
+        1\",\"kb_locale_id\":2,\"category_id\":2,\"created_at\":\"2026-01-31T17:43:47.961Z\",\"updated_at\":\"2026-01-31T17:43:47.961Z\"},\"3\":{\"id\":3,\"title\":\"Sub-category
+        2\",\"kb_locale_id\":2,\"category_id\":3,\"created_at\":\"2026-01-31T17:43:55.923Z\",\"updated_at\":\"2026-01-31T17:43:55.923Z\"},\"4\":{\"id\":4,\"title\":\"Category
+        2\",\"kb_locale_id\":2,\"category_id\":4,\"created_at\":\"2026-01-31T17:44:04.033Z\",\"updated_at\":\"2026-01-31T17:44:04.033Z\"},\"5\":{\"id\":5,\"title\":\"Category
+        3\",\"kb_locale_id\":2,\"category_id\":5,\"created_at\":\"2026-01-31T17:45:07.925Z\",\"updated_at\":\"2026-01-31T17:45:07.925Z\"}}}"
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-XHRyhJ4THiNkb+YvGWLyqA=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 17:45:49 GMT
+      ETag:
+      - W/"dd60bbeb59b4dae8e066b4a4481a3da3"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 94a22785-85c8-4369-b5a2-c213b6966ba8
+      X-Runtime:
+      - '0.234964'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"active": true, "homepage_layout": "grid", "color_highlight": "#38ae6a"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '73'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: PATCH
+    uri: http://localhost:8080/api/v1/knowledge_bases/manage/1
+  response:
+    body:
+      string: '{"color_highlight":"#38ae6a","homepage_layout":"grid","active":true,"id":1,"iconset":"FontAwesome","color_header":"#DDDDDD","color_header_link":"#D1A3F4","category_layout":"grid","show_feed_icon":true,"custom_address":"/address_1","created_at":"2026-01-31T10:28:40.635Z","updated_at":"2026-01-31T17:41:34.170Z","translation_ids":[1,2],"kb_locale_ids":[1,2],"category_ids":[2,5,4,1,3],"answer_ids":[],"permission_ids":[1,2],"permissions_effective":[{"id":1,"permissionable_type":"KnowledgeBase","permissionable_id":1,"role_id":1,"access":"editor","created_at":"2026-01-31T15:42:02.660Z","updated_at":"2026-01-31T15:42:02.660Z"},{"id":2,"permissionable_type":"KnowledgeBase","permissionable_id":1,"role_id":2,"access":"reader","created_at":"2026-01-31T15:42:02.662Z","updated_at":"2026-01-31T15:42:02.662Z"}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-kBnQWCN4x0XTbQIiaIMdrA=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 17:45:50 GMT
+      ETag:
+      - W/"94d136135764651c16de6e2165ef4591"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 7a36e67e-5b0b-44bf-89e8-4adc5f27b546
+      X-Runtime:
+      - '0.265379'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/knowledge_bases/1/permissions
+  response:
+    body:
+      string: '{"roles_reader":[{"id":2,"name":"Agent"}],"roles_editor":[{"id":1,"name":"Admin"}],"permissions":[{"id":1,"access":"editor","role_id":1},{"id":2,"access":"reader","role_id":2}],"inherited":[]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-xD7T+7lXbAgBi6SCRtV5ag=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 17:45:50 GMT
+      ETag:
+      - W/"7f8daa7a80b514412c993891af17d49b"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 0466f88c-c3a1-4372-971a-d8905b97357e
+      X-Runtime:
+      - '0.207515'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"permissions_dialog": {"permissions": {"1": "editor", "2": "reader"}}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '71'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: PUT
+    uri: http://localhost:8080/api/v1/knowledge_bases/1/permissions
+  response:
+    body:
+      string: '{"roles_reader":[{"id":2,"name":"Agent"}],"roles_editor":[{"id":1,"name":"Admin"}],"permissions":[{"id":1,"access":"editor","role_id":1},{"id":2,"access":"reader","role_id":2}],"inherited":[]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-JfoqCVg62rHMwvoV9JohRg=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 17:45:50 GMT
+      ETag:
+      - W/"7f8daa7a80b514412c993891af17d49b"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 9cbb8af4-7db5-4619-ae26-f0f777a0d311
+      X-Runtime:
+      - '0.209668'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"ordered_ids": [3, 2]}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '23'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: PATCH
+    uri: http://localhost:8080/api/v1/knowledge_bases/1/categories/1/reorder_categories
+  response:
+    body:
+      string: "{\"KnowledgeBaseCategory\":{\"2\":{\"parent_id\":1,\"position\":1,\"knowledge_base_id\":1,\"id\":2,\"category_icon\":\"f115\",\"created_at\":\"2026-01-31T17:43:47.958Z\",\"updated_at\":\"2026-01-31T17:45:51.334Z\",\"translation_ids\":[2],\"answer_ids\":[],\"child_ids\":[],\"permission_ids\":[],\"permissions_effective\":[{\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]},\"1\":{\"id\":1,\"knowledge_base_id\":1,\"parent_id\":null,\"category_icon\":\"f115\",\"position\":0,\"created_at\":\"2026-01-31T17:41:42.084Z\",\"updated_at\":\"2026-01-31T17:45:51.336Z\",\"translation_ids\":[1],\"answer_ids\":[],\"child_ids\":[2,3],\"permission_ids\":[],\"permissions_effective\":[{\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]},\"3\":{\"parent_id\":1,\"position\":0,\"knowledge_base_id\":1,\"id\":3,\"category_icon\":\"f115\",\"created_at\":\"2026-01-31T17:43:55.920Z\",\"updated_at\":\"2026-01-31T17:45:51.301Z\",\"translation_ids\":[3],\"answer_ids\":[],\"child_ids\":[],\"permission_ids\":[],\"permissions_effective\":[{\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]}},\"KnowledgeBase\":{\"1\":{\"color_highlight\":\"#38ae6a\",\"homepage_layout\":\"grid\",\"active\":true,\"id\":1,\"iconset\":\"FontAwesome\",\"color_header\":\"#DDDDDD\",\"color_header_link\":\"#D1A3F4\",\"category_layout\":\"grid\",\"show_feed_icon\":true,\"custom_address\":\"/address_1\",\"created_at\":\"2026-01-31T10:28:40.635Z\",\"updated_at\":\"2026-01-31T17:41:34.170Z\",\"translation_ids\":[1,2],\"kb_locale_ids\":[1,2],\"category_ids\":[2,5,4,1,3],\"answer_ids\":[],\"permission_ids\":[1,2],\"permissions_effective\":[{\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]}},\"KnowledgeBaseLocale\":{\"1\":{\"id\":1,\"knowledge_base_id\":1,\"system_locale_id\":1,\"primary\":true,\"created_at\":\"2026-01-31T10:28:40.637Z\",\"updated_at\":\"2026-01-31T10:28:40.637Z\",\"knowledge_base_translation_ids\":[1],\"category_translation_ids\":[],\"answer_translation_ids\":[],\"menu_item_ids\":[]},\"2\":{\"id\":2,\"knowledge_base_id\":1,\"system_locale_id\":5,\"primary\":false,\"created_at\":\"2026-01-31T10:28:40.641Z\",\"updated_at\":\"2026-01-31T10:28:40.641Z\",\"knowledge_base_translation_ids\":[2],\"category_translation_ids\":[],\"answer_translation_ids\":[],\"menu_item_ids\":[]}},\"KnowledgeBaseTranslation\":{\"1\":{\"id\":1,\"title\":\"Category
+        1\",\"footer_note\":\"\xA9 Test PY\",\"kb_locale_id\":1,\"knowledge_base_id\":1,\"created_at\":\"2026-01-31T10:28:40.651Z\",\"updated_at\":\"2026-01-31T17:41:13.976Z\"},\"2\":{\"id\":2,\"title\":\"Category
+        1\",\"footer_note\":\"\xA9 Test PY\",\"kb_locale_id\":2,\"knowledge_base_id\":1,\"created_at\":\"2026-01-31T10:28:40.654Z\",\"updated_at\":\"2026-01-31T17:41:34.169Z\"}},\"KnowledgeBaseCategoryTranslation\":{\"2\":{\"id\":2,\"title\":\"Sub-category
+        1\",\"kb_locale_id\":2,\"category_id\":2,\"created_at\":\"2026-01-31T17:43:47.961Z\",\"updated_at\":\"2026-01-31T17:43:47.961Z\"},\"1\":{\"id\":1,\"title\":\"Category
+        1\",\"kb_locale_id\":2,\"category_id\":1,\"created_at\":\"2026-01-31T17:41:42.088Z\",\"updated_at\":\"2026-01-31T17:41:42.088Z\"},\"3\":{\"id\":3,\"title\":\"Sub-category
+        2\",\"kb_locale_id\":2,\"category_id\":3,\"created_at\":\"2026-01-31T17:43:55.923Z\",\"updated_at\":\"2026-01-31T17:43:55.923Z\"}}}"
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-elU4EfiVg0KxKAeLQ3RGBw=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 17:45:51 GMT
+      ETag:
+      - W/"098fc2b0788d574acc4ee061efd415dc"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - dfe1be61-bbc1-4faf-b809-e2d1778d0bf4
+      X-Runtime:
+      - '0.281448'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"ordered_ids": [5, 4, 1]}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '26'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: PATCH
+    uri: http://localhost:8080/api/v1/knowledge_bases/1/categories/reorder_root_categories
+  response:
+    body:
+      string: "{\"KnowledgeBaseCategory\":{\"1\":{\"knowledge_base_id\":1,\"position\":2,\"id\":1,\"parent_id\":null,\"category_icon\":\"f115\",\"created_at\":\"2026-01-31T17:41:42.084Z\",\"updated_at\":\"2026-01-31T17:45:51.737Z\",\"translation_ids\":[1],\"answer_ids\":[],\"child_ids\":[3,2],\"permission_ids\":[],\"permissions_effective\":[{\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]},\"4\":{\"knowledge_base_id\":1,\"position\":1,\"id\":4,\"parent_id\":null,\"category_icon\":\"f115\",\"created_at\":\"2026-01-31T17:44:04.030Z\",\"updated_at\":\"2026-01-31T17:44:04.035Z\",\"translation_ids\":[4],\"answer_ids\":[],\"child_ids\":[],\"permission_ids\":[],\"permissions_effective\":[{\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]},\"5\":{\"knowledge_base_id\":1,\"position\":0,\"id\":5,\"parent_id\":null,\"category_icon\":\"f115\",\"created_at\":\"2026-01-31T17:45:07.922Z\",\"updated_at\":\"2026-01-31T17:45:51.710Z\",\"translation_ids\":[5],\"answer_ids\":[],\"child_ids\":[],\"permission_ids\":[],\"permissions_effective\":[{\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]}},\"KnowledgeBase\":{\"1\":{\"color_highlight\":\"#38ae6a\",\"homepage_layout\":\"grid\",\"active\":true,\"id\":1,\"iconset\":\"FontAwesome\",\"color_header\":\"#DDDDDD\",\"color_header_link\":\"#D1A3F4\",\"category_layout\":\"grid\",\"show_feed_icon\":true,\"custom_address\":\"/address_1\",\"created_at\":\"2026-01-31T10:28:40.635Z\",\"updated_at\":\"2026-01-31T17:41:34.170Z\",\"translation_ids\":[1,2],\"kb_locale_ids\":[1,2],\"category_ids\":[2,5,4,1,3],\"answer_ids\":[],\"permission_ids\":[1,2],\"permissions_effective\":[{\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]}},\"KnowledgeBaseLocale\":{\"1\":{\"id\":1,\"knowledge_base_id\":1,\"system_locale_id\":1,\"primary\":true,\"created_at\":\"2026-01-31T10:28:40.637Z\",\"updated_at\":\"2026-01-31T10:28:40.637Z\",\"knowledge_base_translation_ids\":[1],\"category_translation_ids\":[],\"answer_translation_ids\":[],\"menu_item_ids\":[]},\"2\":{\"id\":2,\"knowledge_base_id\":1,\"system_locale_id\":5,\"primary\":false,\"created_at\":\"2026-01-31T10:28:40.641Z\",\"updated_at\":\"2026-01-31T10:28:40.641Z\",\"knowledge_base_translation_ids\":[2],\"category_translation_ids\":[],\"answer_translation_ids\":[],\"menu_item_ids\":[]}},\"KnowledgeBaseTranslation\":{\"1\":{\"id\":1,\"title\":\"Category
+        1\",\"footer_note\":\"\xA9 Test PY\",\"kb_locale_id\":1,\"knowledge_base_id\":1,\"created_at\":\"2026-01-31T10:28:40.651Z\",\"updated_at\":\"2026-01-31T17:41:13.976Z\"},\"2\":{\"id\":2,\"title\":\"Category
+        1\",\"footer_note\":\"\xA9 Test PY\",\"kb_locale_id\":2,\"knowledge_base_id\":1,\"created_at\":\"2026-01-31T10:28:40.654Z\",\"updated_at\":\"2026-01-31T17:41:34.169Z\"}},\"KnowledgeBaseCategoryTranslation\":{\"1\":{\"id\":1,\"title\":\"Category
+        1\",\"kb_locale_id\":2,\"category_id\":1,\"created_at\":\"2026-01-31T17:41:42.088Z\",\"updated_at\":\"2026-01-31T17:41:42.088Z\"},\"4\":{\"id\":4,\"title\":\"Category
+        2\",\"kb_locale_id\":2,\"category_id\":4,\"created_at\":\"2026-01-31T17:44:04.033Z\",\"updated_at\":\"2026-01-31T17:44:04.033Z\"},\"5\":{\"id\":5,\"title\":\"Category
+        3\",\"kb_locale_id\":2,\"category_id\":5,\"created_at\":\"2026-01-31T17:45:07.925Z\",\"updated_at\":\"2026-01-31T17:45:07.925Z\"}}}"
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-w3FVYuBDkrALBH8w8l4tOw=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 17:45:51 GMT
+      ETag:
+      - W/"faac8132c46f8dfef0335e117fd2eb5b"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 1ae2d653-f693-4fa0-8cc5-d264b4889db6
+      X-Runtime:
+      - '0.263723'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1
