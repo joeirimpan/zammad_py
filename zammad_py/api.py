@@ -638,21 +638,27 @@ class KnowledgeBases(Resource):
         return self._raise_or_return_json(response)
 
     def all(self, page: int = 1, filters=None) -> Pagination:
+        """Disabled: Zammad does not support a flat list of all knowledge bases"""
         raise UnusedResourceError(self.__class__.__name__, "all")
 
     def search(self, search_string: str, page: int = 1, filters=None) -> Pagination:
+        """Disabled: Knowledge base search is not supported"""
         raise UnusedResourceError(self.__class__.__name__, "search")
 
     def find(self, id):
+        """Disabled: Knowledge base find is not supported"""
         raise UnusedResourceError(self.__class__.__name__, "find")
 
     def create(self, params):
+        """Disabled: Creation of new knowledge base instances is typically handled via the init method"""
         raise UnusedResourceError(self.__class__.__name__, "create")
 
     def update(self, id, params):
+        """Disabled: Update of a knowledge base instances is typically handled via the manage method"""
         raise UnusedResourceError(self.__class__.__name__, "update")
 
     def destroy(self, id):
+        """Disabled: Knowledge base destroy is not supported"""
         raise UnusedResourceError(self.__class__.__name__, "destroy")
 
 
@@ -664,7 +670,7 @@ class KnowledgeBasesAnswers(Resource):
         raise UnusedResourceError(self.__class__.__name__, "all")
 
     def search(self, search_string: str, page: int = 1, filters=None) -> Pagination:
-        """Disabled: Answers search is now supported"""
+        """Disabled: Answers search is not supported"""
         raise UnusedResourceError(self.__class__.__name__, "search")
 
     def find(self, id):
