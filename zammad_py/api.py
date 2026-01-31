@@ -8,6 +8,7 @@ from typing import Any, Generator, List, Optional, Tuple
 import requests
 from requests.exceptions import HTTPError
 
+from zammad_py.models import KnowledgeBaseSettings
 from zammad_py.exceptions import ConfigException
 
 __all__ = ["ZammadAPI"]
@@ -153,6 +154,11 @@ class ZammadAPI:
     def ticket_tag(self):
         """Return a `TicketTag` instance"""
         return TicketTag(connection=self)
+
+    @property
+    def knowledge_bases(self):
+        """Return a `KnowledgeBase` instance"""
+        return KnowledgeBases(connection=self)
 
 
 class Pagination:
@@ -570,4 +576,23 @@ class TicketTag(Resource):
         }
 
         response = self._connection.session.delete(self.url + "/remove", json=params)
+        return self._raise_or_return_json(response)
+
+
+class KnowledgeBases(Resource):
+    path_attribute = "knowledge_bases"
+
+    def init(self):
+        """Returns a bootstrap object containing the entire structure (settings, categories, and answer IDs) of the knowledge base"""
+        response = self._connection.session.post(
+            self._connection.url + "knowledge_bases/init"
+        )
+        return self._raise_or_return_json(response)
+
+    def manage(self, id, settings: KnowledgeBaseSettings):
+        """Updates specific knowledge base settings like custom URLs, colors, or visibility toggles"""
+        response = self._connection.session.patch(
+            self._connection.url + "knowledge_bases/manage/%s" % id,
+            json=settings.to_json()
+        )
         return self._raise_or_return_json(response)

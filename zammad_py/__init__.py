@@ -5,3 +5,4 @@ __email__ = "joeirimpan@gmail.com"
 __version__ = "3.2.0"
 
 from .api import ZammadAPI  # noqa: F401
+from .models import KnowledgeBaseSettings
