@@ -8,8 +8,7 @@ from typing import Any, Generator, List, Optional, Tuple
 import requests
 from requests.exceptions import HTTPError
 
-from zammad_py.models import KnowledgeBaseSettings
-from zammad_py.exceptions import ConfigException
+from zammad_py.exceptions import ConfigException, UnusedResourceError
 
 __all__ = ["ZammadAPI"]
 
@@ -589,10 +588,59 @@ class KnowledgeBases(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def manage(self, id, settings: KnowledgeBaseSettings):
+    def manage(self, id, settings):
         """Updates specific knowledge base settings like custom URLs, colors, or visibility toggles"""
         response = self._connection.session.patch(
             self._connection.url + "knowledge_bases/manage/%s" % id,
-            json=settings.to_json()
+            json=settings
         )
         return self._raise_or_return_json(response)
+
+    def show_permissions(self, id):
+        """Returns a list of roles and their associated access levels (reader/editor) for the knowledge base"""
+        response = self._connection.session.get(
+            self._connection.url + "knowledge_bases/%s/permissions" % id,
+        )
+        return self._raise_or_return_json(response)
+
+    def change_permissions(self, id, permissions):
+        """Replaces the current permission set with a new mapping of roles and access levels"""
+        response = self._connection.session.put(
+            self._connection.url + "knowledge_bases/%s/permissions" % id,
+            json=permissions
+        )
+        return self._raise_or_return_json(response)
+
+    def reorder_sub_categories(self, id, category_id, params):
+        """Updates the display order of sub-categories within a specific parent category"""
+        response = self._connection.session.patch(
+            self._connection.url + "knowledge_bases/%s/categories/%s/reorder_categories" % (id, category_id),
+            json=params
+        )
+        return self._raise_or_return_json(response)
+
+    def reorder_root_categories(self, id, params):
+        """Updates the display order of all top-level categories on the knowledge base homepage"""
+        response = self._connection.session.patch(
+            self._connection.url + "knowledge_bases/%s/categories/reorder_root_categories" % id,
+            json=params
+        )
+        return self._raise_or_return_json(response)
+
+    def all(self, page: int = 1, filters=None) -> Pagination:
+        raise UnusedResourceError(self.__class__.__name__, "all")
+
+    def search(self, search_string: str, page: int = 1, filters=None) -> Pagination:
+        raise UnusedResourceError(self.__class__.__name__, "search")
+
+    def find(self, id):
+        raise UnusedResourceError(self.__class__.__name__, "find")
+
+    def create(self, params):
+        raise UnusedResourceError(self.__class__.__name__, "create")
+
+    def update(self, id, params):
+        raise UnusedResourceError(self.__class__.__name__, "update")
+
+    def destroy(self, id):
+        raise UnusedResourceError(self.__class__.__name__, "destroy")
