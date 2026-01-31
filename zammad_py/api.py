@@ -608,8 +608,12 @@ class KnowledgeBases(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def manage(self, id: int, settings: Any) -> Any:
-        """Updates specific knowledge base settings like custom URLs, colors, or visibility toggles"""
+    def manage(self, id: int, settings: dict) -> Any:
+        """Updates specific knowledge base settings like custom URLs, colors, or visibility toggles
+
+        :param id: Knowledge Base ID
+        :param settings: Dictionary of setting to be applied to the knowledge base
+        """
         response = self._connection.session.patch(
             self._connection.url + "knowledge_bases/manage/%s" % id,
             json=settings
@@ -617,30 +621,46 @@ class KnowledgeBases(Resource):
         return self._raise_or_return_json(response)
 
     def show_permissions(self, id: int) -> Any:
-        """Returns a list of roles and their associated access levels (reader/editor) for the knowledge base"""
+        """Returns a list of roles and their associated access levels (reader/editor) for the knowledge base
+
+        :param id: Knowledge Base ID
+        """
         response = self._connection.session.get(
             self._connection.url + "knowledge_bases/%s/permissions" % id,
         )
         return self._raise_or_return_json(response)
 
-    def change_permissions(self, id: int, permissions: Any) -> Any:
-        """Replaces the current permission set with a new mapping of roles and access levels"""
+    def change_permissions(self, id: int, permissions: dict) -> Any:
+        """Replaces the current permission set with a new mapping of roles and access levels
+
+        :param id: Knowledge Base ID
+        :param permissions: Dictionary of new permissions to be applied to the knowledge base
+        """
         response = self._connection.session.put(
             self._connection.url + "knowledge_bases/%s/permissions" % id,
             json=permissions
         )
         return self._raise_or_return_json(response)
 
-    def reorder_sub_categories(self, id: int, category_id: int, params: Any) -> Any:
-        """Updates the display order of sub-categories within a specific parent category"""
+    def reorder_sub_categories(self, id: int, category_id: int, params: dict) -> Any:
+        """Updates the display order of sub-categories within a specific parent category
+
+        :param id: Knowledge Base ID
+        :param category_id: Knowledge Base Category ID
+        :param params: A dictionary containing 'ordered_ids' (a list of sub-category IDs) in the desired sequence
+        """
         response = self._connection.session.patch(
             self._connection.url + "knowledge_bases/%s/categories/%s/reorder_categories" % (id, category_id),
             json=params
         )
         return self._raise_or_return_json(response)
 
-    def reorder_root_categories(self, id: int, params: Any) -> Any:
-        """Updates the display order of all top-level categories on the knowledge base homepage"""
+    def reorder_root_categories(self, id: int, params: dict) -> Any:
+        """Updates the display order of all top-level categories on the knowledge base homepage
+
+        :param id: Knowledge Base ID
+        :param params: A dictionary containing 'ordered_ids' (a list of category IDs) in the desired sequence
+        """
         response = self._connection.session.patch(
             self._connection.url + "knowledge_bases/%s/categories/reorder_root_categories" % id,
             json=params
@@ -688,7 +708,12 @@ class KnowledgeBasesAnswers(Resource):
         raise UnusedResourceError(self.__class__.__name__, "find")
 
     def find_answer(self, knowledge_base_id: int, answer_id: int, include_content_id: int | None = None) -> Any:
-        """Retrieves a specific answer from a knowledge base, optionally including content details"""
+        """Retrieves a specific answer from a knowledge base, optionally including content details
+
+        :param knowledge_base_id: Knowledge Base ID
+        :param answer_id: Knowledge Base Answer ID
+        :param include_content_id: Optional ID to include specific translated content (localization) in the response
+        """
         if include_content_id is None:
             find_answer_url = self._connection.url + "knowledge_bases/%s/answers/%s" % (knowledge_base_id, answer_id)
         else:
@@ -697,8 +722,11 @@ class KnowledgeBasesAnswers(Resource):
         response = self._connection.session.get(find_answer_url)
         return self._raise_or_return_json(response)
 
-    def create(self, params: Any) -> Any:
-        """Creates a new answer within a specified knowledge base"""
+    def create(self, params: dict) -> Any:
+        """Creates a new answer within a specified knowledge base
+
+        :param params: A dictionary containing all the required details for creating the new answer. The dictionary must include "knowledge_base_id" field representing the Knowledge Base ID
+        """
         if not isinstance(params, dict):
             raise InvalidTypeError("params", dict, type(params))
 
@@ -713,8 +741,12 @@ class KnowledgeBasesAnswers(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def update(self, id: int, params: Any) -> Any:
-        """Updates an existing answer using the knowledge base ID and the answer ID"""
+    def update(self, id: int, params: dict) -> Any:
+        """Updates an existing answer using the knowledge base ID and the answer ID
+
+        :param id: Knowledge Base Answer ID
+        :param params: A dictionary containing all the required details for updating the answer. The dictionary must include "answer_id" field representing the Knowledge Base Answer ID
+        """
         if not isinstance(params, dict):
             raise InvalidTypeError("params", dict, type(params))
 
@@ -730,25 +762,42 @@ class KnowledgeBasesAnswers(Resource):
         return self._raise_or_return_json(response)
 
     def destroy(self, id: int) -> Any:
-        """Disabled: Permanent deletion requires both knowledge_base_id and answer_id"""
+        """Disabled: Permanent deletion requires both knowledge_base_id and answer_id
+
+        :param id: Knowledge Base Answer ID
+        """
         raise UnusedResourceError(self.__class__.__name__, "destroy")
 
     def destroy_answer(self, knowledge_base_id: int, answer_id: int) -> Any:
-        """Permanently deletes an answer from the knowledge base"""
+        """Permanently deletes an answer from the knowledge base
+
+        :param knowledge_base_id: Knowledge Base ID
+        :param answer_id: Knowledge Base Answer ID
+        """
         response = self._connection.session.delete(
             self._connection.url + "knowledge_bases/%s/answers/%s" % (knowledge_base_id, answer_id)
         )
         return self._raise_or_return_json(response)
 
     def change_answer_visibility(self, knowledge_base_id: int, answer_id: int, answer_visibility: KnowledgeBaseAnswerPublicity) -> Any:
-        """Updates the publication state (e.g., draft, public, internal) of a specific answer"""
+        """Updates the publication state (e.g., draft, public, internal) of a specific answer
+
+        :param knowledge_base_id: Knowledge Base ID
+        :param answer_id: Knowledge Base Answer ID
+        :param answer_visibility: The publication state of the answer (e.g., draft, internal, or public)
+        """
         response = self._connection.session.post(
             self._connection.url + "knowledge_bases/%s/answers/%s/%s" % (knowledge_base_id, answer_id, answer_visibility.value)
         )
         return self._raise_or_return_json(response)
 
     def add_attachment(self, knowledge_base_id: int, answer_id: int, attachment: Any) -> Any:
-        """Uploads a file as an attachment to an answer using multipart/form-data"""
+        """Uploads a file as an attachment to an answer using multipart/form-data
+
+        :param knowledge_base_id: Knowledge Base ID
+        :param answer_id: Knowledge Base Answer ID
+        :param attachment: The file to be uploaded to the answer as an attachment
+        """
         response = self._connection.session.post(
             self._connection.url + "knowledge_bases/%s/answers/%s/attachments" % (knowledge_base_id, answer_id),
             files={
@@ -758,7 +807,12 @@ class KnowledgeBasesAnswers(Resource):
         return self._raise_or_return_json(response)
 
     def delete_attachment(self, knowledge_base_id: int, answer_id: int, attachment_id: int) -> Any:
-        """Removes a specific attachment from an answer by its attachment ID"""
+        """Removes a specific attachment from an answer by its attachment ID
+
+        :param knowledge_base_id: Knowledge Base ID
+        :param answer_id: Knowledge Base Answer ID
+        :param attachment_id: Attachment ID
+        """
         response = self._connection.session.delete(
             self._connection.url + "knowledge_bases/%s/answers/%s/attachments/%s" % (knowledge_base_id, answer_id, attachment_id)
         )
@@ -781,14 +835,21 @@ class KnowledgeBasesCategories(Resource):
         raise UnusedResourceError(self.__class__.__name__, "find")
 
     def find_category(self, knowledge_base_id: int, category_id: int) -> Any:
-        """Retrieves a specific category from a knowledge base"""
+        """Retrieves a specific category from a knowledge base
+
+        :param knowledge_base_id: Knowledge Base ID
+        :param category_id: Knowledge Base Category ID
+        """
         response = self._connection.session.get(
             self._connection.url + "knowledge_bases/%s/categories/%s" % (knowledge_base_id, category_id)
         )
         return self._raise_or_return_json(response)
 
-    def create(self, params: Any) -> Any:
-        """Creates a new category within a specified knowledge base"""
+    def create(self, params: dict) -> Any:
+        """Creates a new category within a specified knowledge base
+
+        :param params: A dictionary containing all the required details for creating the new knowledge base category. The dictionary must include "knowledge_base_id" field representing the Knowledge Base ID
+        """
         if not isinstance(params, dict):
             raise InvalidTypeError("params", dict, type(params))
 
@@ -803,8 +864,12 @@ class KnowledgeBasesCategories(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def update(self, id: int, params: Any) -> Any:
-        """Updates an existing category using the knowledge base ID and the category ID"""
+    def update(self, id: int, params: dict) -> Any:
+        """Updates an existing category using the knowledge base ID and the category ID
+
+        :param id: Knowledge Base ID
+        :param params: A dictionary containing all the required details for updating the knowledge base category. The dictionary must include "category_id" field representing the Knowledge Base Category ID
+        """
         if not isinstance(params, dict):
             raise InvalidTypeError("params", dict, type(params))
 
@@ -820,33 +885,54 @@ class KnowledgeBasesCategories(Resource):
         return self._raise_or_return_json(response)
 
     def destroy(self, id: int) -> Any:
-        """Disabled: Permanent deletion requires both knowledge_base_id and category_id"""
+        """Disabled: Permanent deletion requires both knowledge_base_id and category_id
+
+        :param id: Knowledge Base Category ID
+        """
         raise UnusedResourceError(self.__class__.__name__, "destroy")
 
     def destroy_category(self, knowledge_base_id: int, category_id: int) -> Any:
-        """Permanently deletes a category from the knowledge base"""
+        """Permanently deletes a category from the knowledge base
+
+        :param knowledge_base_id: Knowledge Base ID
+        :param category_id: Knowledge Base Category ID
+        """
         response = self._connection.session.delete(
             self._connection.url + "knowledge_bases/%s/categories/%s" % (knowledge_base_id, category_id)
         )
         return self._raise_or_return_json(response)
 
     def show_permissions(self, knowledge_base_id: int, category_id: int) -> Any:
-        """Returns a list of roles and their associated access levels (reader/editor) for the knowledge base category"""
+        """Returns a list of roles and their associated access levels (reader/editor) for the knowledge base category
+
+        :param knowledge_base_id: Knowledge Base ID
+        :param category_id: Knowledge Base Category ID
+        """
         response = self._connection.session.get(
             self._connection.url + "knowledge_bases/%s/categories/%s/permissions" % (knowledge_base_id, category_id),
         )
         return self._raise_or_return_json(response)
 
-    def change_permissions(self, knowledge_base_id: int, category_id: int, permissions: Any) -> Any:
-        """Replaces the current permission set with a new mapping of roles and access levels"""
+    def change_permissions(self, knowledge_base_id: int, category_id: int, permissions: dict) -> Any:
+        """Replaces the current permission set with a new mapping of roles and access levels
+
+        :param knowledge_base_id: Knowledge Base ID
+        :param category_id: Knowledge Base Category ID
+        :param permissions: Dictionary of new permissions to be applied to the knowledge base category
+        """
         response = self._connection.session.put(
             self._connection.url + "knowledge_bases/%s/categories/%s/permissions" % (knowledge_base_id, category_id),
             json=permissions
         )
         return self._raise_or_return_json(response)
 
-    def reorder_answers(self, knowledge_base_id: int, category_id: int, params: Any) -> Any:
-        """Updates the display order of answers within a specific category"""
+    def reorder_answers(self, knowledge_base_id: int, category_id: int, params: dict) -> Any:
+        """Updates the display order of answers within a specific category
+
+        :param knowledge_base_id: Knowledge Base ID
+        :param category_id: Knowledge Base Category ID
+        :param params: A dictionary containing 'ordered_ids' (a list of answer IDs) in the desired sequence
+        """
         response = self._connection.session.patch(
             self._connection.url + "knowledge_bases/%s/categories/%s/reorder_answers" % (knowledge_base_id, category_id),
             json=params
