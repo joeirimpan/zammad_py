@@ -259,6 +259,71 @@ class TestAPI:
         with pytest.raises(MissingParameterError):
             zammad_api.knowledge_bases_answers.create({"title": "No KB ID"})
 
+    @pytest.mark.vcr()
+    def test_knowledge_bases_categories(self, zammad_api):
+        create_params = {
+            "knowledge_base_id": 1,
+            "name": "Documentation Category",
+            "description": "A category for API documentation",
+            "parent_id": None,
+            "category_icon": "f115"
+        }
+        create_response = zammad_api.knowledge_bases_categories.create(create_params)
+        assert "id" in create_response
+        assert create_response["category_icon"] == create_params['category_icon']
+
+        category_id = create_response["id"]
+
+        find_response = zammad_api.knowledge_bases_categories.find_category(1, category_id)
+        assert find_response["id"] == category_id
+
+        update_params = {
+            "category_id": category_id,
+            "name": "Updated Category Name"
+        }
+        update_response = zammad_api.knowledge_bases_categories.update(1, update_params)
+        assert update_response["id"] == category_id
+
+        permissions = zammad_api.knowledge_bases_categories.show_permissions(1, category_id)
+        assert "roles_reader" in permissions
+        assert "roles_editor" in permissions
+
+        new_permissions = {
+            "permissions_dialog": {
+                "permissions": {"1": "editor"}
+            }
+        }
+        perm_response = zammad_api.knowledge_bases_categories.change_permissions(1, category_id, new_permissions)
+        assert "roles_editor" in perm_response
+
+        reorder_params = {
+            "ordered_ids": [10, 1]
+        }
+        reorder_response = zammad_api.knowledge_bases_categories.reorder_answers(1, 1, reorder_params)
+        assert reorder_response is not None
+
+        destroy_response = zammad_api.knowledge_bases_categories.destroy_category(1, category_id)
+        assert destroy_response is not None
+
+        kbc = zammad_api.knowledge_bases_categories
+        unused_calls = [
+            (kbc.all, []),
+            (kbc.search, ["query"]),
+            (kbc.find, [1]),
+            (kbc.destroy, [1])
+        ]
+
+        for method, args in unused_calls:
+            with pytest.raises(UnusedResourceError) as excinfo:
+                method(*args)
+            assert "is not available for the KnowledgeBasesCategories resource" in str(excinfo.value)
+
+        with pytest.raises(InvalidTypeError):
+            zammad_api.knowledge_bases_categories.create("not a dict")
+
+        with pytest.raises(MissingParameterError):
+            zammad_api.knowledge_bases_categories.create({"name": "No KB ID"})
+
     def test_push_on_behalf_of_header(self, zammad_api):
         zammad_api.on_behalf_of = "USERX"
         with zammad_api.request_on_behalf_of("USERXX") as api:
