@@ -174,6 +174,11 @@ class ZammadAPI:
         """Return an `KnowledgeBasesAnswers` instance"""
         return KnowledgeBasesAnswers(connection=self)
 
+    @property
+    def knowledge_bases_categories(self):
+        """Return an `KnowledgeBasesCategories` instance"""
+        return KnowledgeBasesCategories(connection=self)
+
 
 class Pagination:
     def __init__(
@@ -756,5 +761,94 @@ class KnowledgeBasesAnswers(Resource):
         """Removes a specific attachment from an answer by its attachment ID"""
         response = self._connection.session.delete(
             self._connection.url + "knowledge_bases/%s/answers/%s/attachments/%s" % (knowledge_base_id, answer_id, attachment_id)
+        )
+        return self._raise_or_return_json(response)
+
+
+class KnowledgeBasesCategories(Resource):
+    path_attribute = "knowledge_bases"
+
+    def all(self, page: int = 1, filters=None) -> Pagination:
+        """Disabled: Zammad does not support a flat list of all knowledge base categories"""
+        raise UnusedResourceError(self.__class__.__name__, "all")
+
+    def search(self, search_string: str, page: int = 1, filters=None) -> Pagination:
+        """Disabled: Knowledge base categories search is not supported"""
+        raise UnusedResourceError(self.__class__.__name__, "search")
+
+    def find(self, id):
+        """Disabled: Retrieving an answer requires both knowledge_base_id and category_id"""
+        raise UnusedResourceError(self.__class__.__name__, "find")
+
+    def find_category(self, knowledge_base_id, category_id):
+        """Retrieves a specific category from a knowledge base"""
+        response = self._connection.session.get(
+            self._connection.url + "knowledge_bases/%s/categories/%s" % (knowledge_base_id, category_id)
+        )
+        return self._raise_or_return_json(response)
+
+    def create(self, params):
+        """Creates a new category within a specified knowledge base"""
+        if not isinstance(params, dict):
+            raise InvalidTypeError("params", dict, type(params))
+
+        if "knowledge_base_id" not in params:
+            raise MissingParameterError("knowledge_base_id", context="create knowledge base category")
+
+        knowledge_base_id = params.pop("knowledge_base_id")
+
+        response = self._connection.session.post(
+            self._connection.url + "knowledge_bases/%s/categories" % knowledge_base_id,
+            json=params
+        )
+        return self._raise_or_return_json(response)
+
+    def update(self, id, params):
+        """Updates an existing category using the knowledge base ID and the category ID"""
+        if not isinstance(params, dict):
+            raise InvalidTypeError("params", dict, type(params))
+
+        if "category_id" not in params:
+            raise MissingParameterError("category_id", context="update knowledge base category")
+
+        category_id = params.pop("category_id")
+
+        response = self._connection.session.patch(
+            self._connection.url + "knowledge_bases/%s/categories/%s" % (id, category_id),
+            json=params
+        )
+        return self._raise_or_return_json(response)
+
+    def destroy(self, id):
+        """Disabled: Permanent deletion requires both knowledge_base_id and category_id"""
+        raise UnusedResourceError(self.__class__.__name__, "destroy")
+
+    def destroy_category(self, knowledge_base_id, category_id):
+        """Permanently deletes a category from the knowledge base"""
+        response = self._connection.session.delete(
+            self._connection.url + "knowledge_bases/%s/categories/%s" % (knowledge_base_id, category_id)
+        )
+        return self._raise_or_return_json(response)
+
+    def show_permissions(self, knowledge_base_id, category_id):
+        """Returns a list of roles and their associated access levels (reader/editor) for the knowledge base category"""
+        response = self._connection.session.get(
+            self._connection.url + "knowledge_bases/%s/categories/%s/permissions" % (knowledge_base_id, category_id),
+        )
+        return self._raise_or_return_json(response)
+
+    def change_permissions(self, knowledge_base_id, category_id, permissions):
+        """Replaces the current permission set with a new mapping of roles and access levels"""
+        response = self._connection.session.put(
+            self._connection.url + "knowledge_bases/%s/categories/%s/permissions" % (knowledge_base_id, category_id),
+            json=permissions
+        )
+        return self._raise_or_return_json(response)
+
+    def reorder_answers(self, knowledge_base_id, category_id, params):
+        """Updates the display order of answers within a specific category"""
+        response = self._connection.session.patch(
+            self._connection.url + "knowledge_bases/%s/categories/%s/reorder_answers" % (knowledge_base_id, category_id),
+            json=params
         )
         return self._raise_or_return_json(response)
