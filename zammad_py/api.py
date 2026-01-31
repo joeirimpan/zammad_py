@@ -166,8 +166,13 @@ class ZammadAPI:
 
     @property
     def knowledge_bases(self):
-        """Return a `KnowledgeBase` instance"""
+        """Return a `KnowledgeBases` instance"""
         return KnowledgeBases(connection=self)
+
+    @property
+    def knowledge_bases_answers(self):
+        """Return an `KnowledgeBasesAnswers` instance"""
+        return KnowledgeBasesAnswers(connection=self)
 
 
 class Pagination:
@@ -742,7 +747,7 @@ class KnowledgeBasesAnswers(Resource):
         response = self._connection.session.post(
             self._connection.url + "knowledge_bases/%s/answers/%s/attachments" % (knowledge_base_id, answer_id),
             files={
-                "attachments[]": attachment
+                "file": attachment
             }
         )
         return self._raise_or_return_json(response)

@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
 """Tests for `zammad_py` package."""
+import io
 import re
 
-from zammad_py.exceptions import UnusedResourceError
+from zammad_py.enums import KnowledgeBaseAnswerPublicity
+from zammad_py.exceptions import UnusedResourceError, InvalidTypeError, MissingParameterError
 
 import pytest
 
@@ -135,7 +137,7 @@ class TestAPI:
             zammad_api.user.destroy(user["id"])
 
     @pytest.mark.vcr()
-    def test_knowledge_base(self, zammad_api):
+    def test_knowledge_bases(self, zammad_api):
         structure = zammad_api.knowledge_bases.init()
         assert "KnowledgeBase" in structure
         assert "KnowledgeBaseLocale" in structure
@@ -193,6 +195,69 @@ class TestAPI:
             with pytest.raises(UnusedResourceError) as excinfo:
                 method(*args)
             assert "is not available for the KnowledgeBases resource" in str(excinfo.value)
+
+    @pytest.mark.vcr()
+    def test_knowledge_bases_answers(self, zammad_api):
+        create_params = {
+            "knowledge_base_id": 1,
+            "category_id": 1,
+            "title": "Initial Answer Title",
+            "content": "This is the initial content."
+        }
+        create_response = zammad_api.knowledge_bases_answers.create(create_params)
+        assert "id" in create_response
+        assert "assets" in create_response
+
+        answer_id = create_response["id"]
+
+        find_response = zammad_api.knowledge_bases_answers.find_answer(1, answer_id)
+        assert find_response["id"] == answer_id
+        assert "assets" in find_response
+
+        update_params = {
+            "answer_id": answer_id,
+            "category_id": 1,
+            "title": "Updated Answer Title"
+        }
+        update_response = zammad_api.knowledge_bases_answers.update(1, update_params)
+        assert update_response["id"] == answer_id
+        assert "assets" in update_response
+
+        visibility_response = zammad_api.knowledge_bases_answers.change_answer_visibility(
+            1, answer_id, KnowledgeBaseAnswerPublicity.PUBLICLY
+        )
+        assert "id" in visibility_response
+
+        attachment_content = io.BytesIO(b"Hello Zammad")
+        attachment_response = zammad_api.knowledge_bases_answers.add_attachment(1, answer_id, attachment_content)
+        assert "id" in attachment_response or attachment_response is not None
+
+        if "attachment_ids" in attachment_response:
+            attachment_id = attachment_response["attachment_ids"][0]
+            delete_attachment_res = zammad_api.knowledge_bases_answers.delete_attachment(1, answer_id, attachment_id)
+            assert delete_attachment_res is not None
+
+        destroy_response = zammad_api.knowledge_bases_answers.destroy_answer(1, answer_id)
+        assert destroy_response is not None
+
+        kba = zammad_api.knowledge_bases_answers
+        unused_calls = [
+            (kba.all, []),
+            (kba.search, ["query"]),
+            (kba.find, [1]),
+            (kba.destroy, [1])
+        ]
+
+        for method, args in unused_calls:
+            with pytest.raises(UnusedResourceError) as excinfo:
+                method(*args)
+            assert "is not available for the KnowledgeBasesAnswers resource" in str(excinfo.value)
+
+        with pytest.raises(InvalidTypeError):
+            zammad_api.knowledge_bases_answers.create(["not", "a", "dict"])
+
+        with pytest.raises(MissingParameterError):
+            zammad_api.knowledge_bases_answers.create({"title": "No KB ID"})
 
     def test_push_on_behalf_of_header(self, zammad_api):
         zammad_api.on_behalf_of = "USERX"
