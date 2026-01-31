@@ -717,7 +717,8 @@ class KnowledgeBasesAnswers(Resource):
         if include_content_id is None:
             find_answer_url = self._connection.url + "knowledge_bases/%s/answers/%s" % (knowledge_base_id, answer_id)
         else:
-            find_answer_url = self._connection.url + "knowledge_bases/%s/answers/%s?include_contents=%s" % (knowledge_base_id, answer_id, include_content_id)
+            find_answer_url = (self._connection.url + "knowledge_bases/%s/answers/%s?include_contents=%s" %
+                               (knowledge_base_id, answer_id, include_content_id))
 
         response = self._connection.session.get(find_answer_url)
         return self._raise_or_return_json(response)
@@ -725,7 +726,8 @@ class KnowledgeBasesAnswers(Resource):
     def create(self, params: dict) -> Any:
         """Creates a new answer within a specified knowledge base
 
-        :param params: A dictionary containing all the required details for creating the new answer. The dictionary must include "knowledge_base_id" field representing the Knowledge Base ID
+        :param params: A dictionary containing all the required details for creating the new answer.
+                       The dictionary must include "knowledge_base_id" field representing the Knowledge Base ID
         """
         if not isinstance(params, dict):
             raise InvalidTypeError("params", dict, type(params))
@@ -745,7 +747,8 @@ class KnowledgeBasesAnswers(Resource):
         """Updates an existing answer using the knowledge base ID and the answer ID
 
         :param id: Knowledge Base Answer ID
-        :param params: A dictionary containing all the required details for updating the answer. The dictionary must include "answer_id" field representing the Knowledge Base Answer ID
+        :param params: A dictionary containing all the required details for updating the answer.
+                       The dictionary must include "answer_id" field representing the Knowledge Base Answer ID
         """
         if not isinstance(params, dict):
             raise InvalidTypeError("params", dict, type(params))
@@ -848,7 +851,8 @@ class KnowledgeBasesCategories(Resource):
     def create(self, params: dict) -> Any:
         """Creates a new category within a specified knowledge base
 
-        :param params: A dictionary containing all the required details for creating the new knowledge base category. The dictionary must include "knowledge_base_id" field representing the Knowledge Base ID
+        :param params: A dictionary containing all the required details for creating the new knowledge base category.
+                       The dictionary must include "knowledge_base_id" field representing the Knowledge Base ID
         """
         if not isinstance(params, dict):
             raise InvalidTypeError("params", dict, type(params))
@@ -868,7 +872,8 @@ class KnowledgeBasesCategories(Resource):
         """Updates an existing category using the knowledge base ID and the category ID
 
         :param id: Knowledge Base ID
-        :param params: A dictionary containing all the required details for updating the knowledge base category. The dictionary must include "category_id" field representing the Knowledge Base Category ID
+        :param params: A dictionary containing all the required details for updating the knowledge base category.
+                       The dictionary must include "category_id" field representing the Knowledge Base Category ID
         """
         if not isinstance(params, dict):
             raise InvalidTypeError("params", dict, type(params))
