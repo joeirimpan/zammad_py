@@ -120,7 +120,7 @@ class ZammadAPI:
         return Ticket(connection=self)
 
     @property
-    def link(self):
+    def link(self) -> "Link":
         """Return a `Link` instance"""
         return Link(connection=self)
 
@@ -160,22 +160,22 @@ class ZammadAPI:
         return TagList(connection=self)
 
     @property
-    def ticket_tag(self):
+    def ticket_tag(self) -> "TicketTag":
         """Return a `TicketTag` instance"""
         return TicketTag(connection=self)
 
     @property
-    def knowledge_bases(self):
+    def knowledge_bases(self) -> "KnowledgeBases":
         """Return a `KnowledgeBases` instance"""
         return KnowledgeBases(connection=self)
 
     @property
-    def knowledge_bases_answers(self):
+    def knowledge_bases_answers(self) -> "KnowledgeBasesAnswers":
         """Return an `KnowledgeBasesAnswers` instance"""
         return KnowledgeBasesAnswers(connection=self)
 
     @property
-    def knowledge_bases_categories(self):
+    def knowledge_bases_categories(self) -> "KnowledgeBasesCategories":
         """Return an `KnowledgeBasesCategories` instance"""
         return KnowledgeBasesCategories(connection=self)
 
@@ -337,7 +337,7 @@ class Resource(ABC):
             page=params["page"],
         )
 
-    def find(self, id):
+    def find(self, id: int) -> Any:
         """Return the resource associated with the id
 
         :param id: Resource id
@@ -345,7 +345,7 @@ class Resource(ABC):
         response = self._connection.session.get(self.url + "/%s" % id)
         return self._raise_or_return_json(response)
 
-    def create(self, params):
+    def create(self, params: Any) -> Any:
         """Create the requested resource
 
         :param params: Resource data for creating
@@ -353,7 +353,7 @@ class Resource(ABC):
         response = self._connection.session.post(self.url, json=params)
         return self._raise_or_return_json(response)
 
-    def update(self, id, params):
+    def update(self, id: int, params: Any) -> Any:
         """Update the requested resource
 
         :param id: Resource id
@@ -362,7 +362,7 @@ class Resource(ABC):
         response = self._connection.session.put(self.url + "/%s" % id, json=params)
         return self._raise_or_return_json(response)
 
-    def destroy(self, id):
+    def destroy(self, id: int) -> Any:
         """Delete the resource associated with the id
 
         :param id: Resource id
@@ -386,7 +386,7 @@ class Organization(Resource):
 class Ticket(Resource):
     path_attribute = "tickets"
 
-    def articles(self, id):
+    def articles(self, id: int) -> Any:
         """Returns all the articles associated with the ticket id
 
         :param id: Ticket id
@@ -396,7 +396,7 @@ class Ticket(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def tags(self, id):
+    def tags(self, id: int) -> Any:
         """Returns all the tags associated with the ticket id
 
         :param id: Ticket id
@@ -406,7 +406,7 @@ class Ticket(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def merge(self, id, number):
+    def merge(self, id: int, number: int) -> Any:
         """Merges two tickets, (undocumented in Zammad Docs)
         If the objects are already merged, it will return "Object already exists!"
         Attention: Must use password to authenticate to Zammad, otherwise this will not work!
@@ -425,12 +425,12 @@ class Link(Resource):
 
     def add(
         self,
-        link_object_target_value,
-        link_object_source_number,
-        link_type="normal",
-        link_object_target="Ticket",
-        link_object_source="Ticket",
-    ):
+        link_object_target_value: int,
+        link_object_source_number: int,
+        link_type: str = "normal",
+        link_object_target: str = "Ticket",
+        link_object_source: str = "Ticket",
+    ) -> Any:
         """Create the link
 
         :params link_type: Link type ('normal', 'parent', 'child')
@@ -454,12 +454,12 @@ class Link(Resource):
 
     def remove(
         self,
-        link_object_target_value,
-        link_object_source_number,
-        link_type="normal",
-        link_object_target="Ticket",
-        link_object_source="Ticket",
-    ):
+        link_object_target_value: int,
+        link_object_source_number: int,
+        link_type: str = "normal",
+        link_object_target: str = "Ticket",
+        link_object_source: str = "Ticket",
+    ) -> Any:
         """Remove the Link
 
         :params link_type: Link type ('normal', 'parent', 'child')
@@ -479,7 +479,7 @@ class Link(Resource):
         response = self._connection.session.delete(self.url + "/remove", json=params)
         return self._raise_or_return_json(response)
 
-    def get(self, id):
+    def get(self, id: int) -> Any:
         """Returns all the links associated with the ticket id
 
         :param id: Ticket id
@@ -498,7 +498,7 @@ class TicketArticle(Resource):
 class TicketArticleAttachment(Resource):
     path_attribute = "ticket_attachment"
 
-    def download(self, id, article_id, ticket_id):
+    def download(self, id: int, article_id: int, ticket_id: int) -> Any:
         """Download the ticket attachment associated with the ticket id
 
         :param id: Ticket attachment id
@@ -526,7 +526,7 @@ class TicketState(Resource):
 class User(Resource):
     path_attribute = "users"
 
-    def me(self):
+    def me(self) -> Any:
         """Returns current user information"""
         response = self._connection.session.get(self.url + "/me")
         return self._raise_or_return_json(response)
@@ -535,7 +535,7 @@ class User(Resource):
 class OnlineNotification(Resource):
     path_attribute = "online_notifications"
 
-    def mark_all_read(self):
+    def mark_all_read(self) -> Any:
         """Marks all online notification as read"""
         response = self._connection.session.post(self.url + "/mark_all_as_read")
         return self._raise_or_return_json(response)
@@ -544,7 +544,7 @@ class OnlineNotification(Resource):
 class Object(Resource):
     path_attribute = "object_manager_attributes"
 
-    def execute_migrations(self):
+    def execute_migrations(self) -> Any:
         """Executes all database migrations"""
         response = self._connection.session.post(
             self._connection.url + "object_manager_attributes_execute_migrations"
@@ -563,7 +563,7 @@ class TicketTag(Resource):
 
     path_attribute = "tags"
 
-    def add(self, id, tag, object="Ticket"):
+    def add(self, id: int, tag: str, object: str = "Ticket") -> Any:
         """Add a tag to a ticket
 
         :param id: Ticket id
@@ -580,7 +580,7 @@ class TicketTag(Resource):
         response = self._connection.session.post(self.url + "/add", json=params)
         return self._raise_or_return_json(response)
 
-    def remove(self, id, tag, object="Ticket"):
+    def remove(self, id: int, tag: str, object: str = "Ticket") -> Any:
         """Remove a tag from a ticket.
 
         :param id: Ticket id
@@ -601,14 +601,14 @@ class TicketTag(Resource):
 class KnowledgeBases(Resource):
     path_attribute = "knowledge_bases"
 
-    def init(self):
+    def init(self) -> Any:
         """Returns a bootstrap object containing the entire structure (settings, categories, and answer IDs) of the knowledge base"""
         response = self._connection.session.post(
             self._connection.url + "knowledge_bases/init"
         )
         return self._raise_or_return_json(response)
 
-    def manage(self, id, settings):
+    def manage(self, id: int, settings: Any) -> Any:
         """Updates specific knowledge base settings like custom URLs, colors, or visibility toggles"""
         response = self._connection.session.patch(
             self._connection.url + "knowledge_bases/manage/%s" % id,
@@ -616,14 +616,14 @@ class KnowledgeBases(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def show_permissions(self, id):
+    def show_permissions(self, id: int) -> Any:
         """Returns a list of roles and their associated access levels (reader/editor) for the knowledge base"""
         response = self._connection.session.get(
             self._connection.url + "knowledge_bases/%s/permissions" % id,
         )
         return self._raise_or_return_json(response)
 
-    def change_permissions(self, id, permissions):
+    def change_permissions(self, id: int, permissions: Any) -> Any:
         """Replaces the current permission set with a new mapping of roles and access levels"""
         response = self._connection.session.put(
             self._connection.url + "knowledge_bases/%s/permissions" % id,
@@ -631,7 +631,7 @@ class KnowledgeBases(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def reorder_sub_categories(self, id, category_id, params):
+    def reorder_sub_categories(self, id: int, category_id: int, params: Any) -> Any:
         """Updates the display order of sub-categories within a specific parent category"""
         response = self._connection.session.patch(
             self._connection.url + "knowledge_bases/%s/categories/%s/reorder_categories" % (id, category_id),
@@ -639,7 +639,7 @@ class KnowledgeBases(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def reorder_root_categories(self, id, params):
+    def reorder_root_categories(self, id: int, params: Any) -> Any:
         """Updates the display order of all top-level categories on the knowledge base homepage"""
         response = self._connection.session.patch(
             self._connection.url + "knowledge_bases/%s/categories/reorder_root_categories" % id,
@@ -655,19 +655,19 @@ class KnowledgeBases(Resource):
         """Disabled: Knowledge base search is not supported"""
         raise UnusedResourceError(self.__class__.__name__, "search")
 
-    def find(self, id):
+    def find(self, id: int) -> Any:
         """Disabled: Knowledge base find is not supported"""
         raise UnusedResourceError(self.__class__.__name__, "find")
 
-    def create(self, params):
+    def create(self, params: Any) -> Any:
         """Disabled: Creation of new knowledge base instances is typically handled via the init method"""
         raise UnusedResourceError(self.__class__.__name__, "create")
 
-    def update(self, id, params):
+    def update(self, id: int, params: Any) -> Any:
         """Disabled: Update of a knowledge base instances is typically handled via the manage method"""
         raise UnusedResourceError(self.__class__.__name__, "update")
 
-    def destroy(self, id):
+    def destroy(self, id: int) -> Any:
         """Disabled: Knowledge base destroy is not supported"""
         raise UnusedResourceError(self.__class__.__name__, "destroy")
 
@@ -683,11 +683,11 @@ class KnowledgeBasesAnswers(Resource):
         """Disabled: Answers search is not supported"""
         raise UnusedResourceError(self.__class__.__name__, "search")
 
-    def find(self, id):
+    def find(self, id: int) -> Any:
         """Disabled: Retrieving an answer requires both knowledge_base_id and answer_id"""
         raise UnusedResourceError(self.__class__.__name__, "find")
 
-    def find_answer(self, knowledge_base_id, answer_id, include_content_id=None):
+    def find_answer(self, knowledge_base_id: int, answer_id: int, include_content_id: int | None = None) -> Any:
         """Retrieves a specific answer from a knowledge base, optionally including content details"""
         if include_content_id is None:
             find_answer_url = self._connection.url + "knowledge_bases/%s/answers/%s" % (knowledge_base_id, answer_id)
@@ -697,7 +697,7 @@ class KnowledgeBasesAnswers(Resource):
         response = self._connection.session.get(find_answer_url)
         return self._raise_or_return_json(response)
 
-    def create(self, params):
+    def create(self, params: Any) -> Any:
         """Creates a new answer within a specified knowledge base"""
         if not isinstance(params, dict):
             raise InvalidTypeError("params", dict, type(params))
@@ -713,7 +713,7 @@ class KnowledgeBasesAnswers(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def update(self, id, params):
+    def update(self, id: int, params: Any) -> Any:
         """Updates an existing answer using the knowledge base ID and the answer ID"""
         if not isinstance(params, dict):
             raise InvalidTypeError("params", dict, type(params))
@@ -729,25 +729,25 @@ class KnowledgeBasesAnswers(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def destroy(self, id):
+    def destroy(self, id: int) -> Any:
         """Disabled: Permanent deletion requires both knowledge_base_id and answer_id"""
         raise UnusedResourceError(self.__class__.__name__, "destroy")
 
-    def destroy_answer(self, knowledge_base_id, answer_id):
+    def destroy_answer(self, knowledge_base_id: int, answer_id: int) -> Any:
         """Permanently deletes an answer from the knowledge base"""
         response = self._connection.session.delete(
             self._connection.url + "knowledge_bases/%s/answers/%s" % (knowledge_base_id, answer_id)
         )
         return self._raise_or_return_json(response)
 
-    def change_answer_visibility(self, knowledge_base_id, answer_id, answer_visibility: KnowledgeBaseAnswerPublicity):
+    def change_answer_visibility(self, knowledge_base_id: int, answer_id: int, answer_visibility: KnowledgeBaseAnswerPublicity) -> Any:
         """Updates the publication state (e.g., draft, public, internal) of a specific answer"""
         response = self._connection.session.post(
             self._connection.url + "knowledge_bases/%s/answers/%s/%s" % (knowledge_base_id, answer_id, answer_visibility.value)
         )
         return self._raise_or_return_json(response)
 
-    def add_attachment(self, knowledge_base_id, answer_id, attachment):
+    def add_attachment(self, knowledge_base_id: int, answer_id: int, attachment: Any) -> Any:
         """Uploads a file as an attachment to an answer using multipart/form-data"""
         response = self._connection.session.post(
             self._connection.url + "knowledge_bases/%s/answers/%s/attachments" % (knowledge_base_id, answer_id),
@@ -757,7 +757,7 @@ class KnowledgeBasesAnswers(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def delete_attachment(self, knowledge_base_id, answer_id, attachment_id):
+    def delete_attachment(self, knowledge_base_id: int, answer_id: int, attachment_id: int) -> Any:
         """Removes a specific attachment from an answer by its attachment ID"""
         response = self._connection.session.delete(
             self._connection.url + "knowledge_bases/%s/answers/%s/attachments/%s" % (knowledge_base_id, answer_id, attachment_id)
@@ -776,18 +776,18 @@ class KnowledgeBasesCategories(Resource):
         """Disabled: Knowledge base categories search is not supported"""
         raise UnusedResourceError(self.__class__.__name__, "search")
 
-    def find(self, id):
+    def find(self, id: int) -> Any:
         """Disabled: Retrieving an answer requires both knowledge_base_id and category_id"""
         raise UnusedResourceError(self.__class__.__name__, "find")
 
-    def find_category(self, knowledge_base_id, category_id):
+    def find_category(self, knowledge_base_id: int, category_id: int) -> Any:
         """Retrieves a specific category from a knowledge base"""
         response = self._connection.session.get(
             self._connection.url + "knowledge_bases/%s/categories/%s" % (knowledge_base_id, category_id)
         )
         return self._raise_or_return_json(response)
 
-    def create(self, params):
+    def create(self, params: Any) -> Any:
         """Creates a new category within a specified knowledge base"""
         if not isinstance(params, dict):
             raise InvalidTypeError("params", dict, type(params))
@@ -803,7 +803,7 @@ class KnowledgeBasesCategories(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def update(self, id, params):
+    def update(self, id: int, params: Any) -> Any:
         """Updates an existing category using the knowledge base ID and the category ID"""
         if not isinstance(params, dict):
             raise InvalidTypeError("params", dict, type(params))
@@ -819,25 +819,25 @@ class KnowledgeBasesCategories(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def destroy(self, id):
+    def destroy(self, id: int) -> Any:
         """Disabled: Permanent deletion requires both knowledge_base_id and category_id"""
         raise UnusedResourceError(self.__class__.__name__, "destroy")
 
-    def destroy_category(self, knowledge_base_id, category_id):
+    def destroy_category(self, knowledge_base_id: int, category_id: int) -> Any:
         """Permanently deletes a category from the knowledge base"""
         response = self._connection.session.delete(
             self._connection.url + "knowledge_bases/%s/categories/%s" % (knowledge_base_id, category_id)
         )
         return self._raise_or_return_json(response)
 
-    def show_permissions(self, knowledge_base_id, category_id):
+    def show_permissions(self, knowledge_base_id: int, category_id: int) -> Any:
         """Returns a list of roles and their associated access levels (reader/editor) for the knowledge base category"""
         response = self._connection.session.get(
             self._connection.url + "knowledge_bases/%s/categories/%s/permissions" % (knowledge_base_id, category_id),
         )
         return self._raise_or_return_json(response)
 
-    def change_permissions(self, knowledge_base_id, category_id, permissions):
+    def change_permissions(self, knowledge_base_id: int, category_id: int, permissions: Any) -> Any:
         """Replaces the current permission set with a new mapping of roles and access levels"""
         response = self._connection.session.put(
             self._connection.url + "knowledge_bases/%s/categories/%s/permissions" % (knowledge_base_id, category_id),
@@ -845,7 +845,7 @@ class KnowledgeBasesCategories(Resource):
         )
         return self._raise_or_return_json(response)
 
-    def reorder_answers(self, knowledge_base_id, category_id, params):
+    def reorder_answers(self, knowledge_base_id: int, category_id: int, params: Any) -> Any:
         """Updates the display order of answers within a specific category"""
         response = self._connection.session.patch(
             self._connection.url + "knowledge_bases/%s/categories/%s/reorder_answers" % (knowledge_base_id, category_id),
