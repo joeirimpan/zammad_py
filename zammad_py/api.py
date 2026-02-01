@@ -707,7 +707,7 @@ class KnowledgeBasesAnswers(Resource):
         """Disabled: Retrieving an answer requires both knowledge_base_id and answer_id"""
         raise UnusedResourceError(self.__class__.__name__, "find")
 
-    def find_answer(self, knowledge_base_id: int, answer_id: int, include_content_id: int | None = None) -> Any:
+    def find_answer(self, knowledge_base_id: int, answer_id: int, include_content_id: Optional[int] = None) -> Any:
         """Retrieves a specific answer from a knowledge base, optionally including content details
 
         :param knowledge_base_id: Knowledge Base ID
