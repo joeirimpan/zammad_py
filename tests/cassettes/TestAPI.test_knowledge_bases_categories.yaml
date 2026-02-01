@@ -1,0 +1,519 @@
+interactions:
+- request:
+    body: '{"name": "Documentation Category", "description": "A category for API documentation",
+      "parent_id": null, "category_icon": "f115"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '129'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: POST
+    uri: http://localhost:8080/api/v1/knowledge_bases/1/categories
+  response:
+    body:
+      string: '{"id":14,"knowledge_base_id":1,"parent_id":null,"category_icon":"f115","position":11,"created_at":"2026-01-31T23:01:36.735Z","updated_at":"2026-01-31T23:01:36.735Z","translation_ids":[],"answer_ids":[],"child_ids":[],"permission_ids":[],"permissions_effective":[{"id":1,"permissionable_type":"KnowledgeBase","permissionable_id":1,"role_id":1,"access":"editor","created_at":"2026-01-31T15:42:02.660Z","updated_at":"2026-01-31T15:42:02.660Z"},{"id":2,"permissionable_type":"KnowledgeBase","permissionable_id":1,"role_id":2,"access":"reader","created_at":"2026-01-31T15:42:02.662Z","updated_at":"2026-01-31T15:42:02.662Z"}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '621'
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-4NqSLRgwvr2Gqb7JPj0viA=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 23:01:36 GMT
+      ETag:
+      - W/"fb739adcf8fae16b2522c4746bbc66a4"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 1a7100f3-3c28-499d-8145-274cebd21c18
+      X-Runtime:
+      - '0.204851'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/knowledge_bases/1/categories/14
+  response:
+    body:
+      string: '{"id":14,"knowledge_base_id":1,"parent_id":null,"category_icon":"f115","position":11,"created_at":"2026-01-31T23:01:36.735Z","updated_at":"2026-01-31T23:01:36.735Z","translation_ids":[],"answer_ids":[],"child_ids":[],"permission_ids":[],"permissions_effective":[{"permissionable_id":1,"id":1,"permissionable_type":"KnowledgeBase","role_id":1,"access":"editor","created_at":"2026-01-31T15:42:02.660Z","updated_at":"2026-01-31T15:42:02.660Z"},{"permissionable_id":1,"id":2,"permissionable_type":"KnowledgeBase","role_id":2,"access":"reader","created_at":"2026-01-31T15:42:02.662Z","updated_at":"2026-01-31T15:42:02.662Z"}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-/+RjpMQoOmEGqa1A4qwwGQ=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 23:01:37 GMT
+      ETag:
+      - W/"c3535cdcfb74bd0fcea71ae379750d2f"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 4225afee-5284-4960-980e-6152d959253f
+      X-Runtime:
+      - '0.201276'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"name": "Updated Category Name"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: PATCH
+    uri: http://localhost:8080/api/v1/knowledge_bases/1/categories/14
+  response:
+    body:
+      string: '{"knowledge_base_id":1,"id":14,"parent_id":null,"category_icon":"f115","position":11,"created_at":"2026-01-31T23:01:36.735Z","updated_at":"2026-01-31T23:01:36.735Z","translation_ids":[],"answer_ids":[],"child_ids":[],"permission_ids":[],"permissions_effective":[{"permissionable_id":1,"id":1,"permissionable_type":"KnowledgeBase","role_id":1,"access":"editor","created_at":"2026-01-31T15:42:02.660Z","updated_at":"2026-01-31T15:42:02.660Z"},{"permissionable_id":1,"id":2,"permissionable_type":"KnowledgeBase","role_id":2,"access":"reader","created_at":"2026-01-31T15:42:02.662Z","updated_at":"2026-01-31T15:42:02.662Z"}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-GGoVjTOU9CqupB0hrMfS/w=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 23:01:37 GMT
+      ETag:
+      - W/"ee9e2b306ff7d1a611d42dd7efa9450b"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 3dbdff57-c981-47a6-bf05-320493c38ef5
+      X-Runtime:
+      - '0.198933'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/knowledge_bases/1/categories/14/permissions
+  response:
+    body:
+      string: '{"roles_reader":[{"id":2,"name":"Agent"}],"roles_editor":[{"id":1,"name":"Admin"}],"permissions":[{"id":1,"access":"editor","role_id":1},{"id":2,"access":"reader","role_id":2}],"inherited":[{"id":1,"access":"editor","role_id":1},{"id":2,"access":"reader","role_id":2}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-Yg1ANu9O5zoJclfebkNuAQ=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 23:01:37 GMT
+      ETag:
+      - W/"a5a87cbc7f1a551c4632092e0ce9df42"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 95fc5def-05f6-4086-a733-60960a4876af
+      X-Runtime:
+      - '0.197697'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"permissions_dialog": {"permissions": {"1": "editor"}}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '56'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: PUT
+    uri: http://localhost:8080/api/v1/knowledge_bases/1/categories/14/permissions
+  response:
+    body:
+      string: '{"roles_reader":[{"id":2,"name":"Agent"}],"roles_editor":[{"id":1,"name":"Admin"}],"permissions":[{"id":1,"access":"editor","role_id":1},{"id":2,"access":"reader","role_id":2}],"inherited":[{"id":1,"access":"editor","role_id":1},{"id":2,"access":"reader","role_id":2}]}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-N3O1/bLSr5et3d2JsKNcMQ=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 23:01:38 GMT
+      ETag:
+      - W/"a5a87cbc7f1a551c4632092e0ce9df42"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 477c05b7-5ffa-4d2f-9c5b-b0c75f05603c
+      X-Runtime:
+      - '0.205013'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"ordered_ids": [10, 1]}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '24'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: PATCH
+    uri: http://localhost:8080/api/v1/knowledge_bases/1/categories/1/reorder_answers
+  response:
+    body:
+      string: "{\"KnowledgeBaseAnswer\":{\"1\":{\"category_id\":1,\"position\":1,\"archived_at\":null,\"internal_at\":null,\"published_at\":null,\"id\":1,\"promoted\":false,\"internal_note\":null,\"archived_by_id\":null,\"internal_by_id\":null,\"published_by_id\":null,\"created_at\":\"2026-01-31T18:39:09.834Z\",\"updated_at\":\"2026-01-31T23:01:38.451Z\",\"translation_ids\":[1],\"attachments\":[{\"id\":3,\"url\":\"/api/v1/attachments/3\",\"preview_url\":\"/api/v1/attachments/3?preview=1\",\"filename\":\"test_audio_file.mp3\",\"size\":\"760608\",\"preferences\":{\"Content-Type\":\"audio/mpeg\"}}],\"tags\":[]},\"10\":{\"category_id\":1,\"position\":0,\"archived_at\":null,\"internal_at\":null,\"published_at\":null,\"id\":10,\"promoted\":false,\"internal_note\":null,\"archived_by_id\":null,\"internal_by_id\":null,\"published_by_id\":null,\"created_at\":\"2026-01-31T22:55:57.572Z\",\"updated_at\":\"2026-01-31T23:01:38.422Z\",\"translation_ids\":[2],\"attachments\":[],\"tags\":[]}},\"KnowledgeBaseCategory\":{\"1\":{\"id\":1,\"knowledge_base_id\":1,\"parent_id\":null,\"category_icon\":\"f115\",\"position\":2,\"created_at\":\"2026-01-31T17:41:42.084Z\",\"updated_at\":\"2026-01-31T23:01:38.452Z\",\"translation_ids\":[1],\"answer_ids\":[10,1],\"child_ids\":[3,2],\"permission_ids\":[],\"permissions_effective\":[{\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]}},\"KnowledgeBase\":{\"1\":{\"color_highlight\":\"#38ae6a\",\"homepage_layout\":\"grid\",\"active\":true,\"id\":1,\"iconset\":\"FontAwesome\",\"color_header\":\"#DDDDDD\",\"color_header_link\":\"#D1A3F4\",\"category_layout\":\"grid\",\"show_feed_icon\":true,\"custom_address\":\"/address_1\",\"created_at\":\"2026-01-31T10:28:40.635Z\",\"updated_at\":\"2026-01-31T17:41:34.170Z\",\"translation_ids\":[1,2],\"kb_locale_ids\":[1,2],\"category_ids\":[2,5,4,1,3],\"answer_ids\":[],\"permission_ids\":[1,2],\"permissions_effective\":[{\"id\":1,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":1,\"access\":\"editor\",\"created_at\":\"2026-01-31T15:42:02.660Z\",\"updated_at\":\"2026-01-31T15:42:02.660Z\"},{\"id\":2,\"permissionable_type\":\"KnowledgeBase\",\"permissionable_id\":1,\"role_id\":2,\"access\":\"reader\",\"created_at\":\"2026-01-31T15:42:02.662Z\",\"updated_at\":\"2026-01-31T15:42:02.662Z\"}]}},\"KnowledgeBaseLocale\":{\"1\":{\"id\":1,\"knowledge_base_id\":1,\"system_locale_id\":1,\"primary\":true,\"created_at\":\"2026-01-31T10:28:40.637Z\",\"updated_at\":\"2026-01-31T10:28:40.637Z\",\"knowledge_base_translation_ids\":[1],\"category_translation_ids\":[],\"answer_translation_ids\":[],\"menu_item_ids\":[]},\"2\":{\"id\":2,\"knowledge_base_id\":1,\"system_locale_id\":5,\"primary\":false,\"created_at\":\"2026-01-31T10:28:40.641Z\",\"updated_at\":\"2026-01-31T10:28:40.641Z\",\"knowledge_base_translation_ids\":[2],\"category_translation_ids\":[],\"answer_translation_ids\":[],\"menu_item_ids\":[]}},\"KnowledgeBaseTranslation\":{\"1\":{\"id\":1,\"title\":\"Category
+        1\",\"footer_note\":\"\xA9 Test PY\",\"kb_locale_id\":1,\"knowledge_base_id\":1,\"created_at\":\"2026-01-31T10:28:40.651Z\",\"updated_at\":\"2026-01-31T17:41:13.976Z\"},\"2\":{\"id\":2,\"title\":\"Category
+        1\",\"footer_note\":\"\xA9 Test PY\",\"kb_locale_id\":2,\"knowledge_base_id\":1,\"created_at\":\"2026-01-31T10:28:40.654Z\",\"updated_at\":\"2026-01-31T17:41:34.169Z\"}},\"KnowledgeBaseCategoryTranslation\":{\"1\":{\"id\":1,\"title\":\"Category
+        1\",\"kb_locale_id\":2,\"category_id\":1,\"created_at\":\"2026-01-31T17:41:42.088Z\",\"updated_at\":\"2026-01-31T17:41:42.088Z\"}},\"KnowledgeBaseAnswerTranslation\":{\"1\":{\"answer_id\":1,\"updated_at\":\"2026-01-31T18:42:18.651Z\",\"id\":1,\"title\":\"Answer
+        1\",\"kb_locale_id\":2,\"content_id\":1,\"created_by_id\":3,\"updated_by_id\":3,\"created_at\":\"2026-01-31T18:39:09.850Z\"},\"2\":{\"answer_id\":10,\"title\":\"Answer
+        2\",\"id\":2,\"kb_locale_id\":2,\"content_id\":2,\"created_by_id\":3,\"updated_by_id\":3,\"created_at\":\"2026-01-31T22:55:57.581Z\",\"updated_at\":\"2026-01-31T22:56:02.489Z\"}},\"User\":{\"3\":{\"id\":3,\"organization_id\":null,\"login\":\"gpapas@europeanschoolradio.eu\",\"firstname\":\"George\",\"lastname\":\"Papas\",\"email\":\"gpapas@europeanschoolradio.eu\",\"image\":null,\"image_source\":null,\"web\":\"\",\"phone\":\"\",\"fax\":\"\",\"mobile\":\"\",\"department\":null,\"street\":\"\",\"zip\":\"\",\"city\":\"\",\"country\":\"\",\"address\":null,\"vip\":false,\"verified\":false,\"active\":true,\"note\":\"\",\"last_login\":\"2026-01-31T22:52:04.523Z\",\"source\":null,\"login_failed\":0,\"out_of_office\":false,\"out_of_office_start_at\":null,\"out_of_office_end_at\":null,\"out_of_office_replacement_id\":null,\"preferences\":{\"notification_config\":{\"matrix\":{\"create\":{\"criteria\":{\"owned_by_me\":true,\"owned_by_nobody\":true,\"subscribed\":true,\"no\":false},\"channel\":{\"email\":true,\"online\":true}},\"update\":{\"criteria\":{\"owned_by_me\":true,\"owned_by_nobody\":true,\"subscribed\":true,\"no\":false},\"channel\":{\"email\":true,\"online\":true}},\"reminder_reached\":{\"criteria\":{\"owned_by_me\":true,\"owned_by_nobody\":false,\"subscribed\":false,\"no\":false},\"channel\":{\"email\":true,\"online\":true}},\"escalation\":{\"criteria\":{\"owned_by_me\":true,\"owned_by_nobody\":false,\"subscribed\":false,\"no\":false},\"channel\":{\"email\":true,\"online\":true}}}},\"locale\":\"en-gb\",\"intro\":true,\"keyboard_shortcuts_clues\":true},\"updated_by_id\":3,\"created_by_id\":1,\"created_at\":\"2026-01-31T10:23:22.383Z\",\"updated_at\":\"2026-01-31T22:52:04.535Z\",\"role_ids\":[1,2],\"two_factor_preference_ids\":[],\"organization_ids\":[],\"authorization_ids\":[],\"overview_sorting_ids\":[],\"group_ids\":{\"1\":[\"full\"]}}}}"
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-50lgm/SzWCQvTpvgS+BmRw=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 23:01:38 GMT
+      ETag:
+      - W/"a9c2c457d820637adf4ace59503a454e"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 2dff086b-89c2-4394-959e-5df8b18ad008
+      X-Runtime:
+      - '0.268641'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - Zammad API Python
+    method: DELETE
+    uri: http://localhost:8080/api/v1/knowledge_bases/1/categories/14
+  response:
+    body:
+      string: '{}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2'
+      Content-Security-Policy:
+      - frame-ancestors *
+      - 'base-uri ''self'' http://localhost:8080; default-src
+        ''self'' ws: wss: https://images.zammad.com; font-src ''self'' data:; img-src
+        * data: blob:; object-src ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-sOnvcxOIt3shZf3khhDd4g=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sat, 31 Jan 2026 23:01:38 GMT
+      ETag:
+      - W/"44136fa355b3678a1146ad16f7e8649e"
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 5b9e2ab0-6c69-44fa-af7c-733ba3b4313e
+      X-Runtime:
+      - '0.273000'
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1
