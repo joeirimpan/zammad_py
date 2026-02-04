@@ -4,10 +4,14 @@
 import io
 import re
 
-from zammad_py.enums import KnowledgeBaseAnswerPublicity
-from zammad_py.exceptions import UnusedResourceError, InvalidTypeError, MissingParameterError
-
 import pytest
+
+from zammad_py.enums import KnowledgeBaseAnswerPublicity
+from zammad_py.exceptions import (
+    InvalidTypeError,
+    MissingParameterError,
+    UnusedResourceError,
+)
 
 # from conftest import zammad_vcr
 
@@ -147,7 +151,7 @@ class TestAPI:
         settings = {
             "active": True,
             "homepage_layout": "grid",
-            "color_highlight": "#38ae6a"
+            "color_highlight": "#38ae6a",
         }
         manage_response = zammad_api.knowledge_bases.manage(1, settings)
         assert manage_response["active"] is True
@@ -158,25 +162,29 @@ class TestAPI:
         assert "roles_editor" in permissions
 
         new_permissions = {
-            "permissions_dialog": {
-                "permissions": {"1": "editor", "2": "reader"}
-            }
+            "permissions_dialog": {"permissions": {"1": "editor", "2": "reader"}}
         }
-        change_permissions_response = zammad_api.knowledge_bases.change_permissions(1, new_permissions)
+        change_permissions_response = zammad_api.knowledge_bases.change_permissions(
+            1, new_permissions
+        )
         assert "roles_reader" in change_permissions_response
         assert "roles_editor" in change_permissions_response
 
-        reorder_sub_categories_params = {
-            "ordered_ids": [3, 2]
-        }
-        reorder_sub_categories_response = zammad_api.knowledge_bases.reorder_sub_categories(1, 1, reorder_sub_categories_params)
+        reorder_sub_categories_params = {"ordered_ids": [3, 2]}
+        reorder_sub_categories_response = (
+            zammad_api.knowledge_bases.reorder_sub_categories(
+                1, 1, reorder_sub_categories_params
+            )
+        )
         assert "KnowledgeBaseCategory" in reorder_sub_categories_response
         assert "KnowledgeBase" in reorder_sub_categories_response
 
-        reorder_root_categories_params = {
-            "ordered_ids": [5, 4, 1]
-        }
-        reorder_root_categories_response = zammad_api.knowledge_bases.reorder_root_categories(1, reorder_root_categories_params)
+        reorder_root_categories_params = {"ordered_ids": [5, 4, 1]}
+        reorder_root_categories_response = (
+            zammad_api.knowledge_bases.reorder_root_categories(
+                1, reorder_root_categories_params
+            )
+        )
         assert "KnowledgeBaseCategory" in reorder_root_categories_response
         assert "KnowledgeBase" in reorder_root_categories_response
 
@@ -188,13 +196,15 @@ class TestAPI:
             (kb.find, [1]),
             (kb.create, [{}]),
             (kb.update, [1, {}]),
-            (kb.destroy, [1])
+            (kb.destroy, [1]),
         ]
 
         for method, args in unused_calls:
             with pytest.raises(UnusedResourceError) as excinfo:
                 method(*args)
-            assert "is not available for the KnowledgeBases resource" in str(excinfo.value)
+            assert "is not available for the KnowledgeBases resource" in str(
+                excinfo.value
+            )
 
     @pytest.mark.vcr()
     def test_knowledge_bases_answers(self, zammad_api):
@@ -202,7 +212,7 @@ class TestAPI:
             "knowledge_base_id": 1,
             "category_id": 1,
             "title": "Initial Answer Title",
-            "content": "This is the initial content."
+            "content": "This is the initial content.",
         }
         create_response = zammad_api.knowledge_bases_answers.create(create_params)
         assert "id" in create_response
@@ -217,27 +227,37 @@ class TestAPI:
         update_params = {
             "answer_id": answer_id,
             "category_id": 1,
-            "title": "Updated Answer Title"
+            "title": "Updated Answer Title",
         }
         update_response = zammad_api.knowledge_bases_answers.update(1, update_params)
         assert update_response["id"] == answer_id
         assert "assets" in update_response
 
-        visibility_response = zammad_api.knowledge_bases_answers.change_answer_visibility(
-            1, answer_id, KnowledgeBaseAnswerPublicity.PUBLICLY
+        visibility_response = (
+            zammad_api.knowledge_bases_answers.change_answer_visibility(
+                1, answer_id, KnowledgeBaseAnswerPublicity.PUBLICLY
+            )
         )
         assert "id" in visibility_response
 
         attachment_content = io.BytesIO(b"Hello Zammad")
-        attachment_response = zammad_api.knowledge_bases_answers.add_attachment(1, answer_id, attachment_content)
+        attachment_response = zammad_api.knowledge_bases_answers.add_attachment(
+            1, answer_id, attachment_content
+        )
         assert "id" in attachment_response or attachment_response is not None
 
         if "attachment_ids" in attachment_response:
             attachment_id = attachment_response["attachment_ids"][0]
-            delete_attachment_res = zammad_api.knowledge_bases_answers.delete_attachment(1, answer_id, attachment_id)
+            delete_attachment_res = (
+                zammad_api.knowledge_bases_answers.delete_attachment(
+                    1, answer_id, attachment_id
+                )
+            )
             assert delete_attachment_res is not None
 
-        destroy_response = zammad_api.knowledge_bases_answers.destroy_answer(1, answer_id)
+        destroy_response = zammad_api.knowledge_bases_answers.destroy_answer(
+            1, answer_id
+        )
         assert destroy_response is not None
 
         kba = zammad_api.knowledge_bases_answers
@@ -245,13 +265,15 @@ class TestAPI:
             (kba.all, []),
             (kba.search, ["query"]),
             (kba.find, [1]),
-            (kba.destroy, [1])
+            (kba.destroy, [1]),
         ]
 
         for method, args in unused_calls:
             with pytest.raises(UnusedResourceError) as excinfo:
                 method(*args)
-            assert "is not available for the KnowledgeBasesAnswers resource" in str(excinfo.value)
+            assert "is not available for the KnowledgeBasesAnswers resource" in str(
+                excinfo.value
+            )
 
         with pytest.raises(InvalidTypeError):
             zammad_api.knowledge_bases_answers.create(["not", "a", "dict"])
@@ -266,43 +288,44 @@ class TestAPI:
             "name": "Documentation Category",
             "description": "A category for API documentation",
             "parent_id": None,
-            "category_icon": "f115"
+            "category_icon": "f115",
         }
         create_response = zammad_api.knowledge_bases_categories.create(create_params)
         assert "id" in create_response
-        assert create_response["category_icon"] == create_params['category_icon']
+        assert create_response["category_icon"] == create_params["category_icon"]
 
         category_id = create_response["id"]
 
-        find_response = zammad_api.knowledge_bases_categories.find_category(1, category_id)
+        find_response = zammad_api.knowledge_bases_categories.find_category(
+            1, category_id
+        )
         assert find_response["id"] == category_id
 
-        update_params = {
-            "category_id": category_id,
-            "name": "Updated Category Name"
-        }
+        update_params = {"category_id": category_id, "name": "Updated Category Name"}
         update_response = zammad_api.knowledge_bases_categories.update(1, update_params)
         assert update_response["id"] == category_id
 
-        permissions = zammad_api.knowledge_bases_categories.show_permissions(1, category_id)
+        permissions = zammad_api.knowledge_bases_categories.show_permissions(
+            1, category_id
+        )
         assert "roles_reader" in permissions
         assert "roles_editor" in permissions
 
-        new_permissions = {
-            "permissions_dialog": {
-                "permissions": {"1": "editor"}
-            }
-        }
-        perm_response = zammad_api.knowledge_bases_categories.change_permissions(1, category_id, new_permissions)
+        new_permissions = {"permissions_dialog": {"permissions": {"1": "editor"}}}
+        perm_response = zammad_api.knowledge_bases_categories.change_permissions(
+            1, category_id, new_permissions
+        )
         assert "roles_editor" in perm_response
 
-        reorder_params = {
-            "ordered_ids": [10, 1]
-        }
-        reorder_response = zammad_api.knowledge_bases_categories.reorder_answers(1, 1, reorder_params)
+        reorder_params = {"ordered_ids": [10, 1]}
+        reorder_response = zammad_api.knowledge_bases_categories.reorder_answers(
+            1, 1, reorder_params
+        )
         assert reorder_response is not None
 
-        destroy_response = zammad_api.knowledge_bases_categories.destroy_category(1, category_id)
+        destroy_response = zammad_api.knowledge_bases_categories.destroy_category(
+            1, category_id
+        )
         assert destroy_response is not None
 
         kbc = zammad_api.knowledge_bases_categories
@@ -310,13 +333,15 @@ class TestAPI:
             (kbc.all, []),
             (kbc.search, ["query"]),
             (kbc.find, [1]),
-            (kbc.destroy, [1])
+            (kbc.destroy, [1]),
         ]
 
         for method, args in unused_calls:
             with pytest.raises(UnusedResourceError) as excinfo:
                 method(*args)
-            assert "is not available for the KnowledgeBasesCategories resource" in str(excinfo.value)
+            assert "is not available for the KnowledgeBasesCategories resource" in str(
+                excinfo.value
+            )
 
         with pytest.raises(InvalidTypeError):
             zammad_api.knowledge_bases_categories.create("not a dict")

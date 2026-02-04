@@ -8,8 +8,13 @@ from typing import Any, Generator, List, Optional, Tuple
 import requests
 from requests.exceptions import HTTPError
 
-from zammad_py.exceptions import ConfigException, UnusedResourceError, MissingParameterError, InvalidTypeError
 from zammad_py.enums import KnowledgeBaseAnswerPublicity
+from zammad_py.exceptions import (
+    ConfigException,
+    InvalidTypeError,
+    MissingParameterError,
+    UnusedResourceError,
+)
 
 __all__ = [
     "ZammadAPI",
@@ -19,7 +24,7 @@ __all__ = [
     "MissingParameterError",
     "InvalidTypeError",
     # Enums
-    "KnowledgeBaseAnswerPublicity"
+    "KnowledgeBaseAnswerPublicity",
 ]
 
 
@@ -615,8 +620,7 @@ class KnowledgeBases(Resource):
         :param settings: Dictionary of setting to be applied to the knowledge base
         """
         response = self._connection.session.patch(
-            self._connection.url + "knowledge_bases/manage/%s" % id,
-            json=settings
+            self._connection.url + "knowledge_bases/manage/%s" % id, json=settings
         )
         return self._raise_or_return_json(response)
 
@@ -638,7 +642,7 @@ class KnowledgeBases(Resource):
         """
         response = self._connection.session.put(
             self._connection.url + "knowledge_bases/%s/permissions" % id,
-            json=permissions
+            json=permissions,
         )
         return self._raise_or_return_json(response)
 
@@ -650,8 +654,9 @@ class KnowledgeBases(Resource):
         :param params: A dictionary containing 'ordered_ids' (a list of sub-category IDs) in the desired sequence
         """
         response = self._connection.session.patch(
-            self._connection.url + "knowledge_bases/%s/categories/%s/reorder_categories" % (id, category_id),
-            json=params
+            self._connection.url
+            + f"knowledge_bases/{id}/categories/{category_id}/reorder_categories",
+            json=params,
         )
         return self._raise_or_return_json(response)
 
@@ -662,8 +667,9 @@ class KnowledgeBases(Resource):
         :param params: A dictionary containing 'ordered_ids' (a list of category IDs) in the desired sequence
         """
         response = self._connection.session.patch(
-            self._connection.url + "knowledge_bases/%s/categories/reorder_root_categories" % id,
-            json=params
+            self._connection.url
+            + "knowledge_bases/%s/categories/reorder_root_categories" % id,
+            json=params,
         )
         return self._raise_or_return_json(response)
 
@@ -707,7 +713,12 @@ class KnowledgeBasesAnswers(Resource):
         """Disabled: Retrieving an answer requires both knowledge_base_id and answer_id"""
         raise UnusedResourceError(self.__class__.__name__, "find")
 
-    def find_answer(self, knowledge_base_id: int, answer_id: int, include_content_id: Optional[int] = None) -> Any:
+    def find_answer(
+        self,
+        knowledge_base_id: int,
+        answer_id: int,
+        include_content_id: Optional[int] = None,
+    ) -> Any:
         """Retrieves a specific answer from a knowledge base, optionally including content details
 
         :param knowledge_base_id: Knowledge Base ID
@@ -715,10 +726,19 @@ class KnowledgeBasesAnswers(Resource):
         :param include_content_id: Optional ID to include specific translated content (localization) in the response
         """
         if include_content_id is None:
-            find_answer_url = self._connection.url + "knowledge_bases/%s/answers/%s" % (knowledge_base_id, answer_id)
+            find_answer_url = (
+                self._connection.url
+                + "knowledge_bases/{}/answers/{}".format(
+                    knowledge_base_id,
+                    answer_id,
+                )
+            )
         else:
-            find_answer_url = (self._connection.url + "knowledge_bases/%s/answers/%s?include_contents=%s" %
-                               (knowledge_base_id, answer_id, include_content_id))
+            find_answer_url = (
+                self._connection.url
+                + "knowledge_bases/%s/answers/%s?include_contents=%s"
+                % (knowledge_base_id, answer_id, include_content_id)
+            )
 
         response = self._connection.session.get(find_answer_url)
         return self._raise_or_return_json(response)
@@ -733,13 +753,15 @@ class KnowledgeBasesAnswers(Resource):
             raise InvalidTypeError("params", dict, type(params))
 
         if "knowledge_base_id" not in params:
-            raise MissingParameterError("knowledge_base_id", context="create knowledge base answer")
+            raise MissingParameterError(
+                "knowledge_base_id", context="create knowledge base answer"
+            )
 
         knowledge_base_id = params.pop("knowledge_base_id")
 
         response = self._connection.session.post(
             self._connection.url + "knowledge_bases/%s/answers" % knowledge_base_id,
-            json=params
+            json=params,
         )
         return self._raise_or_return_json(response)
 
@@ -754,13 +776,15 @@ class KnowledgeBasesAnswers(Resource):
             raise InvalidTypeError("params", dict, type(params))
 
         if "answer_id" not in params:
-            raise MissingParameterError("answer_id", context="update knowledge base answer")
+            raise MissingParameterError(
+                "answer_id", context="update knowledge base answer"
+            )
 
         answer_id = params.pop("answer_id")
 
         response = self._connection.session.patch(
-            self._connection.url + "knowledge_bases/%s/answers/%s" % (id, answer_id),
-            json=params
+            self._connection.url + f"knowledge_bases/{id}/answers/{answer_id}",
+            json=params,
         )
         return self._raise_or_return_json(response)
 
@@ -778,11 +802,17 @@ class KnowledgeBasesAnswers(Resource):
         :param answer_id: Knowledge Base Answer ID
         """
         response = self._connection.session.delete(
-            self._connection.url + "knowledge_bases/%s/answers/%s" % (knowledge_base_id, answer_id)
+            self._connection.url
+            + f"knowledge_bases/{knowledge_base_id}/answers/{answer_id}"
         )
         return self._raise_or_return_json(response)
 
-    def change_answer_visibility(self, knowledge_base_id: int, answer_id: int, answer_visibility: KnowledgeBaseAnswerPublicity) -> Any:
+    def change_answer_visibility(
+        self,
+        knowledge_base_id: int,
+        answer_id: int,
+        answer_visibility: KnowledgeBaseAnswerPublicity,
+    ) -> Any:
         """Updates the publication state (e.g., draft, public, internal) of a specific answer
 
         :param knowledge_base_id: Knowledge Base ID
@@ -790,11 +820,15 @@ class KnowledgeBasesAnswers(Resource):
         :param answer_visibility: The publication state of the answer (e.g., draft, internal, or public)
         """
         response = self._connection.session.post(
-            self._connection.url + "knowledge_bases/%s/answers/%s/%s" % (knowledge_base_id, answer_id, answer_visibility.value)
+            self._connection.url
+            + "knowledge_bases/%s/answers/%s/%s"
+            % (knowledge_base_id, answer_id, answer_visibility.value)
         )
         return self._raise_or_return_json(response)
 
-    def add_attachment(self, knowledge_base_id: int, answer_id: int, attachment: Any) -> Any:
+    def add_attachment(
+        self, knowledge_base_id: int, answer_id: int, attachment: Any
+    ) -> Any:
         """Uploads a file as an attachment to an answer using multipart/form-data
 
         :param knowledge_base_id: Knowledge Base ID
@@ -802,14 +836,16 @@ class KnowledgeBasesAnswers(Resource):
         :param attachment: The file to be uploaded to the answer as an attachment
         """
         response = self._connection.session.post(
-            self._connection.url + "knowledge_bases/%s/answers/%s/attachments" % (knowledge_base_id, answer_id),
-            files={
-                "file": attachment
-            }
+            self._connection.url
+            + "knowledge_bases/%s/answers/%s/attachments"
+            % (knowledge_base_id, answer_id),
+            files={"file": attachment},
         )
         return self._raise_or_return_json(response)
 
-    def delete_attachment(self, knowledge_base_id: int, answer_id: int, attachment_id: int) -> Any:
+    def delete_attachment(
+        self, knowledge_base_id: int, answer_id: int, attachment_id: int
+    ) -> Any:
         """Removes a specific attachment from an answer by its attachment ID
 
         :param knowledge_base_id: Knowledge Base ID
@@ -817,7 +853,9 @@ class KnowledgeBasesAnswers(Resource):
         :param attachment_id: Attachment ID
         """
         response = self._connection.session.delete(
-            self._connection.url + "knowledge_bases/%s/answers/%s/attachments/%s" % (knowledge_base_id, answer_id, attachment_id)
+            self._connection.url
+            + "knowledge_bases/%s/answers/%s/attachments/%s"
+            % (knowledge_base_id, answer_id, attachment_id)
         )
         return self._raise_or_return_json(response)
 
@@ -844,7 +882,8 @@ class KnowledgeBasesCategories(Resource):
         :param category_id: Knowledge Base Category ID
         """
         response = self._connection.session.get(
-            self._connection.url + "knowledge_bases/%s/categories/%s" % (knowledge_base_id, category_id)
+            self._connection.url
+            + f"knowledge_bases/{knowledge_base_id}/categories/{category_id}"
         )
         return self._raise_or_return_json(response)
 
@@ -858,13 +897,15 @@ class KnowledgeBasesCategories(Resource):
             raise InvalidTypeError("params", dict, type(params))
 
         if "knowledge_base_id" not in params:
-            raise MissingParameterError("knowledge_base_id", context="create knowledge base category")
+            raise MissingParameterError(
+                "knowledge_base_id", context="create knowledge base category"
+            )
 
         knowledge_base_id = params.pop("knowledge_base_id")
 
         response = self._connection.session.post(
             self._connection.url + "knowledge_bases/%s/categories" % knowledge_base_id,
-            json=params
+            json=params,
         )
         return self._raise_or_return_json(response)
 
@@ -879,13 +920,15 @@ class KnowledgeBasesCategories(Resource):
             raise InvalidTypeError("params", dict, type(params))
 
         if "category_id" not in params:
-            raise MissingParameterError("category_id", context="update knowledge base category")
+            raise MissingParameterError(
+                "category_id", context="update knowledge base category"
+            )
 
         category_id = params.pop("category_id")
 
         response = self._connection.session.patch(
-            self._connection.url + "knowledge_bases/%s/categories/%s" % (id, category_id),
-            json=params
+            self._connection.url + f"knowledge_bases/{id}/categories/{category_id}",
+            json=params,
         )
         return self._raise_or_return_json(response)
 
@@ -903,7 +946,8 @@ class KnowledgeBasesCategories(Resource):
         :param category_id: Knowledge Base Category ID
         """
         response = self._connection.session.delete(
-            self._connection.url + "knowledge_bases/%s/categories/%s" % (knowledge_base_id, category_id)
+            self._connection.url
+            + f"knowledge_bases/{knowledge_base_id}/categories/{category_id}"
         )
         return self._raise_or_return_json(response)
 
@@ -914,11 +958,15 @@ class KnowledgeBasesCategories(Resource):
         :param category_id: Knowledge Base Category ID
         """
         response = self._connection.session.get(
-            self._connection.url + "knowledge_bases/%s/categories/%s/permissions" % (knowledge_base_id, category_id),
+            self._connection.url
+            + "knowledge_bases/%s/categories/%s/permissions"
+            % (knowledge_base_id, category_id),
         )
         return self._raise_or_return_json(response)
 
-    def change_permissions(self, knowledge_base_id: int, category_id: int, permissions: dict) -> Any:
+    def change_permissions(
+        self, knowledge_base_id: int, category_id: int, permissions: dict
+    ) -> Any:
         """Replaces the current permission set with a new mapping of roles and access levels
 
         :param knowledge_base_id: Knowledge Base ID
@@ -926,12 +974,16 @@ class KnowledgeBasesCategories(Resource):
         :param permissions: Dictionary of new permissions to be applied to the knowledge base category
         """
         response = self._connection.session.put(
-            self._connection.url + "knowledge_bases/%s/categories/%s/permissions" % (knowledge_base_id, category_id),
-            json=permissions
+            self._connection.url
+            + "knowledge_bases/%s/categories/%s/permissions"
+            % (knowledge_base_id, category_id),
+            json=permissions,
         )
         return self._raise_or_return_json(response)
 
-    def reorder_answers(self, knowledge_base_id: int, category_id: int, params: dict) -> Any:
+    def reorder_answers(
+        self, knowledge_base_id: int, category_id: int, params: dict
+    ) -> Any:
         """Updates the display order of answers within a specific category
 
         :param knowledge_base_id: Knowledge Base ID
@@ -939,7 +991,9 @@ class KnowledgeBasesCategories(Resource):
         :param params: A dictionary containing 'ordered_ids' (a list of answer IDs) in the desired sequence
         """
         response = self._connection.session.patch(
-            self._connection.url + "knowledge_bases/%s/categories/%s/reorder_answers" % (knowledge_base_id, category_id),
-            json=params
+            self._connection.url
+            + "knowledge_bases/%s/categories/%s/reorder_answers"
+            % (knowledge_base_id, category_id),
+            json=params,
         )
         return self._raise_or_return_json(response)
