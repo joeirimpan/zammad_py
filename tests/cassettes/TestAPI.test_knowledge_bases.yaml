@@ -40,8 +40,6 @@ interactions:
       - max-age=0, private, must-revalidate
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Security-Policy:
       - frame-ancestors *
       - 'base-uri ''self'' http://localhost:8080; default-src
@@ -115,8 +113,6 @@ interactions:
       - max-age=0, private, must-revalidate
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Security-Policy:
       - frame-ancestors *
       - 'base-uri ''self'' http://localhost:8080; default-src
@@ -186,8 +182,6 @@ interactions:
       - max-age=0, private, must-revalidate
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Security-Policy:
       - frame-ancestors *
       - 'base-uri ''self'' http://localhost:8080; default-src
@@ -261,8 +255,6 @@ interactions:
       - max-age=0, private, must-revalidate
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Security-Policy:
       - frame-ancestors *
       - 'base-uri ''self'' http://localhost:8080; default-src
@@ -341,8 +333,6 @@ interactions:
       - max-age=0, private, must-revalidate
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Security-Policy:
       - frame-ancestors *
       - 'base-uri ''self'' http://localhost:8080; default-src
@@ -421,8 +411,6 @@ interactions:
       - max-age=0, private, must-revalidate
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Security-Policy:
       - frame-ancestors *
       - 'base-uri ''self'' http://localhost:8080; default-src
