@@ -1,14 +1,11 @@
-=======
-History
-=======
+# History
 
-3.0.0 (2023-02-27)
-------------------
+## 3.0.0 (2023-02-27)
+
 * release/3.0.0
-  Add Pagination to search. This is an incompatible change to search API in olders versions.
+  Add Pagination to search. This is an incompatible change to search API in older versions.
 
-2.0.0 (2023-02-14)
-------------------
+## 2.0.0 (2023-02-14)
 
 * release/2.0.0
   Documentation rewrite with more examples for use
@@ -16,46 +13,37 @@ History
   Added new Resource: Link
   Fixed Tests, Create and delete functions to not cause errors by calling the urls with expand=true added.
 
-
-1.1.0 (2022-08-04)
-------------------
+## 1.1.0 (2022-08-04)
 
 * release/1.1.0
   Small Bugfixes, Linting
   Added TicketArticlePlain
 
-
-1.0.1 (2021-05-28)
-------------------
+## 1.0.1 (2021-05-28)
 
 * release/1.0.1
   feat: Take url instead of host
   Update pytest, requests
   Fix Documentation
 
-0.1.7 (2019-04-25)
-------------------
+## 0.1.7 (2019-04-25)
 
 * release/0.1.7
   feat: Make username, pass optional
 
-
-0.1.6 (2019-04-11)
-------------------
+## 0.1.6 (2019-04-11)
 
 * release/0.1.6
   Update vcrpy, requests
   Fix Pagination, Add per_page getter / setter
   fix: Add context manager for doing req with behalf header
 
-0.1.5 (2018-05-11)
-------------------
+## 0.1.5 (2018-05-11)
 
 * release/0.1.5
   Add more python versions to the test matrix
 
-0.1.4 (2018-01-02)
-------------------
+## 0.1.4 (2018-01-02)
 
 * release/0.1.4:
   Released version 0.1.4
@@ -68,8 +56,7 @@ History
   Update README.rst
   Add pagination tests
 
-0.1.3 (2017-11-13)
-------------------
+## 0.1.3 (2017-11-13)
 
 * release/0.1.3:
   Released version 0.1.3
@@ -80,9 +67,7 @@ History
   Pin flake8 to latest version 3.5.0
   Pin requests to latest version 2.18.4
 
-
-0.1.2 (2017-10-26)
-------------------
+## 0.1.2 (2017-10-26)
 
 * release/0.1.2:
   Released version 0.1.2
@@ -91,16 +76,14 @@ History
   Update README.md
   Add tests for ticket resource
   Fix json decode error
- master
 
-0.1.0 (2017-10-25)
-------------------
+## 0.1.0 (2017-10-25)
 
 * Released version 0.1.1
   Test for all CRUD ops
   Add update method on base resource
   Add tests
-  Update  method in API
+  Update method in API
   Flake8ify
   Add basic zammad api
   Initial Boilerplate
