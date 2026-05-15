@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/tickets/1/time_accountings
+  response:
+    body:
+      string: '[{"id":1,"ticket_id":1,"ticket_number":"10001","time_unit":"2.0","created_by_id":3,"created_at":"2022-12-01T08:30:00.000Z"},{"id":2,"ticket_id":1,"ticket_number":"10001","time_unit":"0.5","created_by_id":3,"created_at":"2022-12-02T10:15:00.000Z"}]'
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:09 GMT
+      Server:
+      - nginx
+    status:
+      code: 200
+      message: OK
+version: 1
+

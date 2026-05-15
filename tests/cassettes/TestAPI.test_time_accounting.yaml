@@ -1,0 +1,112 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/time_accounting/log/by_activity/2022/12
+  response:
+    body:
+      string: '[{"activity_id":1,"activity_name":"Development","time_unit":"3.0","created_at":"2022-12-05T10:00:00.000Z","ticket_id":1,"ticket_title":"Test
+        Ticket","agent_name":"John Smith"},{"activity_id":2,"activity_name":"Support","time_unit":"1.5","created_at":"2022-12-12T14:30:00.000Z","ticket_id":2,"ticket_title":"Another
+        Ticket","agent_name":"Jane Doe"}]'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:09 GMT
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - a1b2c3d4-e5f6-7890-abcd-ef1234567890
+      X-Runtime:
+      - '0.105432'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/time_accounting/log/by_activity/2022/12?download=true
+  response:
+    body:
+      string: "Activity,Time (hrs),Ticket,Agent,Date\r\nDevelopment,3.0,Test Ticket,John
+        Smith,2022-12-05\r\nSupport,1.5,Another Ticket,Jane Doe,2022-12-12\r\n"
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment; filename="time_accounting_2022_12.csv"
+      Content-Type:
+      - text/csv; charset=utf-8
+      Date:
+      - Tue, 13 May 2025 09:11:09 GMT
+      Server:
+      - nginx
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - b2c3d4e5-f6a7-8901-bcde-f12345678901
+      X-Runtime:
+      - '0.098765'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
+

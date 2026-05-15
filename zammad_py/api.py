@@ -170,6 +170,11 @@ class ZammadAPI:
         return TicketTag(connection=self)
 
     @property
+    def time_accounting(self) -> "TimeAccounting":
+        """Return a `TimeAccounting` instance"""
+        return TimeAccounting(connection=self)
+
+    @property
     def knowledge_bases(self) -> "KnowledgeBases":
         """Return a `KnowledgeBases` instance"""
         return KnowledgeBases(connection=self)
@@ -411,6 +416,14 @@ class Ticket(Resource):
         )
         return self._raise_or_return_json(response)
 
+    def time_accountings(self, id: int) -> Any:
+        """Returns all time accounting entries associated with the ticket id
+
+        :param id: Ticket id
+        """
+        response = self._connection.session.get(self.url + f"/{id}/time_accountings")
+        return self._raise_or_return_json(response)
+
     def merge(self, id: int, number: int) -> Any:
         """Merges two tickets, (undocumented in Zammad Docs)
         If the objects are already merged, it will return "Object already exists!"
@@ -601,6 +614,57 @@ class TicketTag(Resource):
 
         response = self._connection.session.delete(self.url + "/remove", json=params)
         return self._raise_or_return_json(response)
+
+
+class TimeAccounting(Resource):
+    path_attribute = "time_accounting"
+
+    def log_by_activity(self, year: int, month: int) -> Any:
+        """Returns time accounting records grouped by activity for the given month as JSON
+
+        :param year: The year (e.g. 2022)
+        :param month: The month as a number 1-12 (e.g. 12)
+        """
+        response = self._connection.session.get(
+            self._connection.url + f"time_accounting/log/by_activity/{year}/{month}"
+        )
+        return self._raise_or_return_json(response)
+
+    def log_by_activity_download(self, year: int, month: int) -> Any:
+        """Downloads time accounting records grouped by activity for the given month as a CSV file
+
+        :param year: The year (e.g. 2022)
+        :param month: The month as a number 1-12 (e.g. 12)
+        """
+        response = self._connection.session.get(
+            self._connection.url + f"time_accounting/log/by_activity/{year}/{month}",
+            params={"download": "true"},
+        )
+        return self._raise_or_return_json(response)
+
+    def all(self, page: int = 1, filters=None) -> Pagination:
+        """Disabled: Use log_by_activity() to retrieve time accounting records"""
+        raise UnusedResourceError(self.__class__.__name__, "all")
+
+    def search(self, search_string: str, page: int = 1, filters=None) -> Pagination:
+        """Disabled: Time accounting search is not supported"""
+        raise UnusedResourceError(self.__class__.__name__, "search")
+
+    def find(self, id: int) -> Any:
+        """Disabled: Time accounting find is not supported"""
+        raise UnusedResourceError(self.__class__.__name__, "find")
+
+    def create(self, params: Any) -> Any:
+        """Disabled: Time accounting create is not supported"""
+        raise UnusedResourceError(self.__class__.__name__, "create")
+
+    def update(self, id: int, params: Any) -> Any:
+        """Disabled: Time accounting update is not supported"""
+        raise UnusedResourceError(self.__class__.__name__, "update")
+
+    def destroy(self, id: int) -> Any:
+        """Disabled: Time accounting destroy is not supported"""
+        raise UnusedResourceError(self.__class__.__name__, "destroy")
 
 
 class KnowledgeBases(Resource):

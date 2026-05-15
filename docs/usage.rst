@@ -126,6 +126,7 @@ Available Resources
     ticketpriority
     ticketstate
     tickettag
+    time_accounting
     object
     taglist
 
@@ -164,6 +165,16 @@ The :class:`~zammad_py.api.Ticket` resource also has the :meth:`~zammad_py.api.T
     ticket_tags = client.ticket.tags((<ID>))
     for ttag in ticket_tags['tags']:
         print(ttga)
+
+The :class:`~zammad_py.api.Ticket` resource also has the :meth:`~zammad_py.api.Ticket.time_accountings()` method to get all time accounting entries associated with a ticket.
+
+.. code-block:: python
+
+    from zammad_py import ZammadAPI
+    client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
+    ticket_time_accountings = client.ticket.time_accountings(<ID>)
+    for record in ticket_time_accountings:
+        print(record['time_unit'])
 
 Further, it has the :meth:`~zammad_py.api.Ticket.merge()` method, that allows to merge two tickets. (This is not documented in the Zammad API Documentation)
 The method requires the Ticket id of the Child (The ticket you want to merge into the parent) and the Ticket Number of the Parent Ticket. (The ticket you want to contain the articles of the child after merging.)
@@ -259,6 +270,24 @@ The :class `~zammad_py.api.TicketTag` resource handles tags in the ticket scope 
     client.ticket_tag.remove(<ID>, 'Zammad')
     ticket_tags = client.ticket.tags((<ID>))
     print(ticket_tags['tags'])  # ['TestTag', 'FancyNewTag']
+
+TimeAccounting Resource
+-----------------------
+
+The :class:`~zammad_py.api.TimeAccounting` resource provides month-based activity reports.
+
+:meth:`zammad_py.api.TimeAccounting.log_by_activity`
+   | Returns monthly time accounting grouped by activity as JSON.
+
+:meth:`zammad_py.api.TimeAccounting.log_by_activity_download`
+   | Returns monthly time accounting grouped by activity as a downloadable file payload (bytes).
+
+.. code-block:: python
+
+    from zammad_py import ZammadAPI
+    client = ZammadAPI(url='<HOST>', username='<USERNAME>', password='<PASSWORD>')
+    monthly = client.time_accounting.log_by_activity(2022, 12)
+    csv_bytes = client.time_accounting.log_by_activity_download(2022, 12)
 
 Object Resource
 ---------------

@@ -86,6 +86,16 @@ class TestAPI:
         assert result[0]["title"] == "Welcome to Zammad!"
 
     @pytest.mark.vcr()
+    def test_ticket_time_accountings(self, zammad_api):
+        time_accountings = zammad_api.ticket.time_accountings(1)
+
+        assert isinstance(time_accountings, list)
+        assert len(time_accountings) == 2
+        assert time_accountings[0]["ticket_id"] == 1
+        assert time_accountings[0]["ticket_number"] == "10001"
+        assert time_accountings[0]["time_unit"] == "2.0"
+
+    @pytest.mark.vcr()
     def test_groups(self, zammad_api):
         all_groups = zammad_api.group.all()._items
         assert all_groups[0]["id"] == 1
@@ -348,6 +358,41 @@ class TestAPI:
 
         with pytest.raises(MissingParameterError):
             zammad_api.knowledge_bases_categories.create({"name": "No KB ID"})
+
+    @pytest.mark.vcr()
+    def test_time_accounting(self, zammad_api):
+        # JSON log by activity
+        records = zammad_api.time_accounting.log_by_activity(2022, 12)
+        assert isinstance(records, list)
+        assert len(records) == 2
+        assert records[0]["activity_name"] == "Development"
+        assert records[0]["time_unit"] == "3.0"
+        assert records[1]["activity_name"] == "Support"
+        assert records[1]["time_unit"] == "1.5"
+
+        # CSV download returns bytes (non-JSON response)
+        csv_data = zammad_api.time_accounting.log_by_activity_download(2022, 12)
+        assert isinstance(csv_data, bytes)
+        assert b"Development" in csv_data
+        assert b"Support" in csv_data
+
+        # Standard CRUD methods are disabled for TimeAccounting
+        ta = zammad_api.time_accounting
+        unused_calls = [
+            (ta.all, []),
+            (ta.search, ["query"]),
+            (ta.find, [1]),
+            (ta.create, [{}]),
+            (ta.update, [1, {}]),
+            (ta.destroy, [1]),
+        ]
+
+        for method, args in unused_calls:
+            with pytest.raises(UnusedResourceError) as excinfo:
+                method(*args)
+            assert "is not available for the TimeAccounting resource" in str(
+                excinfo.value
+            )
 
     def test_push_on_behalf_of_header(self, zammad_api):
         zammad_api.on_behalf_of = "USERX"
