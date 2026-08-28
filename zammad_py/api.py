@@ -120,6 +120,11 @@ class ZammadAPI:
         return Role(connection=self)
 
     @property
+    def email_address(self) -> "EmailAddress":
+        """Return an `EmailAddress` instance"""
+        return EmailAddress(connection=self)
+
+    @property
     def ticket(self) -> "Ticket":
         """Return a `Ticket` instance"""
         return Ticket(connection=self)
@@ -386,6 +391,10 @@ class Role(Resource):
 
 class Organization(Resource):
     path_attribute = "organizations"
+
+
+class EmailAddress(Resource):
+    path_attribute = "email_addresses"
 
 
 class Ticket(Resource):
