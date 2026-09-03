@@ -349,6 +349,17 @@ class TestAPI:
         with pytest.raises(MissingParameterError):
             zammad_api.knowledge_bases_categories.create({"name": "No KB ID"})
 
+    @pytest.mark.vcr()
+    def test_email_addresses(self, zammad_api):
+        all_email_addresses = zammad_api.email_address.all()._items
+        assert len(all_email_addresses) > 0
+        assert "email" in all_email_addresses[0]
+
+        first_id = all_email_addresses[0]["id"]
+        single = zammad_api.email_address.find(first_id)
+        assert single["id"] == first_id
+        assert "email" in single
+
     def test_push_on_behalf_of_header(self, zammad_api):
         zammad_api.on_behalf_of = "USERX"
         with zammad_api.request_on_behalf_of("USERXX") as api:
