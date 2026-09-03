@@ -360,6 +360,308 @@ class TestAPI:
         assert single["id"] == first_id
         assert "email" in single
 
+    @pytest.mark.vcr()
+    def test_macros(self, zammad_api):
+        created = zammad_api.macro.create(
+            {"name": "pytest macro", "perform": {"ticket.state_id": {"value": "1"}}}
+        )
+        assert "id" in created
+
+        found = zammad_api.macro.find(created["id"])
+        assert found["id"] == created["id"]
+        assert "name" in found
+
+        assert any(i["id"] == created["id"] for i in zammad_api.macro.all()._items)
+
+        zammad_api.macro.destroy(created["id"])
+
+    @pytest.mark.vcr()
+    def test_text_modules(self, zammad_api):
+        created = zammad_api.text_module.create(
+            {"name": "pytest tm", "content": "hello"}
+        )
+        assert "id" in created
+
+        found = zammad_api.text_module.find(created["id"])
+        assert found["id"] == created["id"]
+        assert "name" in found
+
+        assert any(
+            i["id"] == created["id"] for i in zammad_api.text_module.all()._items
+        )
+
+        zammad_api.text_module.destroy(created["id"])
+
+    @pytest.mark.vcr()
+    def test_webhooks(self, zammad_api):
+        created = zammad_api.webhook.create(
+            {"name": "pytest webhook", "endpoint": "https://example.com/hook"}
+        )
+        assert "id" in created
+
+        found = zammad_api.webhook.find(created["id"])
+        assert found["id"] == created["id"]
+        assert "name" in found
+
+        assert any(i["id"] == created["id"] for i in zammad_api.webhook.all()._items)
+
+        zammad_api.webhook.destroy(created["id"])
+
+    @pytest.mark.vcr()
+    def test_slas(self, zammad_api):
+        calendar_id = zammad_api.calendar.all()._items[0]["id"]
+        created = zammad_api.sla.create(
+            {"name": "pytest sla", "calendar_id": calendar_id}
+        )
+        assert "id" in created
+
+        found = zammad_api.sla.find(created["id"])
+        assert found["id"] == created["id"]
+        assert "name" in found
+
+        assert any(i["id"] == created["id"] for i in zammad_api.sla.all()._items)
+
+        zammad_api.sla.destroy(created["id"])
+
+    @pytest.mark.vcr()
+    def test_signatures(self, zammad_api):
+        created = zammad_api.signature.create(
+            {"name": "pytest signature", "body": "regards"}
+        )
+        assert "id" in created
+
+        found = zammad_api.signature.find(created["id"])
+        assert found["id"] == created["id"]
+        assert "name" in found
+
+        assert any(i["id"] == created["id"] for i in zammad_api.signature.all()._items)
+
+        zammad_api.signature.destroy(created["id"])
+
+    @pytest.mark.vcr()
+    def test_templates(self, zammad_api):
+        created = zammad_api.template.create(
+            {"name": "pytest template", "options": {"ticket.title": {"value": "x"}}}
+        )
+        assert "id" in created
+
+        found = zammad_api.template.find(created["id"])
+        assert found["id"] == created["id"]
+        assert "name" in found
+
+        assert any(i["id"] == created["id"] for i in zammad_api.template.all()._items)
+
+        zammad_api.template.destroy(created["id"])
+
+    @pytest.mark.vcr()
+    def test_triggers(self, zammad_api):
+        created = zammad_api.trigger.create(
+            {
+                "name": "pytest trigger",
+                "activator": "action",
+                "execution_condition_mode": "selective",
+                "condition": {"ticket.state_id": {"operator": "is", "value": "1"}},
+                "perform": {"ticket.state_id": {"value": "2"}},
+            }
+        )
+        assert "id" in created
+
+        found = zammad_api.trigger.find(created["id"])
+        assert found["id"] == created["id"]
+        assert "name" in found
+
+        assert any(i["id"] == created["id"] for i in zammad_api.trigger.all()._items)
+
+        zammad_api.trigger.destroy(created["id"])
+
+    @pytest.mark.vcr()
+    def test_jobs(self, zammad_api):
+        created = zammad_api.job.create(
+            {
+                "name": "pytest job",
+                "object": "Ticket",
+                "timeplan": {"days": {}, "hours": {}, "minutes": {}},
+                "condition": {"ticket.state_id": {"operator": "is", "value": "1"}},
+                "perform": {"ticket.state_id": {"value": "2"}},
+            }
+        )
+        assert "id" in created
+
+        found = zammad_api.job.find(created["id"])
+        assert found["id"] == created["id"]
+        assert "name" in found
+
+        assert any(i["id"] == created["id"] for i in zammad_api.job.all()._items)
+
+        zammad_api.job.destroy(created["id"])
+
+    @pytest.mark.vcr()
+    def test_core_workflows(self, zammad_api):
+        created = zammad_api.core_workflow.create(
+            {"name": "pytest cw", "object": "Ticket"}
+        )
+        assert "id" in created
+
+        found = zammad_api.core_workflow.find(created["id"])
+        assert found["id"] == created["id"]
+        assert "name" in found
+
+        assert any(
+            i["id"] == created["id"] for i in zammad_api.core_workflow.all()._items
+        )
+
+        zammad_api.core_workflow.destroy(created["id"])
+
+    @pytest.mark.vcr()
+    def test_public_links(self, zammad_api):
+        created = zammad_api.public_link.create(
+            {"link": "https://example.com", "title": "pytest link", "screen": ["login"]}
+        )
+        assert "id" in created
+
+        found = zammad_api.public_link.find(created["id"])
+        assert found["id"] == created["id"]
+        assert "title" in found
+
+        assert any(
+            i["id"] == created["id"] for i in zammad_api.public_link.all()._items
+        )
+
+        zammad_api.public_link.destroy(created["id"])
+
+    @pytest.mark.vcr()
+    def test_postmaster_filters(self, zammad_api):
+        created = zammad_api.postmaster_filter.create(
+            {
+                "name": "pytest pmf",
+                "channel": "email",
+                "match": {"from": {"operator": "contains", "value": "x@example.com"}},
+                "perform": {"x-zammad-ticket-priority": {"value": "2 normal"}},
+            }
+        )
+        assert "id" in created
+
+        found = zammad_api.postmaster_filter.find(created["id"])
+        assert found["id"] == created["id"]
+        assert "name" in found
+
+        assert any(
+            i["id"] == created["id"] for i in zammad_api.postmaster_filter.all()._items
+        )
+
+        zammad_api.postmaster_filter.destroy(created["id"])
+
+    @pytest.mark.vcr()
+    def test_calendars(self, zammad_api):
+        created = zammad_api.calendar.create(
+            {
+                "name": "pytest calendar",
+                "timezone": "Europe/Berlin",
+                "business_hours": {
+                    "mon": {"active": True, "timeframes": [["09:00", "17:00"]]}
+                },
+            }
+        )
+        assert "id" in created
+
+        found = zammad_api.calendar.find(created["id"])
+        assert found["id"] == created["id"]
+        assert "name" in found
+
+        assert any(i["id"] == created["id"] for i in zammad_api.calendar.all()._items)
+
+        zammad_api.calendar.destroy(created["id"])
+
+    @pytest.mark.vcr()
+    def test_overviews(self, zammad_api):
+        items = zammad_api.overview.all()._items
+        assert isinstance(items, list)
+        if items:
+            assert "name" in items[0]
+            single = zammad_api.overview.find(items[0]["id"])
+            assert single["id"] == items[0]["id"]
+
+    @pytest.mark.vcr()
+    def test_settings(self, zammad_api):
+        items = zammad_api.setting.all()._items
+        assert isinstance(items, list)
+        if items:
+            assert "name" in items[0]
+            single = zammad_api.setting.find(items[0]["id"])
+            assert single["id"] == items[0]["id"]
+
+    @pytest.mark.vcr()
+    def test_translations(self, zammad_api):
+        items = zammad_api.translation.all()._items
+        assert isinstance(items, list)
+        if items:
+            assert "source" in items[0]
+            single = zammad_api.translation.find(items[0]["id"])
+            assert single["id"] == items[0]["id"]
+
+    @pytest.mark.vcr()
+    def test_applications(self, zammad_api):
+        items = zammad_api.application.all()._items
+        assert isinstance(items, list)
+        if items:
+            assert "name" in items[0]
+            single = zammad_api.application.find(items[0]["id"])
+            assert single["id"] == items[0]["id"]
+
+    @pytest.mark.vcr()
+    def test_report_profiles(self, zammad_api):
+        items = zammad_api.report_profile.all()._items
+        assert isinstance(items, list)
+        if items:
+            assert "name" in items[0]
+            single = zammad_api.report_profile.find(items[0]["id"])
+            assert single["id"] == items[0]["id"]
+
+    @pytest.mark.vcr()
+    def test_data_privacy_tasks(self, zammad_api):
+        items = zammad_api.data_privacy_task.all()._items
+        assert isinstance(items, list)
+        if items:
+            assert "id" in items[0]
+            single = zammad_api.data_privacy_task.find(items[0]["id"])
+            assert single["id"] == items[0]["id"]
+
+    @pytest.mark.vcr()
+    def test_external_credentials(self, zammad_api):
+        items = zammad_api.external_credential.all()._items
+        assert isinstance(items, list)
+        if items:
+            assert "id" in items[0]
+            single = zammad_api.external_credential.find(items[0]["id"])
+            assert single["id"] == items[0]["id"]
+
+    @pytest.mark.vcr()
+    def test_ldap_sources(self, zammad_api):
+        items = zammad_api.ldap_source.all()._items
+        assert isinstance(items, list)
+        if items:
+            assert "id" in items[0]
+            single = zammad_api.ldap_source.find(items[0]["id"])
+            assert single["id"] == items[0]["id"]
+
+    @pytest.mark.vcr()
+    def test_taskbars(self, zammad_api):
+        items = zammad_api.taskbar.all()._items
+        assert isinstance(items, list)
+        if items:
+            assert "id" in items[0]
+            single = zammad_api.taskbar.find(items[0]["id"])
+            assert single["id"] == items[0]["id"]
+
+    @pytest.mark.vcr()
+    def test_time_accountings(self, zammad_api):
+        items = zammad_api.time_accounting.all()._items
+        assert isinstance(items, list)
+        if items:
+            assert "id" in items[0]
+            single = zammad_api.time_accounting.find(items[0]["id"])
+            assert single["id"] == items[0]["id"]
+
     def test_push_on_behalf_of_header(self, zammad_api):
         zammad_api.on_behalf_of = "USERX"
         with zammad_api.request_on_behalf_of("USERXX") as api:

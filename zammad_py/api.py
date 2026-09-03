@@ -125,6 +125,116 @@ class ZammadAPI:
         return EmailAddress(connection=self)
 
     @property
+    def macro(self) -> "Macro":
+        """Return a `Macro` instance"""
+        return Macro(connection=self)
+
+    @property
+    def overview(self) -> "Overview":
+        """Return an `Overview` instance"""
+        return Overview(connection=self)
+
+    @property
+    def text_module(self) -> "TextModule":
+        """Return a `TextModule` instance"""
+        return TextModule(connection=self)
+
+    @property
+    def webhook(self) -> "Webhook":
+        """Return a `Webhook` instance"""
+        return Webhook(connection=self)
+
+    @property
+    def sla(self) -> "SLA":
+        """Return a `SLA` instance"""
+        return SLA(connection=self)
+
+    @property
+    def template(self) -> "Template":
+        """Return a `Template` instance"""
+        return Template(connection=self)
+
+    @property
+    def trigger(self) -> "Trigger":
+        """Return a `Trigger` instance"""
+        return Trigger(connection=self)
+
+    @property
+    def signature(self) -> "Signature":
+        """Return a `Signature` instance"""
+        return Signature(connection=self)
+
+    @property
+    def calendar(self) -> "Calendar":
+        """Return a `Calendar` instance"""
+        return Calendar(connection=self)
+
+    @property
+    def job(self) -> "Job":
+        """Return a `Job` instance"""
+        return Job(connection=self)
+
+    @property
+    def core_workflow(self) -> "CoreWorkflow":
+        """Return a `CoreWorkflow` instance"""
+        return CoreWorkflow(connection=self)
+
+    @property
+    def time_accounting(self) -> "TimeAccounting":
+        """Return a `TimeAccounting` instance"""
+        return TimeAccounting(connection=self)
+
+    @property
+    def translation(self) -> "Translation":
+        """Return a `Translation` instance"""
+        return Translation(connection=self)
+
+    @property
+    def setting(self) -> "Setting":
+        """Return a `Setting` instance"""
+        return Setting(connection=self)
+
+    @property
+    def application(self) -> "Application":
+        """Return an `Application` instance"""
+        return Application(connection=self)
+
+    @property
+    def postmaster_filter(self) -> "PostmasterFilter":
+        """Return a `PostmasterFilter` instance"""
+        return PostmasterFilter(connection=self)
+
+    @property
+    def public_link(self) -> "PublicLink":
+        """Return a `PublicLink` instance"""
+        return PublicLink(connection=self)
+
+    @property
+    def report_profile(self) -> "ReportProfile":
+        """Return a `ReportProfile` instance"""
+        return ReportProfile(connection=self)
+
+    @property
+    def data_privacy_task(self) -> "DataPrivacyTask":
+        """Return a `DataPrivacyTask` instance"""
+        return DataPrivacyTask(connection=self)
+
+    @property
+    def external_credential(self) -> "ExternalCredential":
+        """Return an `ExternalCredential` instance"""
+        return ExternalCredential(connection=self)
+
+    @property
+    def ldap_source(self) -> "LdapSource":
+        """Return a `LdapSource` instance"""
+        return LdapSource(connection=self)
+
+    @property
+    def taskbar(self) -> "Taskbar":
+        """Return a `Taskbar` instance"""
+        return Taskbar(connection=self)
+
+    @property
     def ticket(self) -> "Ticket":
         """Return a `Ticket` instance"""
         return Ticket(connection=self)
@@ -395,6 +505,94 @@ class Organization(Resource):
 
 class EmailAddress(Resource):
     path_attribute = "email_addresses"
+
+
+class Macro(Resource):
+    path_attribute = "macros"
+
+
+class Overview(Resource):
+    path_attribute = "overviews"
+
+
+class TextModule(Resource):
+    path_attribute = "text_modules"
+
+
+class Webhook(Resource):
+    path_attribute = "webhooks"
+
+
+class SLA(Resource):
+    path_attribute = "slas"
+
+
+class Template(Resource):
+    path_attribute = "templates"
+
+
+class Trigger(Resource):
+    path_attribute = "triggers"
+
+
+class Signature(Resource):
+    path_attribute = "signatures"
+
+
+class Calendar(Resource):
+    path_attribute = "calendars"
+
+
+class Job(Resource):
+    path_attribute = "jobs"
+
+
+class CoreWorkflow(Resource):
+    path_attribute = "core_workflows"
+
+
+class TimeAccounting(Resource):
+    path_attribute = "time_accountings"
+
+
+class Translation(Resource):
+    path_attribute = "translations"
+
+
+class Setting(Resource):
+    path_attribute = "settings"
+
+
+class Application(Resource):
+    path_attribute = "applications"
+
+
+class PostmasterFilter(Resource):
+    path_attribute = "postmaster_filters"
+
+
+class PublicLink(Resource):
+    path_attribute = "public_links"
+
+
+class ReportProfile(Resource):
+    path_attribute = "report_profiles"
+
+
+class DataPrivacyTask(Resource):
+    path_attribute = "data_privacy_tasks"
+
+
+class ExternalCredential(Resource):
+    path_attribute = "external_credentials"
+
+
+class LdapSource(Resource):
+    path_attribute = "ldap_sources"
+
+
+class Taskbar(Resource):
+    path_attribute = "taskbar"
 
 
 class Ticket(Resource):

@@ -1,0 +1,284 @@
+interactions:
+- request:
+    body: '{"link": "https://example.com", "title": "pytest link", "screen": ["login"]}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '76'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Zammad API Python
+    method: POST
+    uri: http://localhost:8080/api/v1/public_links
+  response:
+    body:
+      string: '{"id":1,"link":"https://example.com","title":"pytest link","description":null,"screen":["login"],"new_tab":true,"prio":0,"updated_by_id":3,"created_by_id":3,"created_at":"2026-09-03T05:47:36.511Z","updated_at":"2026-09-03T05:47:36.511Z"}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '237'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://zammad.example.com; default-src ''self'' ws: wss:
+        https://images.zammad.com; font-src ''self'' data:; img-src * data:; object-src
+        ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-J2EfnE1b7T4aTOc/xingRw=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 03 Sep 2026 05:47:36 GMT
+      ETag:
+      - W/"120f694110c85b7005e159970c1d6238"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 43d61cc9-4732-4834-9dcc-fc4fa506aa67
+      X-Runtime:
+      - '0.086708'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/public_links/1
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA31OSw6CMBS8ipl1gQKCsedwpTGk0hdtLG0Djygx3t1q4lKX858HrIEqBZz1Vyhc
+        mOOkioLueoiO8j4MEGDLjpIaF6aJVx+vgKGpH21kGzyUn50TSARRQge4cLYeRwFPt471CYrHmQTi
+        aAOUFJij0UymOy3d+0ItkLI/GM1pvJJVm8ltJuudbNR6o+o2b8pyn/59u/77ni96PUqW7QAAAA==
+    headers:
+      CSRF-TOKEN:
+      - FAmEvN0FlDdeR2uyzJcTPcPIXohaEUMoRsiqofyflTUwMSj8zklGNKhOXttBaJfddERZrYjoZTb4y73jser0pg
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://zammad.example.com; default-src ''self'' ws: wss:
+        https://images.zammad.com; font-src ''self'' data:; img-src * data:; object-src
+        ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-GmLzNnI1QCnTfYrbPddjdQ=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 03 Sep 2026 05:47:36 GMT
+      ETag:
+      - W/"120f694110c85b7005e159970c1d6238"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Set-Cookie:
+      - _zammad_session_a138cfd0f37=7bed9239545a7a1844fbc4561e846a8b; path=/; HttpOnly;
+        SameSite=Lax
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 608d1d85-5398-42dc-81ee-d9da47eaec0c
+      X-Runtime:
+      - '0.009579'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Cookie:
+      - _zammad_session_a138cfd0f37=7bed9239545a7a1844fbc4561e846a8b
+      User-Agent:
+      - Zammad API Python
+    method: GET
+    uri: http://localhost:8080/api/v1/public_links?page=1&per_page=10&expand=true
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA4WOyw6CMBBFf8XcdYECgrHf4UpCCI+JNpbSwBAlxn+3mhDdGJdz5r6KO3QHFQsY
+        bS9QODO7SUUR3ereGQrboYcAazbkv25hmnjz1gp0NLWjdqwHC2VnYwQ8IPJXATOctEUpYOlacd1A
+        8TiTgBv1ACUFZtfVTF3VLNVrQirgvT9Izb48kUkeyH0g04PM1Han0jzM4vjo961Z/3SfBp83TzR+
+        eZtlZY/yCaUBIA0XAQAA
+    headers:
+      CSRF-TOKEN:
+      - onT2AYe0vsw3TrfybesJcxjVxqXMmoPiBDN169sbwCyGTFpBlPhsz8FHgpvgFI2Tr1nBgB5jpfy6MGKplm6hvw
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://zammad.example.com; default-src ''self'' ws: wss:
+        https://images.zammad.com; font-src ''self'' data:; img-src * data:; object-src
+        ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-brefZ6m9Jt2hhZX7ol2NJA=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 03 Sep 2026 05:47:36 GMT
+      ETag:
+      - W/"2763a62d5cfdebae708bfd5ce20a0c34"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 14b16a70-b1d3-4159-9645-cae897e6c32f
+      X-Runtime:
+      - '0.005823'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - user
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Cookie:
+      - _zammad_session_a138cfd0f37=7bed9239545a7a1844fbc4561e846a8b
+      User-Agent:
+      - Zammad API Python
+    method: DELETE
+    uri: http://localhost:8080/api/v1/public_links/1
+  response:
+    body:
+      string: '{}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since,
+        X-File-Name, Cache-Control, Accept-Language
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, PATCH, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Security-Policy:
+      - 'base-uri ''self'' http://zammad.example.com; default-src ''self'' ws: wss:
+        https://images.zammad.com; font-src ''self'' data:; img-src * data:; object-src
+        ''none''; script-src ''self'' ''unsafe-eval'' ''nonce-YjBrZ6oVYNZg4Md0pHWKEA=='';
+        style-src ''self'' ''unsafe-inline''; frame-src www.youtube.com player.vimeo.com'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 03 Sep 2026 05:47:36 GMT
+      ETag:
+      - W/"44136fa355b3678a1146ad16f7e8649e"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - nginx
+      Vary:
+      - Accept
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 21a4fe4b-ae13-4967-9387-269d14be13a9
+      X-Runtime:
+      - '0.080251'
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
