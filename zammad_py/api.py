@@ -324,6 +324,10 @@ class Pagination:
             self._params["filters"].pop("page", None)
         self._function_name = function_name
 
+    def get_page_no(self) -> int:
+        """Get current page number"""
+        return self._page
+
     def is_last_page(self) -> bool:
         """Check if the current page is the last page"""
         if len(self._items) < self._resource.per_page:
